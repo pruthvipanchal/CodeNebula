@@ -16,7 +16,8 @@ This repository provides a comprehensive resource for learning C++ concepts, cov
 - [C++14 STL](./docs/C++14/stl_concepts.md)
 - [C++17 Core Language](./docs/C++17/core_language.md)
 - [C++17 STL](./docs/C++17/stl_concepts.md)
-- [C++20](./docs/C++20/) (Coming soon)
+ [C++20 Core Language](./docs/C++20/core_language.md)
+- [C++20 STL](./docs/C++20/stl_concepts.md)
 - [C++23](./docs/C++23/) (Coming soon)
 - [C++26](./docs/C++26/) (Coming soon)
 

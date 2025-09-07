@@ -6,7 +6,8 @@ This repository provides a comprehensive resource for learning C++ concepts, cov
 
 ## Table of Contents
 - [Master Concepts List](./docs/cpp_concepts_master.md)
-- [C++98](./docs/C++98/) (Coming soon)
+- [C++98 Core Language](./docs/C++98/core_language.md)
+- [C++98 STL](./docs/C++98/stl_concepts.md)
 - [C++11](./docs/C++11/) (Coming soon)
 - [C++14](./docs/C++14/) (Coming soon)
 - [C++17](./docs/C++17/) (Coming soon)
@@ -16,6 +17,3 @@ This repository provides a comprehensive resource for learning C++ concepts, cov
 
 ## Getting Started
 Explore the [master document](./docs/cpp_concepts_master.md) for an overview. Detailed guides with examples will be added soon. Compile examples using a C++ compiler with the appropriate standard flag (e.g., `g++ -std=c++20`).
-
-## Contributing
-See [CONTRIBUTING.md](./CONTRIBUTING.md) for how to contribute.

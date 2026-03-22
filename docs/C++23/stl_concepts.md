@@ -21,6 +21,27 @@ This document covers new or evolved C++23 STL concepts, with simple explanations
 ```
 **Example**: [flat_set.cpp](../examples/C++23/flat_set.cpp)
 
+### std::flat_multimap (C++23 Addition)
+**Explanation**: A sorted key-value container allowing duplicate keys, backed by contiguous storage for cache-friendly access.
+**Real-World Scenario**: Store multiple event timestamps per event type in a sorted, cache-efficient logging system.
+**Snippet**:
+```cpp
+#include <flat_map>
+std::flat_multimap<std::string, int> scores;
+scores.insert({"Alice", 95}); scores.insert({"Alice", 87});
+```
+**Example**: [flat_multimap.cpp](../examples/C++23/flat_multimap.cpp)
+
+### std::flat_multiset (C++23 Addition)
+**Explanation**: A sorted container allowing duplicate elements, backed by contiguous storage for optimal iteration performance.
+**Real-World Scenario**: Maintain a sorted list of response times (including duplicates) for latency analysis.
+**Snippet**:
+```cpp
+#include <flat_set>
+std::flat_multiset<double> latencies = {1.2, 0.8, 1.2, 0.5};
+```
+**Example**: [flat_multiset.cpp](../examples/C++23/flat_multiset.cpp)
+
 ### std::mdspan (C++23 Addition)
 **Explanation**: Multidimensional array view for accessing data with dynamic extents.  
 **Real-World Scenario**: Process a 2D grid in a scientific simulation without copying.  
@@ -120,6 +141,54 @@ This document covers new or evolved C++23 STL concepts, with simple explanations
 #include <ranges> auto cpv = std::ranges::cartesian_product_view(vec1, vec2);
 ```
 **Example**: [ranges_cartesian_product_view.cpp](../examples/C++23/ranges_cartesian_product_view.cpp)
+
+### std::ranges::repeat_view (C++23 Addition)
+**Explanation**: Generates a view that repeats a value a specified number of times, or infinitely.
+**Real-World Scenario**: Fill a test harness with N identical default configurations for benchmarking.
+**Snippet**:
+```cpp
+for (int x : std::views::repeat(42, 5)) { /* 42, 42, 42, 42, 42 */ }
+```
+**Example**: [repeat_view.cpp](../examples/C++23/repeat_view.cpp)
+
+### std::ranges::join_with_view (C++23 Addition)
+**Explanation**: Flattens nested ranges into one, inserting a delimiter between each inner range.
+**Real-World Scenario**: Join a collection of words into a sentence with spaces between them.
+**Snippet**:
+```cpp
+std::vector<std::string> words = {"Hello", "World"};
+auto joined = words | std::views::join_with(' ');
+```
+**Example**: [join_with_view.cpp](../examples/C++23/join_with_view.cpp)
+
+### std::ranges::as_rvalue_view (C++23 Addition)
+**Explanation**: Wraps a range so that every element is cast to an rvalue reference, enabling move operations.
+**Real-World Scenario**: Move all elements from a source container into a destination without copying.
+**Snippet**:
+```cpp
+auto moved = source | std::views::as_rvalue;
+```
+**Example**: [as_rvalue_view.cpp](../examples/C++23/as_rvalue_view.cpp)
+
+### std::ranges::as_const_view (C++23 Addition)
+**Explanation**: Wraps a range so that all elements are accessed as const references, preventing modification.
+**Real-World Scenario**: Pass a mutable collection to a read-only analysis function safely.
+**Snippet**:
+```cpp
+auto readonly = data | std::views::as_const;
+```
+**Example**: [as_const_view.cpp](../examples/C++23/as_const_view.cpp)
+
+### std::ranges::enumerate_view (C++23 Addition)
+**Explanation**: Pairs each element with its zero-based index, similar to Python's `enumerate()`.
+**Real-World Scenario**: Display numbered search results with their positions in a result list.
+**Snippet**:
+```cpp
+for (auto [idx, val] : data | std::views::enumerate) {
+    std::println("#{}: {}", idx, val);
+}
+```
+**Example**: [enumerate_view.cpp](../examples/C++23/enumerate_view.cpp)
 
 ## Range Adaptors
 ### std::ranges::views::zip, zip_transform, adjacent, adjacent_transform, chunk, chunk_by, slide, stride, cartesian_product (C++23 Addition)
@@ -259,6 +328,38 @@ This document covers new or evolved C++23 STL concepts, with simple explanations
 ```
 **Example**: [move_only_function.cpp](../examples/C++23/move_only_function.cpp)
 
+### std::out_ptr / std::inout_ptr (C++23 Addition)
+**Explanation**: Smart pointer adaptors for C APIs that write to an output pointer parameter (`T**`).
+**Real-World Scenario**: Pass a `std::unique_ptr` to a C library function that allocates and returns a handle via output parameter.
+**Snippet**:
+```cpp
+std::unique_ptr<FILE, decltype(&fclose)> file(nullptr, &fclose);
+c_api_open_file(std::out_ptr(file));
+```
+**Example**: [out_ptr.cpp](../examples/C++23/out_ptr.cpp)
+
+### std::spanstream (C++23 Addition)
+**Explanation**: A stream class backed by a `std::span` buffer, enabling I/O operations on existing memory without allocation.
+**Real-World Scenario**: Format data into a pre-allocated fixed-size buffer for a network protocol.
+**Snippet**:
+```cpp
+#include <spanstream>
+char buf[64];
+std::ospanstream os(buf);
+os << "Value: " << 42;
+```
+**Example**: [spanstream.cpp](../examples/C++23/spanstream.cpp)
+
+### std::basic_string::contains / std::basic_string_view::contains (C++23 Addition)
+**Explanation**: Member function that checks if a string contains a substring, character, or string view.
+**Real-World Scenario**: Filter log lines that contain a specific error keyword.
+**Snippet**:
+```cpp
+std::string msg = "Error: file not found";
+if (msg.contains("Error")) { /* handle */ }
+```
+**Example**: [string_contains.cpp](../examples/C++23/string_contains.cpp)
+
 ## Container Improvements
 ### std::string constexpr Support (C++23 Evolution)
 **Explanation**: Enhanced `constexpr` support for `std::string` operations.  
@@ -295,6 +396,18 @@ constexpr std::vector<int> vec = {1, 2, 3};
 #include <variant> auto result = var.transform([](int x) { return x * x; });
 ```
 **Example**: [variant_monadic.cpp](../examples/C++23/variant_monadic.cpp)
+
+### std::expected Monadic Operations (C++23 Addition)
+**Explanation**: Adds `and_then`, `transform`, and `or_else` to `std::expected`, enabling functional-style chaining of operations that may fail.
+**Real-World Scenario**: Chain file read, parse, and validate steps where each may return an error.
+**Snippet**:
+```cpp
+auto result = read_file("config.json")
+    .and_then(parse_json)
+    .transform(extract_settings)
+    .or_else(use_defaults);
+```
+**Example**: [expected_monadic.cpp](../examples/C++23/expected_monadic.cpp)
 
 ### std::span subspan, as_bytes, as_writable_bytes (C++23 Evolution)
 **Explanation**: Adds methods for creating subviews and accessing bytes of a `std::span`.  

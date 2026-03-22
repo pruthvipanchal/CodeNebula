@@ -281,14 +281,26 @@ constinit int globalConfig = 42;
 ```
 **Example**: [constinit.cpp](../examples/C++20/constinit.cpp)
 
-## Explicit bool in Conditionals (C++20 Addition)
-**Explanation**: Explicitly specify `bool` in conditionals for clarity and safety.  
-**Real-World Scenario**: Ensure a condition in a control system evaluates to `bool`.  
-**Snippet**:  
+## Conditional explicit (explicit(bool)) (C++20 Addition)
+**Explanation**: The `explicit` specifier can now accept a boolean expression, enabling constructors and conversion operators to be conditionally explicit based on compile-time conditions. This is essential for wrapper types that should be implicitly convertible only when their underlying type supports implicit conversion.
+**Real-World Scenario**: Build a generic `Optional<T>` wrapper that is implicitly constructible from `T` only when `T` itself is implicitly convertible from the source type, preventing accidental narrowing conversions in a type-safe API.
+**Snippet**:
 ```cpp
-if (explicit bool flag = compute(); flag) {}
+#include <type_traits>
+
+template<typename T>
+struct Wrapper {
+    T value;
+
+    template<typename U>
+    explicit(!std::is_convertible_v<U, T>)
+    Wrapper(U&& u) : value(std::forward<U>(u)) {}
+};
+
+// Wrapper<int> w = 3.14;   // OK: double is convertible to int
+// Wrapper<int> w2 = "hi";  // Error: const char* not convertible to int
 ```
-**Example**: [explicit_bool.cpp](../examples/C++20/explicit_bool.cpp)
+**Example**: [conditional_explicit.cpp](../examples/C++20/conditional_explicit.cpp)
 
 ## Aggregate Initialization with Parentheses (C++20 Evolution)
 **Explanation**: Aggregates can be initialized with parentheses, not just braces.  
@@ -325,3 +337,97 @@ std::pair p = {1, "value"}; // Deduced as std::pair<int, std::string>
 if (condition) [[likely]] {}
 ```
 **Example**: [likely_unlikely.cpp](../examples/C++20/likely_unlikely.cpp)
+
+## char8_t (C++20 Addition)
+**Explanation**: A new fundamental type specifically for UTF-8 encoded characters, distinct from `char` and `unsigned char`. This provides type safety for UTF-8 strings and prevents accidental mixing of character encodings. The type `u8string` and `u8string_view` use `char8_t` as their character type.
+**Real-World Scenario**: Enforce correct UTF-8 handling in an internationalized application where mixing encodings would cause display corruption.
+**Snippet**:
+```cpp
+#include <string>
+
+char8_t c = u8'A';
+std::u8string greeting = u8"Hello, World!";
+// const char* p = u8"test";  // Error in C++20: u8 literals are char8_t[], not char[]
+
+// Use char8_t to ensure UTF-8 encoding at the type level
+std::u8string load_utf8_file(const std::filesystem::path& path);
+```
+**Example**: [char8_t.cpp](../examples/C++20/char8_t.cpp)
+
+## Non-Type Template Parameters of Class Type (C++20 Addition)
+**Explanation**: Non-type template parameters (NTTPs) can now be of literal class type with public members, enabling compile-time strings, fixed-point numbers, and other structured values as template arguments. The class must have all public, non-mutable members and a defaulted spaceship operator.
+**Real-World Scenario**: Create a compile-time string template parameter for a logging framework that selects log channels at compile time, enabling zero-overhead channel selection.
+**Snippet**:
+```cpp
+#include <algorithm>
+#include <cstddef>
+
+template<std::size_t N>
+struct FixedString {
+    char data[N]{};
+    constexpr FixedString(const char (&str)[N]) {
+        std::copy_n(str, N, data);
+    }
+    auto operator<=>(const FixedString&) const = default;
+};
+
+template<FixedString Channel>
+void log(const char* msg) {
+    // Channel is a compile-time string
+}
+
+// Usage: log<"network">("Connection established");
+//        log<"audio">("Sound loaded");
+```
+**Example**: [class_nttp.cpp](../examples/C++20/class_nttp.cpp)
+
+## Destroying Delete (C++20 Addition)
+**Explanation**: A new form of `operator delete` that receives the object before its destructor runs, giving the delete operator full control over destruction. Declared by adding a `std::destroying_delete_t` tag parameter. This enables advanced memory management patterns such as classes that store their size alongside the object.
+**Real-World Scenario**: Implement a variable-length object (like a string with inline storage) where the deallocation size depends on runtime data stored in the object itself, which would normally be destroyed before `operator delete` sees it.
+**Snippet**:
+```cpp
+#include <new>
+#include <cstddef>
+
+struct VariableBuffer {
+    std::size_t size;
+    char data[];  // flexible array member (compiler extension)
+
+    void operator delete(VariableBuffer* ptr, std::destroying_delete_t) {
+        std::size_t total = sizeof(VariableBuffer) + ptr->size;
+        ptr->~VariableBuffer();
+        ::operator delete(ptr, total);
+    }
+
+    static VariableBuffer* create(std::size_t n) {
+        void* mem = ::operator new(sizeof(VariableBuffer) + n);
+        auto* buf = new (mem) VariableBuffer{n, {}};
+        return buf;
+    }
+};
+```
+**Example**: [destroying_delete.cpp](../examples/C++20/destroying_delete.cpp)
+
+## Feature Test Macros (C++20 Addition)
+**Explanation**: Standardized preprocessor macros that allow code to detect at compile time which C++ language and library features are available. Each feature has a corresponding macro (e.g., `__cpp_concepts`, `__cpp_modules`) whose value indicates the version of the feature supported. This replaces ad-hoc compiler-version checks with a portable, feature-based approach.
+**Real-World Scenario**: Write a cross-compiler library that uses C++20 concepts when available but falls back to SFINAE on older compilers, ensuring broad compatibility without sacrificing modern ergonomics.
+**Snippet**:
+```cpp
+#include <version>  // guaranteed to define all library feature-test macros
+
+#if __cpp_concepts >= 202002L
+    template<std::integral T>
+    T safe_add(T a, T b) { return a + b; }
+#else
+    template<typename T, typename = std::enable_if_t<std::is_integral_v<T>>>
+    T safe_add(T a, T b) { return a + b; }
+#endif
+
+#ifdef __cpp_lib_format
+    #include <format>
+    // use std::format
+#else
+    // fallback to printf or fmt library
+#endif
+```
+**Example**: [feature_test_macros.cpp](../examples/C++20/feature_test_macros.cpp)

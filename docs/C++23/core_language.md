@@ -64,3 +64,72 @@ struct Table { static int operator[](int i) { return values[i]; } };
 if consteval { return 42; } else { return compute(); }
 ```
 **Example**: [if_consteval.cpp](../examples/C++23/if_consteval.cpp)
+
+## size_t Literal Suffix (uz/zu)
+**Explanation**: The `uz` or `zu` suffix creates a `std::size_t` literal directly, eliminating the need for casts in size-related expressions.
+**Real-World Scenario**: Write loop bounds matching container `size()` return type without signed/unsigned mismatch warnings.
+**Snippet**:
+```cpp
+for (auto i = 0uz; i < vec.size(); ++i) { /* no warning */ }
+```
+**Example**: [size_t_literal.cpp](../examples/C++23/size_t_literal.cpp)
+
+## #warning Preprocessor Directive
+**Explanation**: A standardized preprocessor directive that emits a compiler warning with a custom message during compilation.
+**Real-World Scenario**: Warn developers that a deprecated API path is being compiled and should be migrated.
+**Snippet**:
+```cpp
+#warning "This module uses the legacy API — migrate to v2 before Q4"
+```
+**Example**: [warning_directive.cpp](../examples/C++23/warning_directive.cpp)
+
+## #elifdef / #elifndef Preprocessor Directives
+**Explanation**: Shorthand for `#elif defined(...)` and `#elif !defined(...)`, simplifying conditional compilation chains.
+**Real-World Scenario**: Select platform-specific implementations in a cross-platform build system.
+**Snippet**:
+```cpp
+#ifdef _WIN32
+  // Windows
+#elifdef __linux__
+  // Linux
+#elifdef __APPLE__
+  // macOS
+#endif
+```
+**Example**: [elifdef.cpp](../examples/C++23/elifdef.cpp)
+
+## auto(x) and auto{x} Decay-Copy Expressions
+**Explanation**: Explicitly creates a decay-copy of an expression, applying array-to-pointer and function-to-pointer conversions.
+**Real-World Scenario**: Safely capture a string literal or array as a decayed pointer type in a generic context.
+**Snippet**:
+```cpp
+void process(auto val) {
+    auto copy = auto(val); // guaranteed decay-copy
+}
+```
+**Example**: [decay_copy.cpp](../examples/C++23/decay_copy.cpp)
+
+## Constexpr Improvements
+**Explanation**: C++23 permits more operations in `constexpr` functions, including `goto`, labels, and `static`/`thread_local` variables under certain conditions.
+**Real-World Scenario**: Implement a compile-time state machine with jumps for a protocol parser.
+**Snippet**:
+```cpp
+constexpr int compute(int n) {
+    int result = 0;
+    for (int i = 0; i < n; ++i) result += i;
+    return result;
+}
+static_assert(compute(5) == 10);
+```
+**Example**: [constexpr_improvements.cpp](../examples/C++23/constexpr_improvements.cpp)
+
+## Lambda Trailing Return Type Scope Changes
+**Explanation**: Name lookup in a lambda's trailing return type now sees the lambda's own captures and parameters, fixing a longstanding inconsistency.
+**Real-World Scenario**: Use a captured variable's type in the lambda's return type declaration without workarounds.
+**Snippet**:
+```cpp
+auto make_adder(int x) {
+    return [x](int y) -> decltype(x + y) { return x + y; };
+}
+```
+**Example**: [lambda_return_scope.cpp](../examples/C++23/lambda_return_scope.cpp)

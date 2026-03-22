@@ -11,6 +11,42 @@ int x = 10; float y = 3.14;
 ```
 **Example**: [basic_types.cpp](../examples/C++98/basic_types.cpp)
 
+## Enumerations (Unscoped Enums)
+**Explanation**: Named integer constants grouped under a type, providing meaningful names for sets of related values.
+**Real-World Scenario**: Represent directions (North, South, East, West) in a navigation system.
+**Snippet**:
+```cpp
+enum Color { Red, Green, Blue }; Color c = Green;
+```
+**Example**: [enumerations.cpp](../examples/C++98/enumerations.cpp)
+
+## Unions
+**Explanation**: A type where all members share the same memory location, holding only one member's value at a time.
+**Real-World Scenario**: Store either an integer or a float in a memory-constrained embedded sensor reading.
+**Snippet**:
+```cpp
+union Data { int i; float f; }; Data d; d.i = 42;
+```
+**Example**: [unions.cpp](../examples/C++98/unions.cpp)
+
+## Bitfields
+**Explanation**: Struct members with exact bit widths, enabling compact storage of flags and small values.
+**Real-World Scenario**: Pack hardware register flags into a single byte in a device driver.
+**Snippet**:
+```cpp
+struct Flags { unsigned int bold : 1; unsigned int italic : 1; };
+```
+**Example**: [bitfields.cpp](../examples/C++98/bitfields.cpp)
+
+## sizeof Operator
+**Explanation**: Returns the size in bytes of a type or object at compile time.
+**Real-World Scenario**: Verify struct sizes match protocol specifications in a network library.
+**Snippet**:
+```cpp
+int size = sizeof(int); // typically 4
+```
+**Example**: [sizeof_operator.cpp](../examples/C++98/sizeof_operator.cpp)
+
 ## Pointers
 **Explanation**: Variables that store memory addresses, enabling direct memory access.  
 **Real-World Scenario**: In embedded systems, pointers manage hardware registers for device control.  
@@ -56,6 +92,42 @@ void print(int x) {} void print(float x) {}
 ```
 **Example**: [function_overloading.cpp](../examples/C++98/function_overloading.cpp)
 
+## Default Arguments
+**Explanation**: Parameter values automatically used when the caller omits them from a function call.
+**Real-World Scenario**: A logging function defaults to "INFO" level when severity is not specified.
+**Snippet**:
+```cpp
+void log(const char* msg, int level = 1) {}
+```
+**Example**: [default_arguments.cpp](../examples/C++98/default_arguments.cpp)
+
+## Inline Functions
+**Explanation**: A hint to the compiler to expand the function body at each call site, avoiding function call overhead.
+**Real-World Scenario**: A small `square()` function in a math library called millions of times per frame.
+**Snippet**:
+```cpp
+inline int square(int x) { return x * x; }
+```
+**Example**: [inline_functions.cpp](../examples/C++98/inline_functions.cpp)
+
+## Function Pointers
+**Explanation**: Pointers that store the address of a function, enabling dynamic function dispatch and callbacks.
+**Real-World Scenario**: Register a callback function for button clicks in a GUI framework.
+**Snippet**:
+```cpp
+void greet() {} void (*fptr)() = &greet; fptr();
+```
+**Example**: [function_pointers.cpp](../examples/C++98/function_pointers.cpp)
+
+## Pointers to Members
+**Explanation**: Pointers that refer to a specific data member or member function of a class.
+**Real-World Scenario**: Iterate over different fields of a struct in a serialization library.
+**Snippet**:
+```cpp
+struct S { int x; }; int S::*p = &S::x; S s; s.*p = 42;
+```
+**Example**: [pointers_to_members.cpp](../examples/C++98/pointers_to_members.cpp)
+
 ## Classes
 **Explanation**: User-defined types combining data and functions to model entities.  
 **Real-World Scenario**: Represent a car in a racing game with speed and accelerate methods.  
@@ -83,6 +155,15 @@ class Account { public: Account(int bal) {} };
 ```
 **Example**: [constructors.cpp](../examples/C++98/constructors.cpp)
 
+## Copy Constructor
+**Explanation**: A special constructor that creates a new object as a copy of an existing object of the same type.
+**Real-World Scenario**: Duplicate a game save state so the player can experiment without losing progress.
+**Snippet**:
+```cpp
+class Widget { public: Widget(const Widget& other) {} };
+```
+**Example**: [copy_constructor.cpp](../examples/C++98/copy_constructor.cpp)
+
 ## Destructors
 **Explanation**: Special functions called when an object is destroyed to clean up resources.  
 **Real-World Scenario**: Close a file handle when a file object is deleted.  
@@ -91,6 +172,24 @@ class Account { public: Account(int bal) {} };
 class File { public: ~File() {} };
 ```
 **Example**: [destructors.cpp](../examples/C++98/destructors.cpp)
+
+## Copy Assignment Operator
+**Explanation**: An overloaded `operator=` that assigns one object's state to another existing object of the same type.
+**Real-World Scenario**: Reassign a configuration object when settings change at runtime.
+**Snippet**:
+```cpp
+class Config { public: Config& operator=(const Config& other) { return *this; } };
+```
+**Example**: [copy_assignment.cpp](../examples/C++98/copy_assignment.cpp)
+
+## Conversion Functions
+**Explanation**: Member functions that define implicit or explicit conversions from a class type to another type.
+**Real-World Scenario**: A `Fraction` class that converts to `double` for use in floating-point calculations.
+**Snippet**:
+```cpp
+class Fraction { public: operator double() const { return 0.5; } };
+```
+**Example**: [conversion_functions.cpp](../examples/C++98/conversion_functions.cpp)
 
 ## Inheritance
 ### Single Inheritance
@@ -192,6 +291,24 @@ class GameObject { friend class Renderer; };
 ```
 **Example**: [friend_classes.cpp](../examples/C++98/friend_classes.cpp)
 
+## Nested Classes
+**Explanation**: A class defined inside the scope of another class, typically used as an implementation detail.
+**Real-World Scenario**: A `LinkedList` class containing a private `Node` class that only it needs.
+**Snippet**:
+```cpp
+class List { class Node { int data; Node* next; }; };
+```
+**Example**: [nested_classes.cpp](../examples/C++98/nested_classes.cpp)
+
+## Local Classes
+**Explanation**: A class defined inside a function body, scoped to that function only.
+**Real-World Scenario**: Define a temporary comparator class inside a sorting function.
+**Snippet**:
+```cpp
+void process() { class Helper { public: void run() {} }; Helper h; h.run(); }
+```
+**Example**: [local_classes.cpp](../examples/C++98/local_classes.cpp)
+
 ## Operator Overloading
 **Explanation**: Redefines operators (e.g., +, ==) for user-defined types.  
 **Real-World Scenario**: Add two `Vector2D` objects in a physics engine.  
@@ -238,6 +355,16 @@ namespace Utils { void func() {} }
 ```
 **Example**: [namespaces.cpp](../examples/C++98/namespaces.cpp)
 
+## Scope Resolution Operator (::)
+**Explanation**: Accesses members of a namespace, class, or enum, and resolves ambiguity in nested scopes.
+**Real-World Scenario**: Call a specific base class method in a diamond inheritance hierarchy.
+**Snippet**:
+```cpp
+namespace Math { int add(int a, int b) { return a + b; } }
+int result = Math::add(1, 2);
+```
+**Example**: [scope_resolution.cpp](../examples/C++98/scope_resolution.cpp)
+
 ## Dynamic Memory Management
 **Explanation**: Allocates and deallocates memory at runtime using `new` and `delete`.  
 **Real-World Scenario**: Allocate memory for a dynamic list of user inputs.  
@@ -273,3 +400,60 @@ Base* b; Derived* d = dynamic_cast<Derived*>(b);
 #include <typeinfo> cout << typeid(int).name();
 ```
 **Example**: [typeid.cpp](../examples/C++98/typeid.cpp)
+
+## Storage Class Specifiers
+**Explanation**: Keywords (`static`, `extern`, `register`) that control the storage duration, linkage, and lifetime of variables.
+**Real-World Scenario**: Use `static` to count how many times a function has been called across a program.
+**Snippet**:
+```cpp
+void counter() { static int count = 0; count++; }
+```
+**Example**: [storage_class.cpp](../examples/C++98/storage_class.cpp)
+
+## Volatile Keyword
+**Explanation**: Tells the compiler that a variable may change at any time, preventing optimization of reads/writes.
+**Real-World Scenario**: Read a hardware status register that can change between consecutive reads in a driver.
+**Snippet**:
+```cpp
+volatile int* status_reg = (volatile int*)0x40000;
+```
+**Example**: [volatile.cpp](../examples/C++98/volatile.cpp)
+
+## Mutable Keyword
+**Explanation**: Allows a data member to be modified even inside a `const` member function.
+**Real-World Scenario**: Cache a computed value inside a `const` getter to avoid redundant calculations.
+**Snippet**:
+```cpp
+class Data { mutable int cache; public: int get() const { cache = 42; return cache; } };
+```
+**Example**: [mutable.cpp](../examples/C++98/mutable.cpp)
+
+## Conditional (Ternary) Operator
+**Explanation**: An inline expression `condition ? true_value : false_value` that returns one of two values based on a condition.
+**Real-World Scenario**: Set a discount label to "VIP" or "Standard" based on a customer's loyalty status.
+**Snippet**:
+```cpp
+int x = 10; int abs_x = (x >= 0) ? x : -x;
+```
+**Example**: [ternary_operator.cpp](../examples/C++98/ternary_operator.cpp)
+
+## Comma Operator
+**Explanation**: Evaluates two expressions in sequence, discards the first result, and returns the second.
+**Real-World Scenario**: Initialize multiple loop variables in a single `for` statement.
+**Snippet**:
+```cpp
+for (int i = 0, j = 10; i < j; i++, j--) {}
+```
+**Example**: [comma_operator.cpp](../examples/C++98/comma_operator.cpp)
+
+## Preprocessor Directives
+**Explanation**: Compile-time instructions (`#define`, `#include`, `#ifdef`, `#ifndef`, `#pragma`) that control text substitution and conditional compilation.
+**Real-World Scenario**: Use include guards to prevent a header file from being included multiple times.
+**Snippet**:
+```cpp
+#ifndef MY_HEADER_H
+#define MY_HEADER_H
+// declarations
+#endif
+```
+**Example**: [preprocessor.cpp](../examples/C++98/preprocessor.cpp)

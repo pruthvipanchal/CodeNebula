@@ -93,6 +93,17 @@ This document covers C++98 Standard Template Library (STL) concepts with simple 
 ```
 **Example**: [priority_queue.cpp](../examples/C++98/priority_queue.cpp)
 
+### std::bitset
+**Explanation**: A fixed-size sequence of bits with efficient bitwise operations and conversions.
+**Real-World Scenario**: Represent and manipulate feature flags or permissions in a role-based access system.
+**Snippet**:
+```cpp
+#include <bitset>
+std::bitset<8> flags("10110010");
+bool isSet = flags.test(4);
+```
+**Example**: [bitset.cpp](../examples/C++98/bitset.cpp)
+
 ## Iterators
 ### Input Iterator
 **Explanation**: Reads elements in a sequence (single-pass, read-only).  
@@ -1097,3 +1108,401 @@ std::ofstream out("log.txt"); out << "Log";
 std::stringstream ss; ss << "123"; int x; ss >> x;
 ```
 **Example**: [stringstream.cpp](../examples/C++98/stringstream.cpp)
+
+### std::fstream
+**Explanation**: A stream class for both reading from and writing to files.
+**Real-World Scenario**: Read configuration, modify values, and write back in a settings manager.
+**Snippet**:
+```cpp
+#include <fstream>
+std::fstream file("data.txt", std::ios::in | std::ios::out);
+```
+**Example**: [fstream.cpp](../examples/C++98/fstream.cpp)
+
+### std::ifstream
+**Explanation**: An input stream for reading data from files.
+**Real-World Scenario**: Load level data from a file in a game engine.
+**Snippet**:
+```cpp
+#include <fstream>
+std::ifstream in("level.dat"); int val; in >> val;
+```
+**Example**: [ifstream.cpp](../examples/C++98/ifstream.cpp)
+
+### std::ofstream
+**Explanation**: An output stream for writing data to files.
+**Real-World Scenario**: Export a report to a CSV file in a business analytics tool.
+**Snippet**:
+```cpp
+#include <fstream>
+std::ofstream out("report.csv"); out << "Name,Score\n";
+```
+**Example**: [ofstream.cpp](../examples/C++98/ofstream.cpp)
+
+### std::streambuf
+**Explanation**: The low-level buffer abstraction underlying all stream I/O, managing character sequences.
+**Real-World Scenario**: Redirect `std::cout` output to a file by swapping stream buffers.
+**Snippet**:
+```cpp
+std::streambuf* original = std::cout.rdbuf();
+std::cout.rdbuf(fileStream.rdbuf());
+```
+**Example**: [streambuf.cpp](../examples/C++98/streambuf.cpp)
+
+### std::ios_base
+**Explanation**: The base class for all I/O streams, managing format flags, state bits, and locale.
+**Real-World Scenario**: Set fixed-point notation and precision for financial output formatting.
+**Snippet**:
+```cpp
+std::cout.setf(std::ios_base::fixed);
+std::cout.precision(2);
+```
+**Example**: [ios_base.cpp](../examples/C++98/ios_base.cpp)
+
+### std::cin, std::cout, std::cerr, std::clog
+**Explanation**: The four standard global stream objects for console input, output, error output, and logging.
+**Real-World Scenario**: Read user commands from `cin`, display results on `cout`, and log errors to `cerr`.
+**Snippet**:
+```cpp
+std::string name; std::cin >> name;
+std::cout << "Hello " << name;
+std::cerr << "Warning: low memory";
+```
+**Example**: [standard_streams.cpp](../examples/C++98/standard_streams.cpp)
+
+## Numeric Algorithms
+### std::accumulate
+**Explanation**: Folds a range into a single value by applying a binary operation (defaults to addition).
+**Real-World Scenario**: Calculate the total revenue from a list of daily sales in a financial report.
+**Snippet**:
+```cpp
+#include <numeric>
+std::vector<int> v = {1, 2, 3, 4};
+int sum = std::accumulate(v.begin(), v.end(), 0);
+```
+**Example**: [accumulate.cpp](../examples/C++98/accumulate.cpp)
+
+### std::inner_product
+**Explanation**: Computes the sum of element-wise products of two ranges (dot product by default).
+**Real-World Scenario**: Calculate the dot product of two vectors in a physics simulation.
+**Snippet**:
+```cpp
+#include <numeric>
+int dot = std::inner_product(a.begin(), a.end(), b.begin(), 0);
+```
+**Example**: [inner_product.cpp](../examples/C++98/inner_product.cpp)
+
+### std::partial_sum
+**Explanation**: Computes running cumulative sums of a range, writing results to an output range.
+**Real-World Scenario**: Generate a cumulative total of monthly expenses for a year-to-date budget view.
+**Snippet**:
+```cpp
+#include <numeric>
+std::partial_sum(v.begin(), v.end(), result.begin());
+```
+**Example**: [partial_sum.cpp](../examples/C++98/partial_sum.cpp)
+
+### std::adjacent_difference
+**Explanation**: Computes the difference between consecutive elements in a range.
+**Real-World Scenario**: Calculate day-over-day stock price changes from a time series.
+**Snippet**:
+```cpp
+#include <numeric>
+std::adjacent_difference(v.begin(), v.end(), result.begin());
+```
+**Example**: [adjacent_difference.cpp](../examples/C++98/adjacent_difference.cpp)
+
+## Numerics
+### std::valarray
+**Explanation**: A numeric array class optimized for element-wise mathematical operations.
+**Real-World Scenario**: Apply a mathematical formula to every sample in a digital signal processing pipeline.
+**Snippet**:
+```cpp
+#include <valarray>
+std::valarray<double> data = {1.0, 2.0, 3.0};
+std::valarray<double> squared = data * data;
+```
+**Example**: [valarray.cpp](../examples/C++98/valarray.cpp)
+
+### std::complex
+**Explanation**: Represents complex numbers with real and imaginary parts, supporting arithmetic operations.
+**Real-World Scenario**: Perform FFT computations in an audio processing application.
+**Snippet**:
+```cpp
+#include <complex>
+std::complex<double> z(3.0, 4.0); // 3 + 4i
+double magnitude = std::abs(z);   // 5.0
+```
+**Example**: [complex.cpp](../examples/C++98/complex.cpp)
+
+### std::numeric_limits
+**Explanation**: Provides information about the properties of arithmetic types (min, max, precision, etc.).
+**Real-World Scenario**: Check the maximum representable value before performing a calculation to prevent overflow.
+**Snippet**:
+```cpp
+#include <limits>
+int maxInt = std::numeric_limits<int>::max();
+bool hasInfinity = std::numeric_limits<double>::has_infinity;
+```
+**Example**: [numeric_limits.cpp](../examples/C++98/numeric_limits.cpp)
+
+## Memory
+### std::allocator
+**Explanation**: The default memory allocator used by STL containers, separating allocation from construction.
+**Real-World Scenario**: Understand how `std::vector` manages memory internally, or provide a custom allocator for a memory pool.
+**Snippet**:
+```cpp
+#include <memory>
+std::allocator<int> alloc;
+int* p = alloc.allocate(10);
+alloc.deallocate(p, 10);
+```
+**Example**: [allocator.cpp](../examples/C++98/allocator.cpp)
+
+## Exception Classes
+### std::exception
+**Explanation**: The base class for all standard library exceptions, providing a `what()` message.
+**Real-World Scenario**: Catch any standard exception in a top-level error handler.
+**Snippet**:
+```cpp
+try { /* ... */ } catch (const std::exception& e) { std::cerr << e.what(); }
+```
+**Example**: [exception.cpp](../examples/C++98/exception.cpp)
+
+### std::runtime_error
+**Explanation**: Exception for errors detectable only during program execution.
+**Real-World Scenario**: Throw when a network connection fails unexpectedly.
+**Snippet**:
+```cpp
+throw std::runtime_error("Connection failed");
+```
+**Example**: [runtime_error.cpp](../examples/C++98/runtime_error.cpp)
+
+### std::logic_error
+**Explanation**: Exception for errors caused by flawed program logic that could be caught before runtime.
+**Real-World Scenario**: Throw when a function receives logically invalid parameters.
+**Snippet**:
+```cpp
+throw std::logic_error("Invalid state transition");
+```
+**Example**: [logic_error.cpp](../examples/C++98/logic_error.cpp)
+
+### std::out_of_range
+**Explanation**: Exception thrown when an index or key is outside the valid range.
+**Real-World Scenario**: Accessing an element beyond the size of a vector via `at()`.
+**Snippet**:
+```cpp
+std::vector<int> v = {1, 2}; v.at(5); // throws std::out_of_range
+```
+**Example**: [out_of_range.cpp](../examples/C++98/out_of_range.cpp)
+
+### std::invalid_argument
+**Explanation**: Exception thrown when a function receives an argument with an invalid value.
+**Real-World Scenario**: Parsing a string that doesn't represent a valid number.
+**Snippet**:
+```cpp
+int n = std::stoi("abc"); // throws std::invalid_argument
+```
+**Example**: [invalid_argument.cpp](../examples/C++98/invalid_argument.cpp)
+
+### std::overflow_error
+**Explanation**: Exception thrown when an arithmetic overflow is detected.
+**Real-World Scenario**: Signal overflow in a custom big-integer multiplication function.
+**Snippet**:
+```cpp
+throw std::overflow_error("Integer overflow in multiply");
+```
+**Example**: [overflow_error.cpp](../examples/C++98/overflow_error.cpp)
+
+### std::underflow_error
+**Explanation**: Exception thrown when an arithmetic underflow is detected.
+**Real-World Scenario**: Signal underflow in a floating-point computation near zero.
+**Snippet**:
+```cpp
+throw std::underflow_error("Value too small to represent");
+```
+**Example**: [underflow_error.cpp](../examples/C++98/underflow_error.cpp)
+
+### std::length_error
+**Explanation**: Exception thrown when an operation would exceed the maximum allowed size.
+**Real-World Scenario**: Attempting to resize a string beyond `max_size()`.
+**Snippet**:
+```cpp
+std::string s; s.resize(s.max_size() + 1); // throws std::length_error
+```
+**Example**: [length_error.cpp](../examples/C++98/length_error.cpp)
+
+### std::domain_error
+**Explanation**: Exception thrown when a mathematical function is called outside its domain.
+**Real-World Scenario**: Computing the square root of a negative number in a math library.
+**Snippet**:
+```cpp
+throw std::domain_error("sqrt of negative number");
+```
+**Example**: [domain_error.cpp](../examples/C++98/domain_error.cpp)
+
+### std::range_error
+**Explanation**: Exception thrown when a computation produces a result outside the representable range.
+**Real-World Scenario**: A floating-point result exceeds the representable range during a physics calculation.
+**Snippet**:
+```cpp
+throw std::range_error("Result out of representable range");
+```
+**Example**: [range_error.cpp](../examples/C++98/range_error.cpp)
+
+### std::bad_alloc
+**Explanation**: Exception thrown when `new` fails to allocate memory.
+**Real-World Scenario**: Handle out-of-memory conditions gracefully in a server application.
+**Snippet**:
+```cpp
+try { int* p = new int[1000000000]; } catch (const std::bad_alloc& e) {}
+```
+**Example**: [bad_alloc.cpp](../examples/C++98/bad_alloc.cpp)
+
+### std::bad_cast
+**Explanation**: Exception thrown by `dynamic_cast` when a reference cast to an invalid type fails.
+**Real-World Scenario**: Catch failed downcasts in a plugin system that loads unknown types.
+**Snippet**:
+```cpp
+try { Derived& d = dynamic_cast<Derived&>(baseRef); } catch (const std::bad_cast& e) {}
+```
+**Example**: [bad_cast.cpp](../examples/C++98/bad_cast.cpp)
+
+### std::bad_typeid
+**Explanation**: Exception thrown when `typeid` is applied to a dereferenced null pointer of a polymorphic type.
+**Real-World Scenario**: Guard against null pointer dereference in a type-inspection utility.
+**Snippet**:
+```cpp
+Base* p = nullptr;
+try { typeid(*p); } catch (const std::bad_typeid& e) {}
+```
+**Example**: [bad_typeid.cpp](../examples/C++98/bad_typeid.cpp)
+
+### std::bad_exception
+**Explanation**: Exception thrown when an unexpected exception type violates a function's exception specification.
+**Real-World Scenario**: Handle violations of legacy `throw()` specifications in older codebases.
+**Snippet**:
+```cpp
+void func() throw(std::bad_exception) { throw 42; }
+```
+**Example**: [bad_exception.cpp](../examples/C++98/bad_exception.cpp)
+
+## Localization
+### std::locale
+**Explanation**: Encapsulates a set of cultural conventions for formatting numbers, dates, and text.
+**Real-World Scenario**: Format currency values with locale-specific decimal separators in an international e-commerce app.
+**Snippet**:
+```cpp
+#include <locale>
+std::locale loc("en_US.UTF-8");
+std::cout.imbue(loc);
+```
+**Example**: [locale.cpp](../examples/C++98/locale.cpp)
+
+### std::locale::facet
+**Explanation**: The base class for locale-specific formatting categories like number formatting, collation, and character classification.
+**Real-World Scenario**: Create a custom facet that formats phone numbers according to regional conventions.
+**Snippet**:
+```cpp
+#include <locale>
+const std::numpunct<char>& np = std::use_facet<std::numpunct<char>>(std::locale());
+char sep = np.thousands_sep();
+```
+**Example**: [locale_facet.cpp](../examples/C++98/locale_facet.cpp)
+
+## C Library Wrappers
+### \<cmath\>
+**Explanation**: C++ wrapper for the C math library, providing mathematical functions like `sin`, `cos`, `sqrt`, `pow`, `abs`, `ceil`, `floor`, and more.
+**Real-World Scenario**: Calculate trajectory angles and distances in a ballistics simulation.
+**Snippet**:
+```cpp
+#include <cmath>
+double angle = std::atan2(y, x);
+double dist = std::sqrt(x*x + y*y);
+```
+**Example**: [cmath.cpp](../examples/C++98/cmath.cpp)
+
+### \<cstdlib\>
+**Explanation**: General-purpose utilities including memory allocation (`malloc`/`free`), random numbers (`rand`/`srand`), conversions (`atoi`/`atof`), and program control (`exit`/`abort`).
+**Real-World Scenario**: Generate random enemy spawn positions in a game loop.
+**Snippet**:
+```cpp
+#include <cstdlib>
+std::srand(42);
+int roll = std::rand() % 6 + 1;
+```
+**Example**: [cstdlib.cpp](../examples/C++98/cstdlib.cpp)
+
+### \<cstring\>
+**Explanation**: C-style string manipulation functions including `strlen`, `strcpy`, `strcat`, `strcmp`, `memcpy`, and `memset`.
+**Real-World Scenario**: Parse a null-terminated string received from a C API in a cross-language integration layer.
+**Snippet**:
+```cpp
+#include <cstring>
+char dest[20]; std::strcpy(dest, "Hello");
+int len = std::strlen(dest);
+```
+**Example**: [cstring.cpp](../examples/C++98/cstring.cpp)
+
+### \<cstdio\>
+**Explanation**: C-style formatted I/O functions including `printf`, `scanf`, `fprintf`, `fscanf`, `sprintf`, and `FILE` operations.
+**Real-World Scenario**: Write high-performance formatted output in a logging system where stream overhead matters.
+**Snippet**:
+```cpp
+#include <cstdio>
+std::printf("Score: %d, Time: %.2f\n", score, elapsed);
+```
+**Example**: [cstdio.cpp](../examples/C++98/cstdio.cpp)
+
+### \<cctype\>
+**Explanation**: Character classification and conversion functions including `isalpha`, `isdigit`, `isspace`, `toupper`, and `tolower`.
+**Real-World Scenario**: Validate that a user-entered password contains at least one digit and one uppercase letter.
+**Snippet**:
+```cpp
+#include <cctype>
+char c = 'a';
+if (std::isalpha(c)) { c = std::toupper(c); }
+```
+**Example**: [cctype.cpp](../examples/C++98/cctype.cpp)
+
+### \<climits\>
+**Explanation**: Defines constants for the limits of integer types such as `INT_MAX`, `INT_MIN`, `LONG_MAX`, `CHAR_BIT`, etc.
+**Real-World Scenario**: Check if adding two integers would overflow before performing the operation.
+**Snippet**:
+```cpp
+#include <climits>
+if (a > INT_MAX - b) { /* overflow! */ }
+```
+**Example**: [climits.cpp](../examples/C++98/climits.cpp)
+
+### \<cfloat\>
+**Explanation**: Defines constants for the limits of floating-point types such as `FLT_MAX`, `FLT_MIN`, `DBL_EPSILON`, `FLT_DIG`, etc.
+**Real-World Scenario**: Compare floating-point values with an epsilon tolerance in a physics engine.
+**Snippet**:
+```cpp
+#include <cfloat>
+bool equal = std::abs(a - b) < DBL_EPSILON;
+```
+**Example**: [cfloat.cpp](../examples/C++98/cfloat.cpp)
+
+### \<cassert\>
+**Explanation**: Provides the `assert` macro for runtime assertion checking, disabled in release builds with `NDEBUG`.
+**Real-World Scenario**: Verify function preconditions during development to catch bugs early.
+**Snippet**:
+```cpp
+#include <cassert>
+assert(ptr != nullptr); // aborts if ptr is null
+```
+**Example**: [cassert.cpp](../examples/C++98/cassert.cpp)
+
+### \<ctime\>
+**Explanation**: Date and time utilities including `time`, `clock`, `difftime`, `mktime`, `strftime`, and the `struct tm` type.
+**Real-World Scenario**: Measure the execution time of a sorting algorithm for benchmarking.
+**Snippet**:
+```cpp
+#include <ctime>
+std::time_t start = std::time(nullptr);
+// ... work ...
+double elapsed = std::difftime(std::time(nullptr), start);
+```
+**Example**: [ctime.cpp](../examples/C++98/ctime.cpp)

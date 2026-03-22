@@ -1,6 +1,6 @@
 # C++17 Core Language Concepts
 
-This document covers new or evolved C++17 core language concepts, with simple explanations, real-world scenarios, and short code snippets. Full examples will be added in [examples folder](../examples/C++17/). Only additions or evolutions from C++98/C++03/C++11/C++14 are included.
+This document covers new or evolved C++17 core language concepts, with simple explanations, real-world scenarios, and short code snippets. Full examples will be added in [examples folder](../../examples/C++17/). Only additions or evolutions from C++98/C++03/C++11/C++14 are included.
 
 ## Structured Bindings
 **Explanation**: Decomposes aggregates (e.g., tuples, structs, arrays) into individually named variables, making it far easier to work with multi-value returns and key-value pairs without verbose `.first`/`.second` or `std::get<>` calls.
@@ -17,7 +17,7 @@ for (const auto& [name, score] : scores) {
     std::cout << name << ": " << score << "\n";
 }
 ```
-**Example**: [structured_bindings.cpp](../examples/C++17/structured_bindings.cpp)
+**Example**: [structured_bindings.cpp](../../examples/C++17/structured_bindings.cpp)
 
 ## if constexpr
 **Explanation**: Enables compile-time conditional evaluation inside templates. The discarded branch is not instantiated, eliminating the need for SFINAE or tag-dispatch tricks in many generic programming scenarios.
@@ -36,7 +36,7 @@ std::string serialize(const T& value) {
     }
 }
 ```
-**Example**: [if_constexpr.cpp](../examples/C++17/if_constexpr.cpp)
+**Example**: [if_constexpr.cpp](../../examples/C++17/if_constexpr.cpp)
 
 ## Init-statements for if and switch
 **Explanation**: Allows declaring and initializing a variable directly within an `if` or `switch` statement, confining it to the narrowest possible scope and reducing accidental misuse of temporary variables.
@@ -53,7 +53,7 @@ if (auto it = users.find(1); it != users.end()) {
 }
 // 'it' is not accessible here -- scope is limited to the if block
 ```
-**Example**: [if_switch_initializers.cpp](../examples/C++17/if_switch_initializers.cpp)
+**Example**: [if_switch_initializers.cpp](../../examples/C++17/if_switch_initializers.cpp)
 
 ## Inline Variables
 **Explanation**: Variables declared `inline` can be defined in header files without causing multiple-definition linker errors, following the same rules as inline functions. This is essential for header-only libraries.
@@ -64,7 +64,7 @@ if (auto it = users.find(1); it != users.end()) {
 inline constexpr int MAX_CONNECTIONS = 256;
 inline std::string APP_NAME = "MyApp";
 ```
-**Example**: [inline_variables.cpp](../examples/C++17/inline_variables.cpp)
+**Example**: [inline_variables.cpp](../../examples/C++17/inline_variables.cpp)
 
 ## Fold Expressions
 **Explanation**: Provides a concise syntax to apply a binary operator across all elements of a parameter pack, eliminating recursive template instantiations for common variadic patterns like summing, concatenation, or logical checks.
@@ -83,7 +83,7 @@ auto sum(Args... args) {
     return (args + ...);  // Unary right fold
 }
 ```
-**Example**: [fold_expressions.cpp](../examples/C++17/fold_expressions.cpp)
+**Example**: [fold_expressions.cpp](../../examples/C++17/fold_expressions.cpp)
 
 ## Template Argument Deduction for Class Templates
 **Explanation**: The compiler can automatically deduce template arguments for class templates from constructor arguments, removing the need to explicitly specify template parameters in many common cases.
@@ -97,7 +97,7 @@ std::vector vec = {1, 2, 3};           // deduced as std::vector<int>
 std::pair  p   = {42, "hello"};        // deduced as std::pair<int, const char*>
 std::lock_guard lk(myMutex);           // deduced from mutex type
 ```
-**Example**: [template_argument_deduction.cpp](../examples/C++17/template_argument_deduction.cpp)
+**Example**: [template_argument_deduction.cpp](../../examples/C++17/template_argument_deduction.cpp)
 
 ## Class Template Argument Deduction (CTAD)
 **Explanation**: CTAD extends template argument deduction for class templates with user-defined deduction guides, allowing library authors to control how template parameters are inferred from constructor calls. This is the mechanism that makes deduction guides possible.
@@ -116,7 +116,7 @@ Wrapper(const char*) -> Wrapper<std::string>;
 Wrapper w1(42);        // Wrapper<int>
 Wrapper w2("hello");   // Wrapper<std::string> via deduction guide
 ```
-**Example**: [ctad.cpp](../examples/C++17/ctad.cpp)
+**Example**: [ctad.cpp](../../examples/C++17/ctad.cpp)
 
 ## Nested Namespace Definitions
 **Explanation**: Allows declaring deeply nested namespaces in a single compact statement using `::` separators, eliminating verbose multi-level braces and reducing indentation clutter in large codebases.
@@ -133,7 +133,7 @@ namespace Company::Project::Module {
     void func() {}
 }
 ```
-**Example**: [nested_namespaces.cpp](../examples/C++17/nested_namespaces.cpp)
+**Example**: [nested_namespaces.cpp](../../examples/C++17/nested_namespaces.cpp)
 
 ## __has_include Preprocessor Directive
 **Explanation**: A preprocessor test that checks whether a header file is available before including it, enabling portable code that gracefully adapts to different platforms and optional dependencies.
@@ -150,7 +150,7 @@ namespace Company::Project::Module {
     #define HAS_OPTIONAL 0
 #endif
 ```
-**Example**: [has_include.cpp](../examples/C++17/has_include.cpp)
+**Example**: [has_include.cpp](../../examples/C++17/has_include.cpp)
 
 ## [[nodiscard]] Attribute
 **Explanation**: Warns the caller if a function's return value is discarded. This catches a common class of bugs where important results (error codes, allocated resources, computed values) are silently ignored.
@@ -165,7 +165,7 @@ namespace Company::Project::Module {
 // connect("db.example.com");  // WARNING: discarding return value
 bool ok = connect("db.example.com");  // Correct usage
 ```
-**Example**: [nodiscard.cpp](../examples/C++17/nodiscard.cpp)
+**Example**: [nodiscard.cpp](../../examples/C++17/nodiscard.cpp)
 
 ## [[maybe_unused]] Attribute
 **Explanation**: Suppresses compiler warnings about unused variables, parameters, or functions. This is invaluable for platform-specific code, debug-only variables, and callback signatures where not every parameter is always used.
@@ -185,7 +185,7 @@ void callback([[maybe_unused]] int errorCode, const std::string& message) {
     // Only called in debug builds
 }
 ```
-**Example**: [maybe_unused.cpp](../examples/C++17/maybe_unused.cpp)
+**Example**: [maybe_unused.cpp](../../examples/C++17/maybe_unused.cpp)
 
 ## [[fallthrough]] Attribute
 **Explanation**: Explicitly indicates that falling through from one `case` label to the next in a `switch` statement is intentional, silencing compiler warnings and documenting the programmer's intent.
@@ -211,7 +211,7 @@ void handleLog(LogLevel level, const std::string& msg) {
     }
 }
 ```
-**Example**: [fallthrough.cpp](../examples/C++17/fallthrough.cpp)
+**Example**: [fallthrough.cpp](../../examples/C++17/fallthrough.cpp)
 
 ## Guaranteed Copy Elision
 **Explanation**: The compiler is now required (not merely permitted) to elide copies and moves when a prvalue is used to initialize an object of the same type. This means types that are neither copyable nor movable can be returned from functions by value.
@@ -231,7 +231,7 @@ DatabaseConnection connect(const std::string& host) {
 
 auto conn = connect("db.example.com");
 ```
-**Example**: [copy_elision.cpp](../examples/C++17/copy_elision.cpp)
+**Example**: [copy_elision.cpp](../../examples/C++17/copy_elision.cpp)
 
 ## std::launder
 **Explanation**: Provides a pointer laundering facility that obtains a pointer to an object created in storage where a different object of the same type previously resided. It is needed when placement new is used to create an object with a different value for a const or reference member in the same storage.
@@ -256,7 +256,7 @@ auto* p2 = new (buffer) Config{2, 2.71};
 auto* safe = std::launder(reinterpret_cast<Config*>(buffer));
 assert(safe->id == 2);
 ```
-**Example**: [launder.cpp](../examples/C++17/launder.cpp)
+**Example**: [launder.cpp](../../examples/C++17/launder.cpp)
 
 ## constexpr Lambda Expressions
 **Explanation**: Lambdas are implicitly `constexpr` when possible, and can be explicitly marked `constexpr`. This allows lambda expressions to be used in compile-time computations, `static_assert`, and template arguments.
@@ -273,7 +273,7 @@ constexpr auto factorial = [](int n) constexpr {
 };
 static_assert(factorial(6) == 720);
 ```
-**Example**: [constexpr_lambdas.cpp](../examples/C++17/constexpr_lambdas.cpp)
+**Example**: [constexpr_lambdas.cpp](../../examples/C++17/constexpr_lambdas.cpp)
 
 ## Hexadecimal Floating-Point Literals
 **Explanation**: Floating-point numbers can be expressed in hexadecimal notation using the `0x` prefix and a `p` exponent (base 2). This allows exact representation of floating-point values without rounding, which is critical in numerical computing and cross-platform reproducibility.
@@ -284,7 +284,7 @@ double pi_approx = 0x1.921fb54442d18p+1;  // 3.14159265358979...
 double one_tenth = 0x1.999999999999ap-4;   // 0.1 (exact representation)
 float  half      = 0x1.0p-1f;             // 0.5
 ```
-**Example**: [hex_float_literals.cpp](../examples/C++17/hex_float_literals.cpp)
+**Example**: [hex_float_literals.cpp](../../examples/C++17/hex_float_literals.cpp)
 
 ## Using-declaration for Parameter Packs
 **Explanation**: Extends `using` declarations to work with parameter packs, allowing a class to inherit or expose members from multiple base classes in a single statement. This is particularly powerful when building variadic overload sets from lambda-based visitors.
@@ -308,7 +308,7 @@ std::visit(overloaded{
     [](const std::string& s) { std::cout << "string: " << s << "\n"; }
 }, v);
 ```
-**Example**: [using_parameter_packs.cpp](../examples/C++17/using_parameter_packs.cpp)
+**Example**: [using_parameter_packs.cpp](../../examples/C++17/using_parameter_packs.cpp)
 
 ## Aggregate Initialization with Base Classes
 **Explanation**: Aggregates can now have public base classes. Aggregate initialization uses braces to initialize the base class sub-objects first, followed by the derived class members. This removes the need for boilerplate constructors in simple derived types.
@@ -327,7 +327,7 @@ struct LabeledPoint : Point {
 LabeledPoint lp = {{1.0, 2.0}, "Origin"};
 std::cout << lp.label << " at (" << lp.x << ", " << lp.y << ")\n";
 ```
-**Example**: [aggregate_init_base.cpp](../examples/C++17/aggregate_init_base.cpp)
+**Example**: [aggregate_init_base.cpp](../../examples/C++17/aggregate_init_base.cpp)
 
 ## Non-type Template Parameters auto
 **Explanation**: Non-type template parameters can be declared with `auto`, letting the compiler deduce their type. This makes templates more flexible and reduces duplication when the exact non-type parameter type is not important to the template logic.
@@ -346,4 +346,4 @@ Constant<true>  boolConst;   // Value deduced as bool
 static_assert(Constant<42>::value == 42);
 static_assert(Constant<'A'>::value == 65);
 ```
-**Example**: [nttp_auto.cpp](../examples/C++17/nttp_auto.cpp)
+**Example**: [nttp_auto.cpp](../../examples/C++17/nttp_auto.cpp)

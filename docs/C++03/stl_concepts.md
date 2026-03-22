@@ -1,6 +1,6 @@
 # C++03 STL Concepts
 
-This document covers evolved C++03 STL concepts, with simple explanations, real-world scenarios, and short code snippets. Full examples will be added in [examples folder](../examples/C++03/). Only evolutions from C++98 are included.
+This document covers evolved C++03 STL concepts, with simple explanations, real-world scenarios, and short code snippets. Full examples will be added in [examples folder](../../examples/C++03/). Only evolutions from C++98 are included.
 
 ## std::vector<bool> Improvements
 **Explanation**: C++03 addressed several defects in the `std::vector<bool>` specialization inherited from C++98. The standard clarified the behavior of its proxy reference type, ensured that `swap` works correctly between individual bit references, and tightened the specification so that `flip()` and element access behave consistently across implementations. While `vector<bool>` remains a space-optimized specialization (packing bits rather than storing one `bool` per byte), the C++03 fixes made it more predictable for developers who rely on it for memory-efficient boolean collections.
@@ -35,7 +35,7 @@ int main() {
     return 0;
 }
 ```
-**Example**: [vector_bool_improvements.cpp](../examples/C++03/vector_bool_improvements.cpp)
+**Example**: [vector_bool_improvements.cpp](../../examples/C++03/vector_bool_improvements.cpp)
 
 ## Algorithm Behavior Fixes
 **Explanation**: C++03 introduced a set of minor but important corrections to the algorithm specifications in `<algorithm>`. These defect resolutions clarified the number of comparisons and assignments permitted by algorithms like `std::stable_sort`, pinned down the semantics of predicates passed to `std::remove_if` and `std::unique`, and resolved edge cases in `std::nth_element` and `std::partial_sort`. The cumulative effect was a tighter contract between the standard library and its users, making algorithm complexity guarantees and side-effect rules portable across compilers.
@@ -95,4 +95,4 @@ int main() {
     return 0;
 }
 ```
-**Example**: [algorithm_behavior_fixes.cpp](../examples/C++03/algorithm_behavior_fixes.cpp)
+**Example**: [algorithm_behavior_fixes.cpp](../../examples/C++03/algorithm_behavior_fixes.cpp)

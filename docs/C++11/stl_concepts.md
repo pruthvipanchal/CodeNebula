@@ -1,6 +1,6 @@
 # C++11 STL Concepts
 
-This document covers new or evolved C++11 STL concepts, with simple explanations, real-world scenarios, and short code snippets. Full examples will be added in [examples folder](../examples/C++11/). Only additions or evolutions from C++98/C++03 are included.
+This document covers new or evolved C++11 STL concepts, with simple explanations, real-world scenarios, and short code snippets. Full examples will be added in [examples folder](../../examples/C++11/). Only additions or evolutions from C++98/C++03 are included.
 
 ## Containers
 ### std::array (C++11 Addition)
@@ -10,7 +10,7 @@ This document covers new or evolved C++11 STL concepts, with simple explanations
 ```cpp
 #include <array> std::array<int, 5> arr = {1, 2, 3, 4, 5};
 ```
-**Example**: [array.cpp](../examples/C++11/array.cpp)
+**Example**: [array.cpp](../../examples/C++11/array.cpp)
 
 ### std::forward_list (C++11 Addition)
 **Explanation**: Singly-linked list for efficient insertions at the front.  
@@ -19,7 +19,7 @@ This document covers new or evolved C++11 STL concepts, with simple explanations
 ```cpp
 #include <forward_list> std::forward_list<int> flist = {1, 2, 3};
 ```
-**Example**: [forward_list.cpp](../examples/C++11/forward_list.cpp)
+**Example**: [forward_list.cpp](../../examples/C++11/forward_list.cpp)
 
 ### std::unordered_set (C++11 Addition)
 **Explanation**: Hash-based container for unique elements, offering O(1) lookup.  
@@ -28,7 +28,7 @@ This document covers new or evolved C++11 STL concepts, with simple explanations
 ```cpp
 #include <unordered_set> std::unordered_set<int> uset = {1, 2, 3};
 ```
-**Example**: [unordered_set.cpp](../examples/C++11/unordered_set.cpp)
+**Example**: [unordered_set.cpp](../../examples/C++11/unordered_set.cpp)
 
 ### std::unordered_multiset (C++11 Addition)
 **Explanation**: Hash-based container allowing duplicate elements.  
@@ -37,7 +37,7 @@ This document covers new or evolved C++11 STL concepts, with simple explanations
 ```cpp
 #include <unordered_set> std::unordered_multiset<int> umset = {1, 1, 2};
 ```
-**Example**: [unordered_multiset.cpp](../examples/C++11/unordered_multiset.cpp)
+**Example**: [unordered_multiset.cpp](../../examples/C++11/unordered_multiset.cpp)
 
 ### std::unordered_map (C++11 Addition)
 **Explanation**: Hash-based key-value pairs with unique keys, O(1) lookup.  
@@ -46,7 +46,7 @@ This document covers new or evolved C++11 STL concepts, with simple explanations
 ```cpp
 #include <unordered_map> std::unordered_map<int, std::string> umap = {{1, "A"}};
 ```
-**Example**: [unordered_map.cpp](../examples/C++11/unordered_map.cpp)
+**Example**: [unordered_map.cpp](../../examples/C++11/unordered_map.cpp)
 
 ### std::unordered_multimap (C++11 Addition)
 **Explanation**: Hash-based key-value pairs allowing duplicate keys.  
@@ -55,7 +55,7 @@ This document covers new or evolved C++11 STL concepts, with simple explanations
 ```cpp
 #include <unordered_map> std::unordered_multimap<int, std::string> ummap = {{1, "A"}};
 ```
-**Example**: [unordered_multimap.cpp](../examples/C++11/unordered_multimap.cpp)
+**Example**: [unordered_multimap.cpp](../../examples/C++11/unordered_multimap.cpp)
 
 ### std::vector (C++11 Evolution)
 **Explanation**: Dynamic array, now supports move semantics and `emplace_back`.  
@@ -64,7 +64,7 @@ This document covers new or evolved C++11 STL concepts, with simple explanations
 ```cpp
 #include <vector> std::vector<int> vec; vec.emplace_back(1);
 ```
-**Example**: [vector.cpp](../examples/C++11/vector.cpp)
+**Example**: [vector.cpp](../../examples/C++11/vector.cpp)
 
 ### std::list (C++11 Evolution)
 **Explanation**: Doubly-linked list, supports move semantics and `emplace`.  
@@ -73,7 +73,7 @@ This document covers new or evolved C++11 STL concepts, with simple explanations
 ```cpp
 #include <list> std::list<int> lst; lst.emplace_front(1);
 ```
-**Example**: [list.cpp](../examples/C++11/list.cpp)
+**Example**: [list.cpp](../../examples/C++11/list.cpp)
 
 ### std::deque (C++11 Evolution)
 **Explanation**: Double-ended queue, supports move semantics and `emplace`.  
@@ -82,7 +82,7 @@ This document covers new or evolved C++11 STL concepts, with simple explanations
 ```cpp
 #include <deque> std::deque<int> dq; dq.emplace_back(1);
 ```
-**Example**: [deque.cpp](../examples/C++11/deque.cpp)
+**Example**: [deque.cpp](../../examples/C++11/deque.cpp)
 
 ### std::set (C++11 Evolution)
 **Explanation**: Sorted unique elements, supports move semantics and `emplace`.  
@@ -91,7 +91,7 @@ This document covers new or evolved C++11 STL concepts, with simple explanations
 ```cpp
 #include <set> std::set<int> s; s.emplace(1);
 ```
-**Example**: [set.cpp](../examples/C++11/set.cpp)
+**Example**: [set.cpp](../../examples/C++11/set.cpp)
 
 ### std::map (C++11 Evolution)
 **Explanation**: Sorted key-value pairs, supports move semantics and `emplace`.  
@@ -100,7 +100,7 @@ This document covers new or evolved C++11 STL concepts, with simple explanations
 ```cpp
 #include <map> std::map<int, std::string> m; m.emplace(1, "A");
 ```
-**Example**: [map.cpp](../examples/C++11/map.cpp)
+**Example**: [map.cpp](../../examples/C++11/map.cpp)
 
 ### std::multiset (C++11 Evolution)
 **Explanation**: Sorted collection with duplicates, supports move semantics and `emplace`.  
@@ -109,7 +109,7 @@ This document covers new or evolved C++11 STL concepts, with simple explanations
 ```cpp
 #include <multiset> std::multiset<int> ms; ms.emplace(1);
 ```
-**Example**: [multiset.cpp](../examples/C++11/multiset.cpp)
+**Example**: [multiset.cpp](../../examples/C++11/multiset.cpp)
 
 ### std::multimap (C++11 Evolution)
 **Explanation**: Sorted key-value pairs with duplicates, supports move semantics and `emplace`.  
@@ -118,7 +118,7 @@ This document covers new or evolved C++11 STL concepts, with simple explanations
 ```cpp
 #include <map> std::multimap<int, std::string> mm; mm.emplace(1, "A");
 ```
-**Example**: [multimap.cpp](../examples/C++11/multimap.cpp)
+**Example**: [multimap.cpp](../../examples/C++11/multimap.cpp)
 
 ### std::stack (C++11 Evolution)
 **Explanation**: LIFO container adaptor, supports move semantics and `emplace`.  
@@ -127,7 +127,7 @@ This document covers new or evolved C++11 STL concepts, with simple explanations
 ```cpp
 #include <stack> std::stack<int> stk; stk.emplace(1);
 ```
-**Example**: [stack.cpp](../examples/C++11/stack.cpp)
+**Example**: [stack.cpp](../../examples/C++11/stack.cpp)
 
 ### std::queue (C++11 Evolution)
 **Explanation**: FIFO container adaptor, supports move semantics and `emplace`.  
@@ -136,7 +136,7 @@ This document covers new or evolved C++11 STL concepts, with simple explanations
 ```cpp
 #include <queue> std::queue<int> q; q.emplace(1);
 ```
-**Example**: [queue.cpp](../examples/C++11/queue.cpp)
+**Example**: [queue.cpp](../../examples/C++11/queue.cpp)
 
 ### std::priority_queue (C++11 Evolution)
 **Explanation**: Queue with largest element at top, supports move semantics and `emplace`.  
@@ -145,7 +145,7 @@ This document covers new or evolved C++11 STL concepts, with simple explanations
 ```cpp
 #include <queue> std::priority_queue<int> pq; pq.emplace(1);
 ```
-**Example**: [priority_queue.cpp](../examples/C++11/priority_queue.cpp)
+**Example**: [priority_queue.cpp](../../examples/C++11/priority_queue.cpp)
 
 ## Container Improvements
 ### Emplace Operations (C++11 Addition)
@@ -161,7 +161,7 @@ records.emplace_back("Alice", 1); // constructed in-place
 std::map<int, std::string> m;
 m.emplace(1, "value"); // constructed in-place
 ```
-**Example**: [emplace_operations.cpp](../examples/C++11/emplace_operations.cpp)
+**Example**: [emplace_operations.cpp](../../examples/C++11/emplace_operations.cpp)
 
 ### initializer_list Support (C++11 Addition)
 **Explanation**: All standard containers now accept `std::initializer_list` for construction and assignment, enabling clean brace-enclosed initialization syntax.
@@ -173,7 +173,7 @@ m.emplace(1, "value"); // constructed in-place
 std::vector<int> codes = {200, 301, 404, 500};
 std::set<std::string> methods = {"GET", "POST", "PUT", "DELETE"};
 ```
-**Example**: [initializer_list_support.cpp](../examples/C++11/initializer_list_support.cpp)
+**Example**: [initializer_list_support.cpp](../../examples/C++11/initializer_list_support.cpp)
 
 ## Iterators
 ### std::begin/end (C++11 Addition)
@@ -186,7 +186,7 @@ int arr[] = {1, 2, 3};
 auto first = std::begin(arr);
 auto last = std::end(arr);
 ```
-**Example**: [begin_end.cpp](../examples/C++11/begin_end.cpp)
+**Example**: [begin_end.cpp](../../examples/C++11/begin_end.cpp)
 
 ### std::cbegin/cend (C++11 Addition)
 **Explanation**: Free functions returning const iterators, guaranteeing read-only access to container elements.
@@ -198,7 +198,7 @@ auto last = std::end(arr);
 std::vector<int> v = {1, 2, 3};
 auto it = std::cbegin(v); // const_iterator
 ```
-**Example**: [cbegin_cend.cpp](../examples/C++11/cbegin_cend.cpp)
+**Example**: [cbegin_cend.cpp](../../examples/C++11/cbegin_cend.cpp)
 
 ### std::rbegin/rend (C++11 Addition)
 **Explanation**: Free functions returning reverse iterators, enabling reverse traversal of containers and arrays uniformly.
@@ -210,7 +210,7 @@ auto it = std::cbegin(v); // const_iterator
 std::vector<int> v = {1, 2, 3};
 for (auto it = std::rbegin(v); it != std::rend(v); ++it) {}
 ```
-**Example**: [rbegin_rend.cpp](../examples/C++11/rbegin_rend.cpp)
+**Example**: [rbegin_rend.cpp](../../examples/C++11/rbegin_rend.cpp)
 
 ### std::crbegin/crend (C++11 Addition)
 **Explanation**: Free functions returning const reverse iterators, combining read-only access with reverse traversal.
@@ -222,7 +222,7 @@ for (auto it = std::rbegin(v); it != std::rend(v); ++it) {}
 std::vector<int> v = {1, 2, 3};
 auto it = std::crbegin(v); // const_reverse_iterator
 ```
-**Example**: [crbegin_crend.cpp](../examples/C++11/crbegin_crend.cpp)
+**Example**: [crbegin_crend.cpp](../../examples/C++11/crbegin_crend.cpp)
 
 ### std::move_iterator (C++11 Addition)
 **Explanation**: An iterator adaptor that dereferences to an rvalue reference, enabling move semantics when copying ranges of elements.
@@ -236,7 +236,7 @@ std::vector<std::string> src = {"hello", "world"};
 std::vector<std::string> dst(std::make_move_iterator(src.begin()),
                              std::make_move_iterator(src.end()));
 ```
-**Example**: [move_iterator.cpp](../examples/C++11/move_iterator.cpp)
+**Example**: [move_iterator.cpp](../../examples/C++11/move_iterator.cpp)
 
 ## Algorithms
 ### std::all_of (C++11 Addition)
@@ -246,7 +246,7 @@ std::vector<std::string> dst(std::make_move_iterator(src.begin()),
 ```cpp
 #include <algorithm> std::all_of(vec.begin(), vec.end(), isPositive);
 ```
-**Example**: [all_of.cpp](../examples/C++11/all_of.cpp)
+**Example**: [all_of.cpp](../../examples/C++11/all_of.cpp)
 
 ### std::any_of (C++11 Addition)
 **Explanation**: Checks if any element in a range satisfies a predicate.  
@@ -255,7 +255,7 @@ std::vector<std::string> dst(std::make_move_iterator(src.begin()),
 ```cpp
 #include <algorithm> std::any_of(vec.begin(), vec.end(), isInvalid);
 ```
-**Example**: [any_of.cpp](../examples/C++11/any_of.cpp)
+**Example**: [any_of.cpp](../../examples/C++11/any_of.cpp)
 
 ### std::none_of (C++11 Addition)
 **Explanation**: Checks if no elements in a range satisfy a predicate.  
@@ -264,7 +264,7 @@ std::vector<std::string> dst(std::make_move_iterator(src.begin()),
 ```cpp
 #include <algorithm> std::none_of(vec.begin(), vec.end(), isOverdue);
 ```
-**Example**: [none_of.cpp](../examples/C++11/none_of.cpp)
+**Example**: [none_of.cpp](../../examples/C++11/none_of.cpp)
 
 ### std::find_if_not (C++11 Addition)
 **Explanation**: Finds the first element not satisfying a predicate.  
@@ -273,7 +273,7 @@ std::vector<std::string> dst(std::make_move_iterator(src.begin()),
 ```cpp
 #include <algorithm> std::find_if_not(vec.begin(), vec.end(), isCompleted);
 ```
-**Example**: [find_if_not.cpp](../examples/C++11/find_if_not.cpp)
+**Example**: [find_if_not.cpp](../../examples/C++11/find_if_not.cpp)
 
 ### std::copy_if (C++11 Addition)
 **Explanation**: Copies elements satisfying a predicate to a destination.  
@@ -282,7 +282,7 @@ std::vector<std::string> dst(std::make_move_iterator(src.begin()),
 ```cpp
 #include <algorithm> std::copy_if(vec.begin(), vec.end(), dest.begin(), isValid);
 ```
-**Example**: [copy_if.cpp](../examples/C++11/copy_if.cpp)
+**Example**: [copy_if.cpp](../../examples/C++11/copy_if.cpp)
 
 ### std::copy_n (C++11 Addition)
 **Explanation**: Copies n elements from a range to a destination.  
@@ -291,7 +291,7 @@ std::vector<std::string> dst(std::make_move_iterator(src.begin()),
 ```cpp
 #include <algorithm> std::copy_n(vec.begin(), 5, dest.begin());
 ```
-**Example**: [copy_n.cpp](../examples/C++11/copy_n.cpp)
+**Example**: [copy_n.cpp](../../examples/C++11/copy_n.cpp)
 
 ### std::move (Algorithm, C++11 Evolution)
 **Explanation**: Moves elements to a destination, leveraging move semantics.  
@@ -300,7 +300,7 @@ std::vector<std::string> dst(std::make_move_iterator(src.begin()),
 ```cpp
 #include <algorithm> std::move(vec.begin(), vec.end(), dest.begin());
 ```
-**Example**: [move_algorithm.cpp](../examples/C++11/move_algorithm.cpp)
+**Example**: [move_algorithm.cpp](../../examples/C++11/move_algorithm.cpp)
 
 ### std::move_backward (C++11 Evolution)
 **Explanation**: Moves elements in reverse order, leveraging move semantics.  
@@ -309,7 +309,7 @@ std::vector<std::string> dst(std::make_move_iterator(src.begin()),
 ```cpp
 #include <algorithm> std::move_backward(vec.begin(), vec.end(), dest.end());
 ```
-**Example**: [move_backward.cpp](../examples/C++11/move_backward.cpp)
+**Example**: [move_backward.cpp](../../examples/C++11/move_backward.cpp)
 
 ### std::is_sorted (C++11 Addition)
 **Explanation**: Checks if a range is sorted.  
@@ -318,7 +318,7 @@ std::vector<std::string> dst(std::make_move_iterator(src.begin()),
 ```cpp
 #include <algorithm> std::is_sorted(vec.begin(), vec.end());
 ```
-**Example**: [is_sorted.cpp](../examples/C++11/is_sorted.cpp)
+**Example**: [is_sorted.cpp](../../examples/C++11/is_sorted.cpp)
 
 ### std::is_sorted_until (C++11 Addition)
 **Explanation**: Finds the first unsorted element in a range.  
@@ -327,7 +327,7 @@ std::vector<std::string> dst(std::make_move_iterator(src.begin()),
 ```cpp
 #include <algorithm> std::is_sorted_until(vec.begin(), vec.end());
 ```
-**Example**: [is_sorted_until.cpp](../examples/C++11/is_sorted_until.cpp)
+**Example**: [is_sorted_until.cpp](../../examples/C++11/is_sorted_until.cpp)
 
 ### std::partition_copy (C++11 Addition)
 **Explanation**: Copies elements to two destinations based on a predicate.  
@@ -336,7 +336,7 @@ std::vector<std::string> dst(std::make_move_iterator(src.begin()),
 ```cpp
 #include <algorithm> std::partition_copy(vec.begin(), vec.end(), dest1.begin(), dest2.begin(), isCompleted);
 ```
-**Example**: [partition_copy.cpp](../examples/C++11/partition_copy.cpp)
+**Example**: [partition_copy.cpp](../../examples/C++11/partition_copy.cpp)
 
 ### std::partition_point (C++11 Addition)
 **Explanation**: Finds the partition point in a partitioned range.  
@@ -345,7 +345,7 @@ std::vector<std::string> dst(std::make_move_iterator(src.begin()),
 ```cpp
 #include <algorithm> std::partition_point(vec.begin(), vec.end(), isCompleted);
 ```
-**Example**: [partition_point.cpp](../examples/C++11/partition_point.cpp)
+**Example**: [partition_point.cpp](../../examples/C++11/partition_point.cpp)
 
 ### std::shuffle (C++11 Addition)
 **Explanation**: Randomly shuffles elements in a range using a random engine.  
@@ -354,7 +354,7 @@ std::vector<std::string> dst(std::make_move_iterator(src.begin()),
 ```cpp
 #include <algorithm> #include <random> std::shuffle(vec.begin(), vec.end(), std::default_random_engine());
 ```
-**Example**: [shuffle.cpp](../examples/C++11/shuffle.cpp)
+**Example**: [shuffle.cpp](../../examples/C++11/shuffle.cpp)
 
 ### std::minmax (C++11 Addition)
 **Explanation**: Returns both minimum and maximum of two values.  
@@ -363,7 +363,7 @@ std::vector<std::string> dst(std::make_move_iterator(src.begin()),
 ```cpp
 #include <algorithm> auto [min, max] = std::minmax(a, b);
 ```
-**Example**: [minmax.cpp](../examples/C++11/minmax.cpp)
+**Example**: [minmax.cpp](../../examples/C++11/minmax.cpp)
 
 ### std::minmax_element (C++11 Addition)
 **Explanation**: Finds both minimum and maximum elements in a range.  
@@ -372,7 +372,7 @@ std::vector<std::string> dst(std::make_move_iterator(src.begin()),
 ```cpp
 #include <algorithm> auto [min, max] = std::minmax_element(vec.begin(), vec.end());
 ```
-**Example**: [minmax_element.cpp](../examples/C++11/minmax_element.cpp)
+**Example**: [minmax_element.cpp](../../examples/C++11/minmax_element.cpp)
 
 ### std::is_permutation (C++11 Addition)
 **Explanation**: Checks if one range is a permutation of another, meaning both contain the same elements regardless of order.
@@ -384,7 +384,7 @@ std::vector<int> a = {1, 2, 3};
 std::vector<int> b = {3, 1, 2};
 bool same = std::is_permutation(a.begin(), a.end(), b.begin()); // true
 ```
-**Example**: [is_permutation.cpp](../examples/C++11/is_permutation.cpp)
+**Example**: [is_permutation.cpp](../../examples/C++11/is_permutation.cpp)
 
 ### std::is_heap (C++11 Addition)
 **Explanation**: Checks if a range forms a valid max-heap, useful for verifying heap invariants before performing heap operations.
@@ -395,7 +395,7 @@ bool same = std::is_permutation(a.begin(), a.end(), b.begin()); // true
 std::vector<int> v = {9, 5, 4, 1, 3};
 bool valid = std::is_heap(v.begin(), v.end()); // true
 ```
-**Example**: [is_heap.cpp](../examples/C++11/is_heap.cpp)
+**Example**: [is_heap.cpp](../../examples/C++11/is_heap.cpp)
 
 ### std::is_heap_until (C++11 Addition)
 **Explanation**: Returns an iterator to the first element that violates the heap property, helping identify where a heap becomes invalid.
@@ -406,7 +406,7 @@ bool valid = std::is_heap(v.begin(), v.end()); // true
 std::vector<int> v = {9, 5, 4, 1, 8};
 auto it = std::is_heap_until(v.begin(), v.end()); // points to 8
 ```
-**Example**: [is_heap_until.cpp](../examples/C++11/is_heap_until.cpp)
+**Example**: [is_heap_until.cpp](../../examples/C++11/is_heap_until.cpp)
 
 ### std::iota (C++11 Addition)
 **Explanation**: Fills a range with sequentially increasing values starting from a given value, provided by the `<numeric>` header.
@@ -417,7 +417,7 @@ auto it = std::is_heap_until(v.begin(), v.end()); // points to 8
 std::vector<int> v(10);
 std::iota(v.begin(), v.end(), 1); // {1, 2, 3, ..., 10}
 ```
-**Example**: [iota.cpp](../examples/C++11/iota.cpp)
+**Example**: [iota.cpp](../../examples/C++11/iota.cpp)
 
 ## Function Objects
 ### std::function (C++11 Addition)
@@ -429,7 +429,7 @@ std::iota(v.begin(), v.end(), 1); // {1, 2, 3, ..., 10}
 std::function<int(int, int)> op = [](int a, int b) { return a + b; };
 int result = op(3, 4); // 7
 ```
-**Example**: [function.cpp](../examples/C++11/function.cpp)
+**Example**: [function.cpp](../../examples/C++11/function.cpp)
 
 ### std::bind (C++11 Addition)
 **Explanation**: Creates a new callable by binding arguments to a function, enabling partial application and argument reordering using placeholders.
@@ -441,7 +441,7 @@ void log(const std::string& level, const std::string& msg) {}
 auto warn = std::bind(log, "WARN", std::placeholders::_1);
 warn("Disk space low"); // calls log("WARN", "Disk space low")
 ```
-**Example**: [bind.cpp](../examples/C++11/bind.cpp)
+**Example**: [bind.cpp](../../examples/C++11/bind.cpp)
 
 ### std::ref/cref (C++11 Addition)
 **Explanation**: Creates `std::reference_wrapper` objects that allow passing references through interfaces that normally copy their arguments, such as `std::bind` and `std::thread`.
@@ -454,7 +454,7 @@ int x = 5;
 auto bound = std::bind(process, std::ref(x));
 bound(); // x is now 15
 ```
-**Example**: [ref_cref.cpp](../examples/C++11/ref_cref.cpp)
+**Example**: [ref_cref.cpp](../../examples/C++11/ref_cref.cpp)
 
 ### std::mem_fn (C++11 Addition)
 **Explanation**: Creates a callable wrapper from a pointer to a member function, simplifying its use with standard algorithms and function objects.
@@ -468,7 +468,7 @@ struct Widget { void activate() {} };
 std::vector<Widget> widgets(5);
 std::for_each(widgets.begin(), widgets.end(), std::mem_fn(&Widget::activate));
 ```
-**Example**: [mem_fn.cpp](../examples/C++11/mem_fn.cpp)
+**Example**: [mem_fn.cpp](../../examples/C++11/mem_fn.cpp)
 
 ## Type Traits
 ### std::is_integral (C++11 Addition)
@@ -480,7 +480,7 @@ std::for_each(widgets.begin(), widgets.end(), std::mem_fn(&Widget::activate));
 static_assert(std::is_integral<int>::value, "int is integral");
 static_assert(!std::is_integral<double>::value, "double is not integral");
 ```
-**Example**: [is_integral.cpp](../examples/C++11/is_integral.cpp)
+**Example**: [is_integral.cpp](../../examples/C++11/is_integral.cpp)
 
 ### std::is_floating_point (C++11 Addition)
 **Explanation**: Compile-time check that determines whether a type is a floating-point type (float, double, long double).
@@ -490,7 +490,7 @@ static_assert(!std::is_integral<double>::value, "double is not integral");
 #include <type_traits>
 static_assert(std::is_floating_point<double>::value, "double is floating point");
 ```
-**Example**: [is_floating_point.cpp](../examples/C++11/is_floating_point.cpp)
+**Example**: [is_floating_point.cpp](../../examples/C++11/is_floating_point.cpp)
 
 ### std::is_pointer (C++11 Addition)
 **Explanation**: Compile-time check that determines whether a type is a pointer type.
@@ -501,7 +501,7 @@ static_assert(std::is_floating_point<double>::value, "double is floating point")
 static_assert(std::is_pointer<int*>::value, "int* is a pointer");
 static_assert(!std::is_pointer<int>::value, "int is not a pointer");
 ```
-**Example**: [is_pointer.cpp](../examples/C++11/is_pointer.cpp)
+**Example**: [is_pointer.cpp](../../examples/C++11/is_pointer.cpp)
 
 ### std::is_array (C++11 Addition)
 **Explanation**: Compile-time check that determines whether a type is a C-style array type.
@@ -512,7 +512,7 @@ static_assert(!std::is_pointer<int>::value, "int is not a pointer");
 static_assert(std::is_array<int[5]>::value, "int[5] is an array");
 static_assert(!std::is_array<std::array<int,5>>::value, "std::array is not a C array");
 ```
-**Example**: [is_array.cpp](../examples/C++11/is_array.cpp)
+**Example**: [is_array.cpp](../../examples/C++11/is_array.cpp)
 
 ### std::is_class (C++11 Addition)
 **Explanation**: Compile-time check that determines whether a type is a class or struct (but not a union).
@@ -523,7 +523,7 @@ static_assert(!std::is_array<std::array<int,5>>::value, "std::array is not a C a
 struct Foo {};
 static_assert(std::is_class<Foo>::value, "Foo is a class");
 ```
-**Example**: [is_class.cpp](../examples/C++11/is_class.cpp)
+**Example**: [is_class.cpp](../../examples/C++11/is_class.cpp)
 
 ### std::is_enum (C++11 Addition)
 **Explanation**: Compile-time check that determines whether a type is an enumeration type.
@@ -534,7 +534,7 @@ static_assert(std::is_class<Foo>::value, "Foo is a class");
 enum Color { Red, Green, Blue };
 static_assert(std::is_enum<Color>::value, "Color is an enum");
 ```
-**Example**: [is_enum.cpp](../examples/C++11/is_enum.cpp)
+**Example**: [is_enum.cpp](../../examples/C++11/is_enum.cpp)
 
 ### std::is_void (C++11 Addition)
 **Explanation**: Compile-time check that determines whether a type is `void`.
@@ -544,7 +544,7 @@ static_assert(std::is_enum<Color>::value, "Color is an enum");
 #include <type_traits>
 static_assert(std::is_void<void>::value, "void is void");
 ```
-**Example**: [is_void.cpp](../examples/C++11/is_void.cpp)
+**Example**: [is_void.cpp](../../examples/C++11/is_void.cpp)
 
 ### std::is_same (C++11 Addition)
 **Explanation**: Compile-time check that determines whether two types are exactly the same.
@@ -555,7 +555,7 @@ static_assert(std::is_void<void>::value, "void is void");
 static_assert(std::is_same<int, int>::value, "same types");
 static_assert(!std::is_same<int, long>::value, "different types");
 ```
-**Example**: [is_same.cpp](../examples/C++11/is_same.cpp)
+**Example**: [is_same.cpp](../../examples/C++11/is_same.cpp)
 
 ### std::is_base_of (C++11 Addition)
 **Explanation**: Compile-time check that determines whether one class is a base of another, enabling compile-time inheritance validation.
@@ -567,7 +567,7 @@ class Base {};
 class Derived : public Base {};
 static_assert(std::is_base_of<Base, Derived>::value, "Derived inherits from Base");
 ```
-**Example**: [is_base_of.cpp](../examples/C++11/is_base_of.cpp)
+**Example**: [is_base_of.cpp](../../examples/C++11/is_base_of.cpp)
 
 ### std::is_convertible (C++11 Addition)
 **Explanation**: Compile-time check that determines whether one type is implicitly convertible to another.
@@ -577,7 +577,7 @@ static_assert(std::is_base_of<Base, Derived>::value, "Derived inherits from Base
 #include <type_traits>
 static_assert(std::is_convertible<int, double>::value, "int converts to double");
 ```
-**Example**: [is_convertible.cpp](../examples/C++11/is_convertible.cpp)
+**Example**: [is_convertible.cpp](../../examples/C++11/is_convertible.cpp)
 
 ### std::is_trivially_copyable (C++11 Addition)
 **Explanation**: Compile-time check that determines whether a type can be safely copied with `memcpy`, important for low-level optimizations and serialization.
@@ -588,7 +588,7 @@ static_assert(std::is_convertible<int, double>::value, "int converts to double")
 struct Pod { int x; float y; };
 static_assert(std::is_trivially_copyable<Pod>::value, "Pod is trivially copyable");
 ```
-**Example**: [is_trivially_copyable.cpp](../examples/C++11/is_trivially_copyable.cpp)
+**Example**: [is_trivially_copyable.cpp](../../examples/C++11/is_trivially_copyable.cpp)
 
 ### std::is_trivially_constructible (C++11 Addition)
 **Explanation**: Compile-time check that determines whether a type can be trivially constructed, meaning no user-defined constructor logic runs.
@@ -598,7 +598,7 @@ static_assert(std::is_trivially_copyable<Pod>::value, "Pod is trivially copyable
 #include <type_traits>
 static_assert(std::is_trivially_constructible<int>::value, "int is trivially constructible");
 ```
-**Example**: [is_trivially_constructible.cpp](../examples/C++11/is_trivially_constructible.cpp)
+**Example**: [is_trivially_constructible.cpp](../../examples/C++11/is_trivially_constructible.cpp)
 
 ### std::is_trivially_destructible (C++11 Addition)
 **Explanation**: Compile-time check that determines whether a type has a trivial destructor, meaning no cleanup logic runs on destruction.
@@ -608,7 +608,7 @@ static_assert(std::is_trivially_constructible<int>::value, "int is trivially con
 #include <type_traits>
 static_assert(std::is_trivially_destructible<int>::value, "int is trivially destructible");
 ```
-**Example**: [is_trivially_destructible.cpp](../examples/C++11/is_trivially_destructible.cpp)
+**Example**: [is_trivially_destructible.cpp](../../examples/C++11/is_trivially_destructible.cpp)
 
 ### std::is_standard_layout (C++11 Addition)
 **Explanation**: Compile-time check that determines whether a type has a standard memory layout compatible with C structs.
@@ -619,7 +619,7 @@ static_assert(std::is_trivially_destructible<int>::value, "int is trivially dest
 struct CCompatible { int x; float y; };
 static_assert(std::is_standard_layout<CCompatible>::value, "C-compatible layout");
 ```
-**Example**: [is_standard_layout.cpp](../examples/C++11/is_standard_layout.cpp)
+**Example**: [is_standard_layout.cpp](../../examples/C++11/is_standard_layout.cpp)
 
 ### std::is_pod (C++11 Addition)
 **Explanation**: Compile-time check that determines whether a type is a Plain Old Data type (both trivial and standard layout), safe for `memcpy` and C interop.
@@ -630,7 +630,7 @@ static_assert(std::is_standard_layout<CCompatible>::value, "C-compatible layout"
 struct Packet { int id; char data[256]; };
 static_assert(std::is_pod<Packet>::value, "Packet is POD");
 ```
-**Example**: [is_pod.cpp](../examples/C++11/is_pod.cpp)
+**Example**: [is_pod.cpp](../../examples/C++11/is_pod.cpp)
 
 ### std::integral_constant, true_type, false_type (C++11 Addition)
 **Explanation**: `integral_constant` wraps a compile-time constant value as a type. `true_type` and `false_type` are convenient aliases for `integral_constant<bool, true>` and `integral_constant<bool, false>`, forming the foundation for all type traits.
@@ -644,7 +644,7 @@ template<>
 struct is_my_type<int> : std::true_type {};
 static_assert(is_my_type<int>::value, "int is my type");
 ```
-**Example**: [integral_constant.cpp](../examples/C++11/integral_constant.cpp)
+**Example**: [integral_constant.cpp](../../examples/C++11/integral_constant.cpp)
 
 ### std::enable_if (C++11 Addition)
 **Explanation**: A SFINAE utility that conditionally enables or disables template overloads based on a compile-time boolean condition, providing fine-grained control over overload resolution.
@@ -655,7 +655,7 @@ static_assert(is_my_type<int>::value, "int is my type");
 template<typename T, typename = std::enable_if_t<std::is_integral<T>::value>>
 T double_value(T x) { return x * 2; }
 ```
-**Example**: [enable_if.cpp](../examples/C++11/enable_if.cpp)
+**Example**: [enable_if.cpp](../../examples/C++11/enable_if.cpp)
 
 ### std::conditional (C++11 Addition)
 **Explanation**: A compile-time type selector that chooses between two types based on a boolean condition, similar to the ternary operator but for types.
@@ -665,7 +665,7 @@ T double_value(T x) { return x * 2; }
 #include <type_traits>
 using type = std::conditional<sizeof(int) >= 4, int, long>::type;
 ```
-**Example**: [conditional.cpp](../examples/C++11/conditional.cpp)
+**Example**: [conditional.cpp](../../examples/C++11/conditional.cpp)
 
 ### std::common_type (C++11 Addition)
 **Explanation**: Deduces the common type to which all given types can be implicitly converted, essential for writing generic arithmetic functions.
@@ -675,7 +675,7 @@ using type = std::conditional<sizeof(int) >= 4, int, long>::type;
 #include <type_traits>
 using T = std::common_type<int, double>::type; // double
 ```
-**Example**: [common_type.cpp](../examples/C++11/common_type.cpp)
+**Example**: [common_type.cpp](../../examples/C++11/common_type.cpp)
 
 ### std::result_of (C++11 Addition)
 **Explanation**: Deduces the return type of invoking a callable with given argument types, enabling generic wrapper functions.
@@ -686,7 +686,7 @@ using T = std::common_type<int, double>::type; // double
 int func(double);
 using R = std::result_of<decltype(func)&(double)>::type; // int
 ```
-**Example**: [result_of.cpp](../examples/C++11/result_of.cpp)
+**Example**: [result_of.cpp](../../examples/C++11/result_of.cpp)
 
 ### std::underlying_type (C++11 Addition)
 **Explanation**: Retrieves the underlying integer type of an enumeration, useful for serialization and bitwise operations on enum class values.
@@ -697,7 +697,7 @@ using R = std::result_of<decltype(func)&(double)>::type; // int
 enum class Color : uint8_t { Red, Green, Blue };
 using U = std::underlying_type<Color>::type; // uint8_t
 ```
-**Example**: [underlying_type.cpp](../examples/C++11/underlying_type.cpp)
+**Example**: [underlying_type.cpp](../../examples/C++11/underlying_type.cpp)
 
 ### std::remove_reference (C++11 Addition)
 **Explanation**: Removes reference qualifiers from a type, producing the underlying value type. Fundamental to implementing perfect forwarding.
@@ -708,7 +708,7 @@ using U = std::underlying_type<Color>::type; // uint8_t
 using T = std::remove_reference<int&>::type; // int
 using U = std::remove_reference<int&&>::type; // int
 ```
-**Example**: [remove_reference.cpp](../examples/C++11/remove_reference.cpp)
+**Example**: [remove_reference.cpp](../../examples/C++11/remove_reference.cpp)
 
 ### std::remove_cv/remove_const/remove_volatile (C++11 Addition)
 **Explanation**: Removes `const` and/or `volatile` qualifiers from a type, enabling uniform type comparisons and transformations regardless of cv-qualification.
@@ -719,7 +719,7 @@ using U = std::remove_reference<int&&>::type; // int
 using T = std::remove_const<const int>::type; // int
 using U = std::remove_cv<const volatile int>::type; // int
 ```
-**Example**: [remove_cv.cpp](../examples/C++11/remove_cv.cpp)
+**Example**: [remove_cv.cpp](../../examples/C++11/remove_cv.cpp)
 
 ### std::add_lvalue_reference/add_rvalue_reference (C++11 Addition)
 **Explanation**: Adds lvalue or rvalue reference qualifiers to a type, useful for building reference-manipulating metafunctions.
@@ -730,7 +730,7 @@ using U = std::remove_cv<const volatile int>::type; // int
 using LRef = std::add_lvalue_reference<int>::type; // int&
 using RRef = std::add_rvalue_reference<int>::type; // int&&
 ```
-**Example**: [add_reference.cpp](../examples/C++11/add_reference.cpp)
+**Example**: [add_reference.cpp](../../examples/C++11/add_reference.cpp)
 
 ### std::make_signed/make_unsigned (C++11 Addition)
 **Explanation**: Converts an integral type to its signed or unsigned counterpart while preserving size, enabling safe conversions in generic code.
@@ -741,7 +741,7 @@ using RRef = std::add_rvalue_reference<int>::type; // int&&
 using S = std::make_signed<unsigned int>::type; // int
 using U = std::make_unsigned<int>::type; // unsigned int
 ```
-**Example**: [make_signed_unsigned.cpp](../examples/C++11/make_signed_unsigned.cpp)
+**Example**: [make_signed_unsigned.cpp](../../examples/C++11/make_signed_unsigned.cpp)
 
 ### std::decay (C++11 Addition)
 **Explanation**: Applies the type transformations that occur when passing by value: removes references, removes cv-qualifiers, and converts arrays and functions to pointers.
@@ -752,7 +752,7 @@ using U = std::make_unsigned<int>::type; // unsigned int
 using T = std::decay<const int&>::type; // int
 using U = std::decay<int[5]>::type; // int*
 ```
-**Example**: [decay.cpp](../examples/C++11/decay.cpp)
+**Example**: [decay.cpp](../../examples/C++11/decay.cpp)
 
 ### std::aligned_storage (C++11 Addition)
 **Explanation**: Provides a type suitable for use as uninitialized storage for an object of a given size and alignment, enabling manual object lifetime management.
@@ -763,7 +763,7 @@ using U = std::decay<int[5]>::type; // int*
 std::aligned_storage<sizeof(int), alignof(int)>::type storage;
 int* p = new (&storage) int(42); // placement new
 ```
-**Example**: [aligned_storage.cpp](../examples/C++11/aligned_storage.cpp)
+**Example**: [aligned_storage.cpp](../../examples/C++11/aligned_storage.cpp)
 
 ### std::aligned_union (C++11 Addition)
 **Explanation**: Provides storage suitable for any of a list of types, with size and alignment sufficient for the largest type. Useful for implementing variant types.
@@ -775,7 +775,7 @@ using Storage = std::aligned_union<0, int, double, std::string>::type;
 Storage s;
 new (&s) double(3.14);
 ```
-**Example**: [aligned_union.cpp](../examples/C++11/aligned_union.cpp)
+**Example**: [aligned_union.cpp](../../examples/C++11/aligned_union.cpp)
 
 ## Hashing
 ### std::hash (C++11 Addition)
@@ -787,7 +787,7 @@ new (&s) double(3.14);
 std::hash<std::string> hasher;
 size_t h = hasher("hello"); // hash value for "hello"
 ```
-**Example**: [hash.cpp](../examples/C++11/hash.cpp)
+**Example**: [hash.cpp](../../examples/C++11/hash.cpp)
 
 ## Error Handling
 ### std::system_error (C++11 Addition)
@@ -798,7 +798,7 @@ size_t h = hasher("hello"); // hash value for "hello"
 #include <system_error>
 throw std::system_error(std::make_error_code(std::errc::no_such_file_or_directory));
 ```
-**Example**: [system_error.cpp](../examples/C++11/system_error.cpp)
+**Example**: [system_error.cpp](../../examples/C++11/system_error.cpp)
 
 ### std::error_code (C++11 Addition)
 **Explanation**: A lightweight, copyable object representing a platform-specific error value and its associated category, designed for efficient error handling without exceptions.
@@ -809,7 +809,7 @@ throw std::system_error(std::make_error_code(std::errc::no_such_file_or_director
 std::error_code ec = std::make_error_code(std::errc::permission_denied);
 if (ec) { /* handle error */ }
 ```
-**Example**: [error_code.cpp](../examples/C++11/error_code.cpp)
+**Example**: [error_code.cpp](../../examples/C++11/error_code.cpp)
 
 ### std::error_category (C++11 Addition)
 **Explanation**: An abstract base class that defines a category of errors, providing error message generation and equivalence comparisons. The standard provides `generic_category()` and `system_category()`.
@@ -820,7 +820,7 @@ if (ec) { /* handle error */ }
 const std::error_category& cat = std::generic_category();
 std::string msg = cat.message(static_cast<int>(std::errc::invalid_argument));
 ```
-**Example**: [error_category.cpp](../examples/C++11/error_category.cpp)
+**Example**: [error_category.cpp](../../examples/C++11/error_category.cpp)
 
 ### std::error_condition (C++11 Addition)
 **Explanation**: A portable error abstraction representing an error condition independent of the originating platform, enabling cross-platform error comparison.
@@ -832,7 +832,7 @@ std::error_condition cond = std::errc::no_such_file_or_directory;
 std::error_code ec = std::make_error_code(std::errc::no_such_file_or_directory);
 bool match = (ec == cond); // true
 ```
-**Example**: [error_condition.cpp](../examples/C++11/error_condition.cpp)
+**Example**: [error_condition.cpp](../../examples/C++11/error_condition.cpp)
 
 ## Utilities
 ### std::tuple (C++11 Addition)
@@ -842,7 +842,7 @@ bool match = (ec == cond); // true
 ```cpp
 #include <tuple> std::tuple<int, std::string> t = {1, "value"};
 ```
-**Example**: [tuple.cpp](../examples/C++11/tuple.cpp)
+**Example**: [tuple.cpp](../../examples/C++11/tuple.cpp)
 
 ### std::tie (C++11 Addition)
 **Explanation**: Unpacks a tuple into individual variables.  
@@ -851,7 +851,7 @@ bool match = (ec == cond); // true
 ```cpp
 #include <tuple> int x; std::string s; std::tie(x, s) = t;
 ```
-**Example**: [tie.cpp](../examples/C++11/tie.cpp)
+**Example**: [tie.cpp](../../examples/C++11/tie.cpp)
 
 ### std::make_pair (C++11 Evolution)
 **Explanation**: Creates a `std::pair`, now supports move semantics and type deduction.
@@ -860,7 +860,7 @@ bool match = (ec == cond); // true
 ```cpp
 #include <utility> auto p = std::make_pair(1, std::string("value"));
 ```
-**Example**: [make_pair.cpp](../examples/C++11/make_pair.cpp)
+**Example**: [make_pair.cpp](../../examples/C++11/make_pair.cpp)
 
 ### std::forward_as_tuple (C++11 Addition)
 **Explanation**: Creates a tuple of references to its arguments, preserving their value categories. Useful for passing groups of arguments through forwarding interfaces.
@@ -874,7 +874,7 @@ m.emplace(std::piecewise_construct,
            std::forward_as_tuple(1),
            std::forward_as_tuple("value"));
 ```
-**Example**: [forward_as_tuple.cpp](../examples/C++11/forward_as_tuple.cpp)
+**Example**: [forward_as_tuple.cpp](../../examples/C++11/forward_as_tuple.cpp)
 
 ### std::piecewise_construct (C++11 Addition)
 **Explanation**: A tag constant used to select the piecewise constructor of `std::pair`, which constructs each element from a separate tuple of arguments.
@@ -889,7 +889,7 @@ m.emplace(std::piecewise_construct,
            std::forward_as_tuple("key"),
            std::forward_as_tuple(10, 'x')); // string(10, 'x')
 ```
-**Example**: [piecewise_construct.cpp](../examples/C++11/piecewise_construct.cpp)
+**Example**: [piecewise_construct.cpp](../../examples/C++11/piecewise_construct.cpp)
 
 ### std::type_index (C++11 Addition)
 **Explanation**: A copyable, hashable wrapper around `std::type_info` that can be used as a key in associative and unordered containers for runtime type identification.
@@ -903,7 +903,7 @@ std::unordered_map<std::type_index, std::string> typeNames;
 typeNames[std::type_index(typeid(int))] = "int";
 typeNames[std::type_index(typeid(double))] = "double";
 ```
-**Example**: [type_index.cpp](../examples/C++11/type_index.cpp)
+**Example**: [type_index.cpp](../../examples/C++11/type_index.cpp)
 
 ## Input/Output
 ### std::to_string (C++11 Addition)
@@ -913,7 +913,7 @@ typeNames[std::type_index(typeid(double))] = "double";
 ```cpp
 #include <string> std::string s = std::to_string(123);
 ```
-**Example**: [to_string.cpp](../examples/C++11/to_string.cpp)
+**Example**: [to_string.cpp](../../examples/C++11/to_string.cpp)
 
 ### std::stoi/stol/stoll (C++11 Addition)
 **Explanation**: Converts strings to integers (signed).  
@@ -922,7 +922,7 @@ typeNames[std::type_index(typeid(double))] = "double";
 ```cpp
 #include <string> int x = std::stoi("123");
 ```
-**Example**: [stoi.cpp](../examples/C++11/stoi.cpp)
+**Example**: [stoi.cpp](../../examples/C++11/stoi.cpp)
 
 ### std::stoul/stoull (C++11 Addition)
 **Explanation**: Converts strings to unsigned integers.  
@@ -931,7 +931,7 @@ typeNames[std::type_index(typeid(double))] = "double";
 ```cpp
 #include <string> unsigned long x = std::stoul("123");
 ```
-**Example**: [stoul.cpp](../examples/C++11/stoul.cpp)
+**Example**: [stoul.cpp](../../examples/C++11/stoul.cpp)
 
 ### std::stof/stod/stold (C++11 Addition)
 **Explanation**: Converts strings to floating-point numbers.  
@@ -940,7 +940,7 @@ typeNames[std::type_index(typeid(double))] = "double";
 ```cpp
 #include <string> double x = std::stod("3.14");
 ```
-**Example**: [stod.cpp](../examples/C++11/stod.cpp)
+**Example**: [stod.cpp](../../examples/C++11/stod.cpp)
 
 ## Random Number Generation
 ### std::random_device (C++11 Addition)
@@ -952,7 +952,7 @@ typeNames[std::type_index(typeid(double))] = "double";
 std::random_device rd;
 unsigned int seed = rd();
 ```
-**Example**: [random_device.cpp](../examples/C++11/random_device.cpp)
+**Example**: [random_device.cpp](../../examples/C++11/random_device.cpp)
 
 ### std::mt19937 (C++11 Addition)
 **Explanation**: A 32-bit Mersenne Twister pseudo-random number generator with a period of 2^19937-1, providing high-quality random numbers suitable for simulations.
@@ -963,7 +963,7 @@ unsigned int seed = rd();
 std::mt19937 gen(42); // seeded with 42
 int value = gen(); // generate random number
 ```
-**Example**: [mt19937.cpp](../examples/C++11/mt19937.cpp)
+**Example**: [mt19937.cpp](../../examples/C++11/mt19937.cpp)
 
 ### std::mt19937_64 (C++11 Addition)
 **Explanation**: A 64-bit variant of the Mersenne Twister engine, producing 64-bit random values for applications requiring larger random ranges.
@@ -974,7 +974,7 @@ int value = gen(); // generate random number
 std::mt19937_64 gen(std::random_device{}());
 uint64_t value = gen();
 ```
-**Example**: [mt19937_64.cpp](../examples/C++11/mt19937_64.cpp)
+**Example**: [mt19937_64.cpp](../../examples/C++11/mt19937_64.cpp)
 
 ### Random Engines (C++11 Addition)
 **Explanation**: C++11 provides several random engine types including `linear_congruential_engine`, `mersenne_twister_engine`, `subtract_with_carry_engine`, and engine adaptors like `discard_block_engine`, `independent_bits_engine`, and `shuffle_order_engine`. Predefined typedefs include `minstd_rand0`, `minstd_rand`, `ranlux24_base`, `ranlux48_base`, `ranlux24`, `ranlux48`, and `knuth_b`.
@@ -987,7 +987,7 @@ std::ranlux24 rl(42);               // higher quality, slower
 std::knuth_b kb(42);                // shuffle-order adaptor
 int a = lcg(), b = rl(), c = kb();
 ```
-**Example**: [random_engines.cpp](../examples/C++11/random_engines.cpp)
+**Example**: [random_engines.cpp](../../examples/C++11/random_engines.cpp)
 
 ### Random Distributions (C++11 Addition)
 **Explanation**: C++11 provides a comprehensive set of distribution classes that transform engine output into specific statistical distributions: uniform (int/real), Bernoulli, binomial, negative binomial, geometric, Poisson, exponential, gamma, Weibull, extreme value, normal, lognormal, chi-squared, Cauchy, Fisher F, Student t, discrete, piecewise constant, and piecewise linear.
@@ -1003,7 +1003,7 @@ int roll = dice(gen);
 double h = height(gen);
 double t = arrival(gen);
 ```
-**Example**: [random_distributions.cpp](../examples/C++11/random_distributions.cpp)
+**Example**: [random_distributions.cpp](../../examples/C++11/random_distributions.cpp)
 
 ## Regular Expressions
 ### std::regex (C++11 Addition)
@@ -1014,7 +1014,7 @@ double t = arrival(gen);
 #include <regex>
 std::regex email_pattern(R"([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})");
 ```
-**Example**: [regex.cpp](../examples/C++11/regex.cpp)
+**Example**: [regex.cpp](../../examples/C++11/regex.cpp)
 
 ### std::regex_match (C++11 Addition)
 **Explanation**: Tests whether an entire string matches a regular expression pattern, returning true only if the full string is consumed by the match.
@@ -1025,7 +1025,7 @@ std::regex email_pattern(R"([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})");
 std::regex date_re(R"(\d{4}-\d{2}-\d{2})");
 bool valid = std::regex_match("2024-01-15", date_re); // true
 ```
-**Example**: [regex_match.cpp](../examples/C++11/regex_match.cpp)
+**Example**: [regex_match.cpp](../../examples/C++11/regex_match.cpp)
 
 ### std::regex_search (C++11 Addition)
 **Explanation**: Searches a string for the first substring that matches a regular expression pattern, unlike `regex_match` which requires a full-string match.
@@ -1040,7 +1040,7 @@ if (std::regex_search(text, match, url_re)) {
     std::string url = match[0]; // "https://example.com"
 }
 ```
-**Example**: [regex_search.cpp](../examples/C++11/regex_search.cpp)
+**Example**: [regex_search.cpp](../../examples/C++11/regex_search.cpp)
 
 ### std::regex_replace (C++11 Addition)
 **Explanation**: Replaces all occurrences of a pattern in a string with a replacement string, supporting back-references to captured groups.
@@ -1052,7 +1052,7 @@ std::regex digits(R"(\d{4}-\d{4}-\d{4}-(\d{4}))");
 std::string result = std::regex_replace("Card: 1234-5678-9012-3456",
                                          digits, "****-****-****-$1");
 ```
-**Example**: [regex_replace.cpp](../examples/C++11/regex_replace.cpp)
+**Example**: [regex_replace.cpp](../../examples/C++11/regex_replace.cpp)
 
 ### std::regex_iterator (C++11 Addition)
 **Explanation**: An iterator that traverses all non-overlapping matches of a regex pattern in a string, enabling enumeration of all matches.
@@ -1068,7 +1068,7 @@ for (auto it = begin; it != end; ++it) {
     std::string tag = (*it)[0];
 }
 ```
-**Example**: [regex_iterator.cpp](../examples/C++11/regex_iterator.cpp)
+**Example**: [regex_iterator.cpp](../../examples/C++11/regex_iterator.cpp)
 
 ### std::regex_token_iterator (C++11 Addition)
 **Explanation**: An iterator that accesses specific sub-matches or the parts of a string between matches, enabling tokenization and field extraction.
@@ -1084,7 +1084,7 @@ for (; it != end; ++it) {
     std::string field = *it;
 }
 ```
-**Example**: [regex_token_iterator.cpp](../examples/C++11/regex_token_iterator.cpp)
+**Example**: [regex_token_iterator.cpp](../../examples/C++11/regex_token_iterator.cpp)
 
 ### Regex Match Types (C++11 Addition)
 **Explanation**: `std::match_results` (with aliases `smatch`, `cmatch`, `wsmatch`, `wcmatch`) stores the results of a regex match, including the full match, sub-matches, prefix, suffix, and match flags like `match_default`, `match_not_bol`, `match_any`, and `format_default`.
@@ -1101,7 +1101,7 @@ if (std::regex_match(log, m, re)) {
     std::string msg = m[3];      // "disk full"
 }
 ```
-**Example**: [regex_match_types.cpp](../examples/C++11/regex_match_types.cpp)
+**Example**: [regex_match_types.cpp](../../examples/C++11/regex_match_types.cpp)
 
 ## Chrono Library
 ### std::chrono::duration (C++11 Addition)
@@ -1114,7 +1114,7 @@ std::chrono::duration<double> halfSecond(0.5);
 std::chrono::milliseconds timeout(500);
 auto total = timeout + std::chrono::milliseconds(100); // 600ms
 ```
-**Example**: [chrono_duration.cpp](../examples/C++11/chrono_duration.cpp)
+**Example**: [chrono_duration.cpp](../../examples/C++11/chrono_duration.cpp)
 
 ### std::chrono::time_point (C++11 Addition)
 **Explanation**: Represents a specific point in time relative to a clock's epoch, expressed as a duration since that epoch. Supports arithmetic with durations.
@@ -1126,7 +1126,7 @@ auto now = std::chrono::system_clock::now();
 auto expiry = now + std::chrono::hours(24);
 bool expired = std::chrono::system_clock::now() > expiry;
 ```
-**Example**: [chrono_time_point.cpp](../examples/C++11/chrono_time_point.cpp)
+**Example**: [chrono_time_point.cpp](../../examples/C++11/chrono_time_point.cpp)
 
 ### std::chrono::system_clock (C++11 Addition)
 **Explanation**: A clock representing wall-clock time from the system-wide real-time clock. Its time points can be converted to/from `time_t` for interoperability with C APIs.
@@ -1138,7 +1138,7 @@ bool expired = std::chrono::system_clock::now() > expiry;
 auto now = std::chrono::system_clock::now();
 std::time_t t = std::chrono::system_clock::to_time_t(now);
 ```
-**Example**: [system_clock.cpp](../examples/C++11/system_clock.cpp)
+**Example**: [system_clock.cpp](../../examples/C++11/system_clock.cpp)
 
 ### std::chrono::steady_clock (C++11 Addition)
 **Explanation**: A monotonic clock that is guaranteed to never go backwards, making it ideal for measuring elapsed time. Unaffected by system clock adjustments.
@@ -1151,7 +1151,7 @@ auto start = std::chrono::steady_clock::now();
 auto end = std::chrono::steady_clock::now();
 auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
 ```
-**Example**: [steady_clock.cpp](../examples/C++11/steady_clock.cpp)
+**Example**: [steady_clock.cpp](../../examples/C++11/steady_clock.cpp)
 
 ### std::chrono::high_resolution_clock (C++11 Addition)
 **Explanation**: The clock with the shortest tick period available on the system, providing the highest resolution timing. May be an alias for `system_clock` or `steady_clock`.
@@ -1164,7 +1164,7 @@ auto start = std::chrono::high_resolution_clock::now();
 auto end = std::chrono::high_resolution_clock::now();
 auto ns = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count();
 ```
-**Example**: [high_resolution_clock.cpp](../examples/C++11/high_resolution_clock.cpp)
+**Example**: [high_resolution_clock.cpp](../../examples/C++11/high_resolution_clock.cpp)
 
 ### Duration Typedefs (C++11 Addition)
 **Explanation**: Predefined `std::chrono::duration` aliases for common time units: `nanoseconds`, `microseconds`, `milliseconds`, `seconds`, `minutes`, and `hours`, providing convenient and readable time specifications.
@@ -1180,7 +1180,7 @@ std::chrono::minutes m(2);
 std::chrono::hours h(1);
 auto total = std::chrono::duration_cast<std::chrono::seconds>(h + m + s); // 3725s
 ```
-**Example**: [duration_typedefs.cpp](../examples/C++11/duration_typedefs.cpp)
+**Example**: [duration_typedefs.cpp](../../examples/C++11/duration_typedefs.cpp)
 
 ## Ratio Library
 ### std::ratio (C++11 Addition)
@@ -1193,7 +1193,7 @@ using one_third = std::ratio<1, 3>;
 using two_thirds = std::ratio<2, 3>;
 static_assert(one_third::num == 1 && one_third::den == 3, "1/3");
 ```
-**Example**: [ratio.cpp](../examples/C++11/ratio.cpp)
+**Example**: [ratio.cpp](../../examples/C++11/ratio.cpp)
 
 ### Ratio Operations (C++11 Addition)
 **Explanation**: Compile-time arithmetic and comparison operations on `std::ratio` types: `ratio_add`, `ratio_subtract`, `ratio_multiply`, `ratio_divide`, `ratio_equal`, `ratio_not_equal`, `ratio_less`, `ratio_less_equal`, `ratio_greater`, and `ratio_greater_equal`.
@@ -1207,7 +1207,7 @@ using sum = std::ratio_add<half, third>; // 5/6
 static_assert(sum::num == 5 && sum::den == 6, "1/2 + 1/3 = 5/6");
 static_assert(std::ratio_less<third, half>::value, "1/3 < 1/2");
 ```
-**Example**: [ratio_operations.cpp](../examples/C++11/ratio_operations.cpp)
+**Example**: [ratio_operations.cpp](../../examples/C++11/ratio_operations.cpp)
 
 ### SI Prefixes (C++11 Addition)
 **Explanation**: Predefined `std::ratio` typedefs for SI metric prefixes: `atto`, `femto`, `pico`, `nano`, `micro`, `milli`, `centi`, `deci`, `deca`, `hecto`, `kilo`, `mega`, `giga`, `tera`, `peta`, and `exa`, enabling type-safe metric unit calculations.
@@ -1220,4 +1220,4 @@ static_assert(std::mega::num == 1000000, "mega = 10^6");
 static_assert(std::milli::num == 1 && std::milli::den == 1000, "milli = 1/1000");
 static_assert(std::nano::num == 1 && std::nano::den == 1000000000, "nano = 10^-9");
 ```
-**Example**: [si_prefixes.cpp](../examples/C++11/si_prefixes.cpp)
+**Example**: [si_prefixes.cpp](../../examples/C++11/si_prefixes.cpp)

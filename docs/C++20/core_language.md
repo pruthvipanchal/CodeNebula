@@ -1,6 +1,6 @@
 # C++20 Core Language Concepts
 
-This document covers new or evolved C++20 core language concepts, with simple explanations, real-world scenarios, and short code snippets. Full examples will be added in [examples folder](../examples/C++20/). Only additions or evolutions from C++98/C++03/C++11/C++14/C++17 are included.
+This document covers new or evolved C++20 core language concepts, with simple explanations, real-world scenarios, and short code snippets. Full examples will be added in [examples folder](../../examples/C++20/). Only additions or evolutions from C++98/C++03/C++11/C++14/C++17 are included.
 
 ## Concepts (C++20 Addition)
 **Explanation**: Define constraints on template parameters, improving type checking and error messages.  
@@ -9,7 +9,7 @@ This document covers new or evolved C++20 core language concepts, with simple ex
 ```cpp
 #include <concepts> template<std::integral T> void process(T t) {}
 ```
-**Example**: [concepts.cpp](../examples/C++20/concepts.cpp)
+**Example**: [concepts.cpp](../../examples/C++20/concepts.cpp)
 
 ## Constraints and Requires Clauses (C++20 Addition)
 **Explanation**: Specify requirements for template parameters using `requires` clauses.  
@@ -18,7 +18,7 @@ This document covers new or evolved C++20 core language concepts, with simple ex
 ```cpp
 template<typename T> requires std::floating_point<T> void compute(T t) {}
 ```
-**Example**: [constraints_requires.cpp](../examples/C++20/constraints_requires.cpp)
+**Example**: [constraints_requires.cpp](../../examples/C++20/constraints_requires.cpp)
 
 ## Constrained Templates (C++20 Addition)
 **Explanation**: Use concepts directly in template declarations for concise constraints.  
@@ -27,7 +27,7 @@ template<typename T> requires std::floating_point<T> void compute(T t) {}
 ```cpp
 template<std::totally_ordered T> class SortedContainer {};
 ```
-**Example**: [constrained_templates.cpp](../examples/C++20/constrained_templates.cpp)
+**Example**: [constrained_templates.cpp](../../examples/C++20/constrained_templates.cpp)
 
 ## Abbreviated Function Templates (C++20 Addition)
 **Explanation**: Use `auto` in function templates for simpler syntax.  
@@ -36,7 +36,7 @@ template<std::totally_ordered T> class SortedContainer {};
 ```cpp
 auto process(auto x) { return x; }
 ```
-**Example**: [abbreviated_function_templates.cpp](../examples/C++20/abbreviated_function_templates.cpp)
+**Example**: [abbreviated_function_templates.cpp](../../examples/C++20/abbreviated_function_templates.cpp)
 
 ## Three-Way Comparison Operator (Spaceship Operator, <=>) (C++20 Addition)
 **Explanation**: Single operator for comparing objects, returning `std::strong_ordering` or similar.  
@@ -45,7 +45,7 @@ auto process(auto x) { return x; }
 ```cpp
 struct Item { int id; auto operator<=>(const Item& other) const { return id <=> other.id; } };
 ```
-**Example**: [spaceship_operator.cpp](../examples/C++20/spaceship_operator.cpp)
+**Example**: [spaceship_operator.cpp](../../examples/C++20/spaceship_operator.cpp)
 
 ## std::strong_ordering (C++20 Addition)
 **Explanation**: Comparison result type for strict total order (e.g., integers).  
@@ -54,7 +54,7 @@ struct Item { int id; auto operator<=>(const Item& other) const { return id <=> 
 ```cpp
 #include <compare> std::strong_ordering result = 5 <=> 10;
 ```
-**Example**: [strong_ordering.cpp](../examples/C++20/strong_ordering.cpp)
+**Example**: [strong_ordering.cpp](../../examples/C++20/strong_ordering.cpp)
 
 ## std::weak_ordering (C++20 Addition)
 **Explanation**: Comparison result type for weak ordering (e.g., case-insensitive strings).  
@@ -63,7 +63,7 @@ struct Item { int id; auto operator<=>(const Item& other) const { return id <=> 
 ```cpp
 #include <compare> std::weak_ordering result = str1 <=> str2;
 ```
-**Example**: [weak_ordering.cpp](../examples/C++20/weak_ordering.cpp)
+**Example**: [weak_ordering.cpp](../../examples/C++20/weak_ordering.cpp)
 
 ## std::partial_ordering (C++20 Addition)
 **Explanation**: Comparison result type for partial ordering (e.g., floating-point with NaN).  
@@ -72,7 +72,7 @@ struct Item { int id; auto operator<=>(const Item& other) const { return id <=> 
 ```cpp
 #include <compare> std::partial_ordering result = 1.0 <=> std::numeric_limits<double>::quiet_NaN();
 ```
-**Example**: [partial_ordering.cpp](../examples/C++20/partial_ordering.cpp)
+**Example**: [partial_ordering.cpp](../../examples/C++20/partial_ordering.cpp)
 
 ## Lambda Improvements (C++20 Evolution)
 **Explanation**: Lambdas support `constexpr`, explicit template parameters, and capture of `this` by value.  
@@ -81,7 +81,7 @@ struct Item { int id; auto operator<=>(const Item& other) const { return id <=> 
 ```cpp
 constexpr auto lambda = []<typename T>(T x) { return x * x; };
 ```
-**Example**: [lambda_enhancements.cpp](../examples/C++20/lambda_enhancements.cpp)
+**Example**: [lambda_enhancements.cpp](../../examples/C++20/lambda_enhancements.cpp)
 
 ## Stateless Lambda Call Operator as consteval (C++20 Addition)
 **Explanation**: Stateless lambdas can have `consteval` call operators for compile-time execution.  
@@ -90,7 +90,7 @@ constexpr auto lambda = []<typename T>(T x) { return x * x; };
 ```cpp
 auto lambda = []() consteval { return 42; };
 ```
-**Example**: [consteval_lambda.cpp](../examples/C++20/consteval_lambda.cpp)
+**Example**: [consteval_lambda.cpp](../../examples/C++20/consteval_lambda.cpp)
 
 ## Lambda Capture of [this] by Value (C++20 Evolution)
 **Explanation**: Lambdas can capture `this` by value, copying the object.  
@@ -99,7 +99,7 @@ auto lambda = []() consteval { return 42; };
 ```cpp
 [this] { return x; }; // Captures *this by value
 ```
-**Example**: [lambda_this_capture.cpp](../examples/C++20/lambda_this_capture.cpp)
+**Example**: [lambda_this_capture.cpp](../../examples/C++20/lambda_this_capture.cpp)
 
 ## Template Lambdas (C++20 Addition)
 **Explanation**: Lambdas with explicit template parameters for generic programming.  
@@ -108,7 +108,7 @@ auto lambda = []() consteval { return 42; };
 ```cpp
 auto lambda = []<typename T>(T x) { return x; };
 ```
-**Example**: [template_lambdas.cpp](../examples/C++20/template_lambdas.cpp)
+**Example**: [template_lambdas.cpp](../../examples/C++20/template_lambdas.cpp)
 
 ## Constexpr Improvements (C++20 Evolution)
 **Explanation**: `constexpr` supports virtual functions, dynamic memory, and STL types like `std::string`.  
@@ -117,7 +117,7 @@ auto lambda = []<typename T>(T x) { return x; };
 ```cpp
 constexpr int compute() { std::string s = "test"; return s.size(); }
 ```
-**Example**: [constexpr_improvements.cpp](../examples/C++20/constexpr_improvements.cpp)
+**Example**: [constexpr_improvements.cpp](../../examples/C++20/constexpr_improvements.cpp)
 
 ## Constexpr Virtual Functions (C++20 Addition)
 **Explanation**: Virtual functions can be `constexpr`, enabling compile-time polymorphism.  
@@ -126,7 +126,7 @@ constexpr int compute() { std::string s = "test"; return s.size(); }
 ```cpp
 struct Base { virtual constexpr int f() const { return 0; } };
 ```
-**Example**: [constexpr_virtual.cpp](../examples/C++20/constexpr_virtual.cpp)
+**Example**: [constexpr_virtual.cpp](../../examples/C++20/constexpr_virtual.cpp)
 
 ## Constexpr Dynamic Memory Allocation (C++20 Addition)
 **Explanation**: `new` and `delete` can be used in `constexpr` contexts for dynamic allocation.  
@@ -135,7 +135,7 @@ struct Base { virtual constexpr int f() const { return 0; } };
 ```cpp
 constexpr int* alloc() { return new int[5]; }
 ```
-**Example**: [constexpr_allocation.cpp](../examples/C++20/constexpr_allocation.cpp)
+**Example**: [constexpr_allocation.cpp](../../examples/C++20/constexpr_allocation.cpp)
 
 ## Constexpr std::string (C++20 Evolution)
 **Explanation**: `std::string` supports `constexpr` operations for compile-time string manipulation.  
@@ -144,7 +144,7 @@ constexpr int* alloc() { return new int[5]; }
 ```cpp
 constexpr std::string s = "hello"; constexpr auto len = s.size();
 ```
-**Example**: [constexpr_string.cpp](../examples/C++20/constexpr_string.cpp)
+**Example**: [constexpr_string.cpp](../../examples/C++20/constexpr_string.cpp)
 
 ## Constexpr std::vector (C++20 Evolution)
 **Explanation**: `std::vector` supports `constexpr` operations for compile-time container manipulation.  
@@ -153,7 +153,7 @@ constexpr std::string s = "hello"; constexpr auto len = s.size();
 ```cpp
 constexpr std::vector<int> vec = {1, 2, 3};
 ```
-**Example**: [constexpr_vector.cpp](../examples/C++20/constexpr_vector.cpp)
+**Example**: [constexpr_vector.cpp](../../examples/C++20/constexpr_vector.cpp)
 
 ## Immediate Functions (consteval) (C++20 Addition)
 **Explanation**: Functions guaranteed to evaluate at compile time.  
@@ -162,7 +162,7 @@ constexpr std::vector<int> vec = {1, 2, 3};
 ```cpp
 consteval int getConfig() { return 42; }
 ```
-**Example**: [immediate_functions.cpp](../examples/C++20/immediate_functions.cpp)
+**Example**: [immediate_functions.cpp](../../examples/C++20/immediate_functions.cpp)
 
 ## Constant Evaluation for Non-Type Template Parameters (C++20 Addition)
 **Explanation**: Non-type template parameters can be evaluated at compile time with `constexpr`.  
@@ -171,7 +171,7 @@ consteval int getConfig() { return 42; }
 ```cpp
 template<auto Val> struct S {}; S<42> s;
 ```
-**Example**: [consteval_nttp.cpp](../examples/C++20/consteval_nttp.cpp)
+**Example**: [consteval_nttp.cpp](../../examples/C++20/consteval_nttp.cpp)
 
 ## std::is_constant_evaluated (C++20 Addition)
 **Explanation**: Checks if code is evaluated in a `constexpr` context.  
@@ -180,7 +180,7 @@ template<auto Val> struct S {}; S<42> s;
 ```cpp
 #include <type_traits> if (std::is_constant_evaluated()) {}
 ```
-**Example**: [is_constant_evaluated.cpp](../examples/C++20/is_constant_evaluated.cpp)
+**Example**: [is_constant_evaluated.cpp](../../examples/C++20/is_constant_evaluated.cpp)
 
 ## Modules (C++20 Addition)
 **Explanation**: Replace headers with modules for faster compilation and better encapsulation.  
@@ -189,7 +189,7 @@ template<auto Val> struct S {}; S<42> s;
 ```cpp
 export module math; export int add(int a, int b) { return a + b; }
 ```
-**Example**: [modules.cpp](../examples/C++20/modules.cpp)
+**Example**: [modules.cpp](../../examples/C++20/modules.cpp)
 
 ## Import/Export Declarations (C++20 Addition)
 **Explanation**: `import` and `export` manage module dependencies and interfaces.  
@@ -198,7 +198,7 @@ export module math; export int add(int a, int b) { return a + b; }
 ```cpp
 import math; int x = add(1, 2);
 ```
-**Example**: [import_export.cpp](../examples/C++20/import_export.cpp)
+**Example**: [import_export.cpp](../../examples/C++20/import_export.cpp)
 
 ## Coroutines (C++20 Addition)
 **Explanation**: Functions that can suspend and resume execution, enabling asynchronous programming.  
@@ -207,7 +207,7 @@ import math; int x = add(1, 2);
 ```cpp
 #include <coroutine> std::suspend_always yield() { return {}; }
 ```
-**Example**: [coroutines.cpp](../examples/C++20/coroutines.cpp)
+**Example**: [coroutines.cpp](../../examples/C++20/coroutines.cpp)
 
 ## co_await (C++20 Addition)
 **Explanation**: Suspends a coroutine until an awaited operation completes.  
@@ -216,7 +216,7 @@ import math; int x = add(1, 2);
 ```cpp
 #include <coroutine> auto task() { co_await std::suspend_always{}; }
 ```
-**Example**: [co_await.cpp](../examples/C++20/co_await.cpp)
+**Example**: [co_await.cpp](../../examples/C++20/co_await.cpp)
 
 ## co_yield (C++20 Addition)
 **Explanation**: Yields a value from a coroutine, suspending execution.  
@@ -225,7 +225,7 @@ import math; int x = add(1, 2);
 ```cpp
 #include <coroutine> auto gen() { co_yield 42; }
 ```
-**Example**: [co_yield.cpp](../examples/C++20/co_yield.cpp)
+**Example**: [co_yield.cpp](../../examples/C++20/co_yield.cpp)
 
 ## co_return (C++20 Addition)
 **Explanation**: Returns a value from a coroutine, completing it.  
@@ -234,7 +234,7 @@ import math; int x = add(1, 2);
 ```cpp
 #include <coroutine> auto task() { co_return 42; }
 ```
-**Example**: [co_return.cpp](../examples/C++20/co_return.cpp)
+**Example**: [co_return.cpp](../../examples/C++20/co_return.cpp)
 
 ## std::source_location (C++20 Addition)
 **Explanation**: Provides compile-time information about the source code (e.g., file, line).  
@@ -243,7 +243,7 @@ import math; int x = add(1, 2);
 ```cpp
 #include <source_location> auto loc = std::source_location::current();
 ```
-**Example**: [source_location.cpp](../examples/C++20/source_location.cpp)
+**Example**: [source_location.cpp](../../examples/C++20/source_location.cpp)
 
 ## std::endian (C++20 Addition)
 **Explanation**: Queries the endianness of the platform.  
@@ -252,7 +252,7 @@ import math; int x = add(1, 2);
 ```cpp
 #include <bit> auto is_big = std::endian::native == std::endian::big;
 ```
-**Example**: [endian.cpp](../examples/C++20/endian.cpp)
+**Example**: [endian.cpp](../../examples/C++20/endian.cpp)
 
 ## Designated Initializers (C++20 Addition)
 **Explanation**: Initialize struct members by name, improving readability.  
@@ -261,7 +261,7 @@ import math; int x = add(1, 2);
 ```cpp
 struct Player { int health; int score; }; Player p = { .health = 100, .score = 0 };
 ```
-**Example**: [designated_initializers.cpp](../examples/C++20/designated_initializers.cpp)
+**Example**: [designated_initializers.cpp](../../examples/C++20/designated_initializers.cpp)
 
 ## [[no_unique_address]] Attribute (C++20 Addition)
 **Explanation**: Allows empty non-static data members to occupy no space, optimizing memory.  
@@ -270,7 +270,7 @@ struct Player { int health; int score; }; Player p = { .health = 100, .score = 0
 ```cpp
 struct Empty {}; struct Data { [[no_unique_address]] Empty e; int x; };
 ```
-**Example**: [no_unique_address.cpp](../examples/C++20/no_unique_address.cpp)
+**Example**: [no_unique_address.cpp](../../examples/C++20/no_unique_address.cpp)
 
 ## constinit (C++20 Addition)
 **Explanation**: Ensures static variables are initialized at compile time, avoiding runtime overhead.  
@@ -279,7 +279,7 @@ struct Empty {}; struct Data { [[no_unique_address]] Empty e; int x; };
 ```cpp
 constinit int globalConfig = 42;
 ```
-**Example**: [constinit.cpp](../examples/C++20/constinit.cpp)
+**Example**: [constinit.cpp](../../examples/C++20/constinit.cpp)
 
 ## Conditional explicit (explicit(bool)) (C++20 Addition)
 **Explanation**: The `explicit` specifier can now accept a boolean expression, enabling constructors and conversion operators to be conditionally explicit based on compile-time conditions. This is essential for wrapper types that should be implicitly convertible only when their underlying type supports implicit conversion.
@@ -300,7 +300,7 @@ struct Wrapper {
 // Wrapper<int> w = 3.14;   // OK: double is convertible to int
 // Wrapper<int> w2 = "hi";  // Error: const char* not convertible to int
 ```
-**Example**: [conditional_explicit.cpp](../examples/C++20/conditional_explicit.cpp)
+**Example**: [conditional_explicit.cpp](../../examples/C++20/conditional_explicit.cpp)
 
 ## Aggregate Initialization with Parentheses (C++20 Evolution)
 **Explanation**: Aggregates can be initialized with parentheses, not just braces.  
@@ -309,7 +309,7 @@ struct Wrapper {
 ```cpp
 struct Point { int x, y; }; Point p(1, 2);
 ```
-**Example**: [aggregate_initialization.cpp](../examples/C++20/aggregate_initialization.cpp)
+**Example**: [aggregate_initialization.cpp](../../examples/C++20/aggregate_initialization.cpp)
 
 ## using enum (C++20 Addition)
 **Explanation**: Imports enum values into the current scope, avoiding qualification.  
@@ -318,7 +318,7 @@ struct Point { int x, y; }; Point p(1, 2);
 ```cpp
 enum class State { Idle, Running }; using enum State; auto s = Idle;
 ```
-**Example**: [using_enum.cpp](../examples/C++20/using_enum.cpp)
+**Example**: [using_enum.cpp](../../examples/C++20/using_enum.cpp)
 
 ## Class Template Argument Deduction Enhancements (C++20 Evolution)
 **Explanation**: Improved deduction for aggregates and aliases, simplifying instantiation.  
@@ -327,7 +327,7 @@ enum class State { Idle, Running }; using enum State; auto s = Idle;
 ```cpp
 std::pair p = {1, "value"}; // Deduced as std::pair<int, std::string>
 ```
-**Example**: [ctad_enhancements.cpp](../examples/C++20/ctad_enhancements.cpp)
+**Example**: [ctad_enhancements.cpp](../../examples/C++20/ctad_enhancements.cpp)
 
 ## [[likely]] and [[unlikely]] Attributes (C++20 Addition)
 **Explanation**: Hints to the compiler about branch prediction optimization.  
@@ -336,7 +336,7 @@ std::pair p = {1, "value"}; // Deduced as std::pair<int, std::string>
 ```cpp
 if (condition) [[likely]] {}
 ```
-**Example**: [likely_unlikely.cpp](../examples/C++20/likely_unlikely.cpp)
+**Example**: [likely_unlikely.cpp](../../examples/C++20/likely_unlikely.cpp)
 
 ## char8_t (C++20 Addition)
 **Explanation**: A new fundamental type specifically for UTF-8 encoded characters, distinct from `char` and `unsigned char`. This provides type safety for UTF-8 strings and prevents accidental mixing of character encodings. The type `u8string` and `u8string_view` use `char8_t` as their character type.
@@ -352,7 +352,7 @@ std::u8string greeting = u8"Hello, World!";
 // Use char8_t to ensure UTF-8 encoding at the type level
 std::u8string load_utf8_file(const std::filesystem::path& path);
 ```
-**Example**: [char8_t.cpp](../examples/C++20/char8_t.cpp)
+**Example**: [char8_t.cpp](../../examples/C++20/char8_t.cpp)
 
 ## Non-Type Template Parameters of Class Type (C++20 Addition)
 **Explanation**: Non-type template parameters (NTTPs) can now be of literal class type with public members, enabling compile-time strings, fixed-point numbers, and other structured values as template arguments. The class must have all public, non-mutable members and a defaulted spaceship operator.
@@ -379,7 +379,7 @@ void log(const char* msg) {
 // Usage: log<"network">("Connection established");
 //        log<"audio">("Sound loaded");
 ```
-**Example**: [class_nttp.cpp](../examples/C++20/class_nttp.cpp)
+**Example**: [class_nttp.cpp](../../examples/C++20/class_nttp.cpp)
 
 ## Destroying Delete (C++20 Addition)
 **Explanation**: A new form of `operator delete` that receives the object before its destructor runs, giving the delete operator full control over destruction. Declared by adding a `std::destroying_delete_t` tag parameter. This enables advanced memory management patterns such as classes that store their size alongside the object.
@@ -406,7 +406,7 @@ struct VariableBuffer {
     }
 };
 ```
-**Example**: [destroying_delete.cpp](../examples/C++20/destroying_delete.cpp)
+**Example**: [destroying_delete.cpp](../../examples/C++20/destroying_delete.cpp)
 
 ## Feature Test Macros (C++20 Addition)
 **Explanation**: Standardized preprocessor macros that allow code to detect at compile time which C++ language and library features are available. Each feature has a corresponding macro (e.g., `__cpp_concepts`, `__cpp_modules`) whose value indicates the version of the feature supported. This replaces ad-hoc compiler-version checks with a portable, feature-based approach.
@@ -430,4 +430,4 @@ struct VariableBuffer {
     // fallback to printf or fmt library
 #endif
 ```
-**Example**: [feature_test_macros.cpp](../examples/C++20/feature_test_macros.cpp)
+**Example**: [feature_test_macros.cpp](../../examples/C++20/feature_test_macros.cpp)

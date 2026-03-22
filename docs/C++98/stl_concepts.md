@@ -1,6 +1,6 @@
 # C++98 STL Concepts
 
-This document covers C++98 Standard Template Library (STL) concepts with simple explanations, real-world scenarios, and short code snippets. Full examples will be added in [examples folder](../examples/C++98/).
+This document covers C++98 Standard Template Library (STL) concepts with simple explanations, real-world scenarios, and short code snippets. Full examples will be added in [examples folder](../../examples/C++98/).
 
 ## Containers
 ### std::vector
@@ -10,7 +10,7 @@ This document covers C++98 Standard Template Library (STL) concepts with simple 
 ```cpp
 #include <vector> std::vector<int> vec = {1, 2, 3};
 ```
-**Example**: [vector.cpp](../examples/C++98/vector.cpp)
+**Example**: [vector.cpp](../../examples/C++98/vector.cpp)
 
 ### std::list
 **Explanation**: Doubly-linked list for efficient insertions and deletions.  
@@ -19,7 +19,7 @@ This document covers C++98 Standard Template Library (STL) concepts with simple 
 ```cpp
 #include <list> std::list<int> lst = {1, 2, 3};
 ```
-**Example**: [list.cpp](../examples/C++98/list.cpp)
+**Example**: [list.cpp](../../examples/C++98/list.cpp)
 
 ### std::deque
 **Explanation**: Double-ended queue supporting fast insertions at both ends.  
@@ -28,7 +28,7 @@ This document covers C++98 Standard Template Library (STL) concepts with simple 
 ```cpp
 #include <deque> std::deque<int> dq = {1, 2, 3};
 ```
-**Example**: [deque.cpp](../examples/C++98/deque.cpp)
+**Example**: [deque.cpp](../../examples/C++98/deque.cpp)
 
 ### std::set
 **Explanation**: Sorted collection of unique elements.  
@@ -37,7 +37,7 @@ This document covers C++98 Standard Template Library (STL) concepts with simple 
 ```cpp
 #include <set> std::set<int> s = {1, 2, 3};
 ```
-**Example**: [set.cpp](../examples/C++98/set.cpp)
+**Example**: [set.cpp](../../examples/C++98/set.cpp)
 
 ### std::map
 **Explanation**: Sorted key-value pairs with unique keys.  
@@ -46,7 +46,7 @@ This document covers C++98 Standard Template Library (STL) concepts with simple 
 ```cpp
 #include <map> std::map<int, string> m = {{1, "A"}};
 ```
-**Example**: [map.cpp](../examples/C++98/map.cpp)
+**Example**: [map.cpp](../../examples/C++98/map.cpp)
 
 ### std::multiset
 **Explanation**: Sorted collection allowing duplicate elements.  
@@ -55,7 +55,7 @@ This document covers C++98 Standard Template Library (STL) concepts with simple 
 ```cpp
 #include <multiset> std::multiset<int> ms = {1, 1, 2};
 ```
-**Example**: [multiset.cpp](../examples/C++98/multiset.cpp)
+**Example**: [multiset.cpp](../../examples/C++98/multiset.cpp)
 
 ### std::multimap
 **Explanation**: Sorted key-value pairs allowing duplicate keys.  
@@ -64,7 +64,7 @@ This document covers C++98 Standard Template Library (STL) concepts with simple 
 ```cpp
 #include <map> std::multimap<int, string> mm = {{1, "A"}};
 ```
-**Example**: [multimap.cpp](../examples/C++98/multimap.cpp)
+**Example**: [multimap.cpp](../../examples/C++98/multimap.cpp)
 
 ### std::stack (Container Adaptor)
 **Explanation**: LIFO (last-in, first-out) container adaptor.  
@@ -73,7 +73,7 @@ This document covers C++98 Standard Template Library (STL) concepts with simple 
 ```cpp
 #include <stack> std::stack<int> stk; stk.push(1);
 ```
-**Example**: [stack.cpp](../examples/C++98/stack.cpp)
+**Example**: [stack.cpp](../../examples/C++98/stack.cpp)
 
 ### std::queue (Container Adaptor)
 **Explanation**: FIFO (first-in, first-out) container adaptor.  
@@ -82,7 +82,7 @@ This document covers C++98 Standard Template Library (STL) concepts with simple 
 ```cpp
 #include <queue> std::queue<int> q; q.push(1);
 ```
-**Example**: [queue.cpp](../examples/C++98/queue.cpp)
+**Example**: [queue.cpp](../../examples/C++98/queue.cpp)
 
 ### std::priority_queue (Container Adaptor)
 **Explanation**: Queue where the largest element is always at the top.  
@@ -91,7 +91,7 @@ This document covers C++98 Standard Template Library (STL) concepts with simple 
 ```cpp
 #include <queue> std::priority_queue<int> pq; pq.push(1);
 ```
-**Example**: [priority_queue.cpp](../examples/C++98/priority_queue.cpp)
+**Example**: [priority_queue.cpp](../../examples/C++98/priority_queue.cpp)
 
 ### std::bitset
 **Explanation**: A fixed-size sequence of bits with efficient bitwise operations and conversions.
@@ -102,7 +102,7 @@ This document covers C++98 Standard Template Library (STL) concepts with simple 
 std::bitset<8> flags("10110010");
 bool isSet = flags.test(4);
 ```
-**Example**: [bitset.cpp](../examples/C++98/bitset.cpp)
+**Example**: [bitset.cpp](../../examples/C++98/bitset.cpp)
 
 ## Iterators
 ### Input Iterator
@@ -112,7 +112,7 @@ bool isSet = flags.test(4);
 ```cpp
 std::istream_iterator<int> it(std::cin);
 ```
-**Example**: [input_iterator.cpp](../examples/C++98/input_iterator.cpp)
+**Example**: [input_iterator.cpp](../../examples/C++98/input_iterator.cpp)
 
 ### Output Iterator
 **Explanation**: Writes elements to a sequence (single-pass, write-only).  
@@ -121,7 +121,7 @@ std::istream_iterator<int> it(std::cin);
 ```cpp
 std::ostream_iterator<int> it(std::cout, " ");
 ```
-**Example**: [output_iterator.cpp](../examples/C++98/output_iterator.cpp)
+**Example**: [output_iterator.cpp](../../examples/C++98/output_iterator.cpp)
 
 ### Forward Iterator
 **Explanation**: Reads/writes elements, supports multiple passes in one direction.  
@@ -130,7 +130,7 @@ std::ostream_iterator<int> it(std::cout, " ");
 ```cpp
 std::list<int>::iterator it = lst.begin();
 ```
-**Example**: [forward_iterator.cpp](../examples/C++98/forward_iterator.cpp)
+**Example**: [forward_iterator.cpp](../../examples/C++98/forward_iterator.cpp)
 
 ### Bidirectional Iterator
 **Explanation**: Reads/writes elements, moves forward and backward.  
@@ -139,7 +139,7 @@ std::list<int>::iterator it = lst.begin();
 ```cpp
 std::list<int>::iterator it = lst.begin(); ++it; --it;
 ```
-**Example**: [bidirectional_iterator.cpp](../examples/C++98/bidirectional_iterator.cpp)
+**Example**: [bidirectional_iterator.cpp](../../examples/C++98/bidirectional_iterator.cpp)
 
 ### Random Access Iterator
 **Explanation**: Reads/writes elements with direct access via indexing.  
@@ -148,7 +148,7 @@ std::list<int>::iterator it = lst.begin(); ++it; --it;
 ```cpp
 std::vector<int>::iterator it = vec.begin(); it += 2;
 ```
-**Example**: [random_access_iterator.cpp](../examples/C++98/random_access_iterator.cpp)
+**Example**: [random_access_iterator.cpp](../../examples/C++98/random_access_iterator.cpp)
 
 ### Iterator Traits
 **Explanation**: Provides metadata about iterator types (e.g., value_type).  
@@ -157,7 +157,7 @@ std::vector<int>::iterator it = vec.begin(); it += 2;
 ```cpp
 std::iterator_traits<It>::value_type val;
 ```
-**Example**: [iterator_traits.cpp](../examples/C++98/iterator_traits.cpp)
+**Example**: [iterator_traits.cpp](../../examples/C++98/iterator_traits.cpp)
 
 ### std::iterator
 **Explanation**: Base class for defining custom iterators.  
@@ -166,7 +166,7 @@ std::iterator_traits<It>::value_type val;
 ```cpp
 #include <iterator> class MyIterator : public std::iterator<std::forward_iterator_tag, int> {};
 ```
-**Example**: [iterator.cpp](../examples/C++98/iterator.cpp)
+**Example**: [iterator.cpp](../../examples/C++98/iterator.cpp)
 
 ### std::advance
 **Explanation**: Moves an iterator by a specified distance.  
@@ -175,7 +175,7 @@ std::iterator_traits<It>::value_type val;
 ```cpp
 std::list<int>::iterator it = lst.begin(); std::advance(it, 2);
 ```
-**Example**: [advance.cpp](../examples/C++98/advance.cpp)
+**Example**: [advance.cpp](../../examples/C++98/advance.cpp)
 
 ### std::distance
 **Explanation**: Calculates the number of elements between two iterators.  
@@ -184,7 +184,7 @@ std::list<int>::iterator it = lst.begin(); std::advance(it, 2);
 ```cpp
 std::distance(vec.begin(), vec.end());
 ```
-**Example**: [distance.cpp](../examples/C++98/distance.cpp)
+**Example**: [distance.cpp](../../examples/C++98/distance.cpp)
 
 ### std::next
 **Explanation**: Returns an iterator advanced by a given distance.  
@@ -193,7 +193,7 @@ std::distance(vec.begin(), vec.end());
 ```cpp
 std::list<int>::iterator it = std::next(lst.begin());
 ```
-**Example**: [next.cpp](../examples/C++98/next.cpp)
+**Example**: [next.cpp](../../examples/C++98/next.cpp)
 
 ### std::prev
 **Explanation**: Returns an iterator moved backward by a given distance.  
@@ -202,7 +202,7 @@ std::list<int>::iterator it = std::next(lst.begin());
 ```cpp
 std::list<int>::iterator it = std::prev(lst.end());
 ```
-**Example**: [prev.cpp](../examples/C++98/prev.cpp)
+**Example**: [prev.cpp](../../examples/C++98/prev.cpp)
 
 ## Iterator Adaptors
 ### std::reverse_iterator
@@ -212,7 +212,7 @@ std::list<int>::iterator it = std::prev(lst.end());
 ```cpp
 std::vector<int>::reverse_iterator rit = vec.rbegin();
 ```
-**Example**: [reverse_iterator.cpp](../examples/C++98/reverse_iterator.cpp)
+**Example**: [reverse_iterator.cpp](../../examples/C++98/reverse_iterator.cpp)
 
 ### std::back_insert_iterator
 **Explanation**: Inserts elements at the end of a container.  
@@ -221,7 +221,7 @@ std::vector<int>::reverse_iterator rit = vec.rbegin();
 ```cpp
 std::back_insert_iterator<std::vector<int>> it(vec);
 ```
-**Example**: [back_insert_iterator.cpp](../examples/C++98/back_insert_iterator.cpp)
+**Example**: [back_insert_iterator.cpp](../../examples/C++98/back_insert_iterator.cpp)
 
 ### std::front_insert_iterator
 **Explanation**: Inserts elements at the beginning of a container.  
@@ -230,7 +230,7 @@ std::back_insert_iterator<std::vector<int>> it(vec);
 ```cpp
 std::front_insert_iterator<std::deque<int>> it(dq);
 ```
-**Example**: [front_insert_iterator.cpp](../examples/C++98/front_insert_iterator.cpp)
+**Example**: [front_insert_iterator.cpp](../../examples/C++98/front_insert_iterator.cpp)
 
 ### std::insert_iterator
 **Explanation**: Inserts elements at a specific position in a container.  
@@ -239,7 +239,7 @@ std::front_insert_iterator<std::deque<int>> it(dq);
 ```cpp
 std::insert_iterator<std::set<int>> it(s);
 ```
-**Example**: [insert_iterator.cpp](../examples/C++98/insert_iterator.cpp)
+**Example**: [insert_iterator.cpp](../../examples/C++98/insert_iterator.cpp)
 
 ### std::istream_iterator
 **Explanation**: Reads elements from an input stream as an iterator.  
@@ -248,7 +248,7 @@ std::insert_iterator<std::set<int>> it(s);
 ```cpp
 std::istream_iterator<int> it(std::cin);
 ```
-**Example**: [istream_iterator.cpp](../examples/C++98/istream_iterator.cpp)
+**Example**: [istream_iterator.cpp](../../examples/C++98/istream_iterator.cpp)
 
 ### std::ostream_iterator
 **Explanation**: Writes elements to an output stream as an iterator.  
@@ -257,7 +257,7 @@ std::istream_iterator<int> it(std::cin);
 ```cpp
 std::ostream_iterator<int> it(std::cout, " ");
 ```
-**Example**: [ostream_iterator.cpp](../examples/C++98/ostream_iterator.cpp)
+**Example**: [ostream_iterator.cpp](../../examples/C++98/ostream_iterator.cpp)
 
 ### std::istreambuf_iterator
 **Explanation**: Reads characters directly from an input stream buffer.  
@@ -266,7 +266,7 @@ std::ostream_iterator<int> it(std::cout, " ");
 ```cpp
 std::istreambuf_iterator<char> it(std::cin);
 ```
-**Example**: [istreambuf_iterator.cpp](../examples/C++98/istreambuf_iterator.cpp)
+**Example**: [istreambuf_iterator.cpp](../../examples/C++98/istreambuf_iterator.cpp)
 
 ### std::ostreambuf_iterator
 **Explanation**: Writes characters directly to an output stream buffer.  
@@ -275,7 +275,7 @@ std::istreambuf_iterator<char> it(std::cin);
 ```cpp
 std::ostreambuf_iterator<char> it(std::cout);
 ```
-**Example**: [ostreambuf_iterator.cpp](../examples/C++98/ostreambuf_iterator.cpp)
+**Example**: [ostreambuf_iterator.cpp](../../examples/C++98/ostreambuf_iterator.cpp)
 
 ## Algorithms
 ### std::for_each
@@ -285,7 +285,7 @@ std::ostreambuf_iterator<char> it(std::cout);
 ```cpp
 std::for_each(vec.begin(), vec.end(), print);
 ```
-**Example**: [for_each.cpp](../examples/C++98/for_each.cpp)
+**Example**: [for_each.cpp](../../examples/C++98/for_each.cpp)
 
 ### std::find
 **Explanation**: Finds the first occurrence of a value in a range.  
@@ -294,7 +294,7 @@ std::for_each(vec.begin(), vec.end(), print);
 ```cpp
 std::find(vec.begin(), vec.end(), 5);
 ```
-**Example**: [find.cpp](../examples/C++98/find.cpp)
+**Example**: [find.cpp](../../examples/C++98/find.cpp)
 
 ### std::find_if
 **Explanation**: Finds the first element satisfying a predicate.  
@@ -303,7 +303,7 @@ std::find(vec.begin(), vec.end(), 5);
 ```cpp
 std::find_if(vec.begin(), vec.end(), isEven);
 ```
-**Example**: [find_if.cpp](../examples/C++98/find_if.cpp)
+**Example**: [find_if.cpp](../../examples/C++98/find_if.cpp)
 
 ### std::find_end
 **Explanation**: Finds the last occurrence of a subsequence in a range.  
@@ -312,7 +312,7 @@ std::find_if(vec.begin(), vec.end(), isEven);
 ```cpp
 std::find_end(vec.begin(), vec.end(), sub.begin(), sub.end());
 ```
-**Example**: [find_end.cpp](../examples/C++98/find_end.cpp)
+**Example**: [find_end.cpp](../../examples/C++98/find_end.cpp)
 
 ### std::find_first_of
 **Explanation**: Finds the first element matching any from another range.  
@@ -321,7 +321,7 @@ std::find_end(vec.begin(), vec.end(), sub.begin(), sub.end());
 ```cpp
 std::find_first_of(vec.begin(), vec.end(), chars.begin(), chars.end());
 ```
-**Example**: [find_first_of.cpp](../examples/C++98/find_first_of.cpp)
+**Example**: [find_first_of.cpp](../../examples/C++98/find_first_of.cpp)
 
 ### std::adjacent_find
 **Explanation**: Finds the first pair of adjacent equal elements.  
@@ -330,7 +330,7 @@ std::find_first_of(vec.begin(), vec.end(), chars.begin(), chars.end());
 ```cpp
 std::adjacent_find(vec.begin(), vec.end());
 ```
-**Example**: [adjacent_find.cpp](../examples/C++98/adjacent_find.cpp)
+**Example**: [adjacent_find.cpp](../../examples/C++98/adjacent_find.cpp)
 
 ### std::count
 **Explanation**: Counts occurrences of a value in a range.  
@@ -339,7 +339,7 @@ std::adjacent_find(vec.begin(), vec.end());
 ```cpp
 std::count(vec.begin(), vec.end(), 5);
 ```
-**Example**: [count.cpp](../examples/C++98/count.cpp)
+**Example**: [count.cpp](../../examples/C++98/count.cpp)
 
 ### std::count_if
 **Explanation**: Counts elements satisfying a predicate.  
@@ -348,7 +348,7 @@ std::count(vec.begin(), vec.end(), 5);
 ```cpp
 std::count_if(vec.begin(), vec.end(), isPositive);
 ```
-**Example**: [count_if.cpp](../examples/C++98/count_if.cpp)
+**Example**: [count_if.cpp](../../examples/C++98/count_if.cpp)
 
 ### std::mismatch
 **Explanation**: Finds the first position where two ranges differ.  
@@ -357,7 +357,7 @@ std::count_if(vec.begin(), vec.end(), isPositive);
 ```cpp
 std::mismatch(vec1.begin(), vec1.end(), vec2.begin());
 ```
-**Example**: [mismatch.cpp](../examples/C++98/mismatch.cpp)
+**Example**: [mismatch.cpp](../../examples/C++98/mismatch.cpp)
 
 ### std::equal
 **Explanation**: Checks if two ranges are equal.  
@@ -366,7 +366,7 @@ std::mismatch(vec1.begin(), vec1.end(), vec2.begin());
 ```cpp
 std::equal(vec1.begin(), vec1.end(), vec2.begin());
 ```
-**Example**: [equal.cpp](../examples/C++98/equal.cpp)
+**Example**: [equal.cpp](../../examples/C++98/equal.cpp)
 
 ### std::search
 **Explanation**: Finds the first occurrence of a subsequence in a range.  
@@ -375,7 +375,7 @@ std::equal(vec1.begin(), vec1.end(), vec2.begin());
 ```cpp
 std::search(vec.begin(), vec.end(), sub.begin(), sub.end());
 ```
-**Example**: [search.cpp](../examples/C++98/search.cpp)
+**Example**: [search.cpp](../../examples/C++98/search.cpp)
 
 ### std::search_n
 **Explanation**: Finds n consecutive equal elements.  
@@ -384,7 +384,7 @@ std::search(vec.begin(), vec.end(), sub.begin(), sub.end());
 ```cpp
 std::search_n(vec.begin(), vec.end(), 2, 5);
 ```
-**Example**: [search_n.cpp](../examples/C++98/search_n.cpp)
+**Example**: [search_n.cpp](../../examples/C++98/search_n.cpp)
 
 ### std::copy
 **Explanation**: Copies elements from one range to another.  
@@ -393,7 +393,7 @@ std::search_n(vec.begin(), vec.end(), 2, 5);
 ```cpp
 std::copy(vec.begin(), vec.end(), dest.begin());
 ```
-**Example**: [copy.cpp](../examples/C++98/copy.cpp)
+**Example**: [copy.cpp](../../examples/C++98/copy.cpp)
 
 ### std::copy_backward
 **Explanation**: Copies elements in reverse order to a destination.  
@@ -402,7 +402,7 @@ std::copy(vec.begin(), vec.end(), dest.begin());
 ```cpp
 std::copy_backward(vec.begin(), vec.end(), dest.end());
 ```
-**Example**: [copy_backward.cpp](../examples/C++98/copy_backward.cpp)
+**Example**: [copy_backward.cpp](../../examples/C++98/copy_backward.cpp)
 
 ### std::move (Algorithm)
 **Explanation**: Moves elements from one range to another (not move semantics).  
@@ -411,7 +411,7 @@ std::copy_backward(vec.begin(), vec.end(), dest.end());
 ```cpp
 std::move(vec.begin(), vec.end(), dest.begin());
 ```
-**Example**: [move_algorithm.cpp](../examples/C++98/move_algorithm.cpp)
+**Example**: [move_algorithm.cpp](../../examples/C++98/move_algorithm.cpp)
 
 ### std::move_backward
 **Explanation**: Moves elements in reverse order to a destination.  
@@ -420,7 +420,7 @@ std::move(vec.begin(), vec.end(), dest.begin());
 ```cpp
 std::move_backward(vec.begin(), vec.end(), dest.end());
 ```
-**Example**: [move_backward.cpp](../examples/C++98/move_backward.cpp)
+**Example**: [move_backward.cpp](../../examples/C++98/move_backward.cpp)
 
 ### std::fill
 **Explanation**: Fills a range with a specified value.  
@@ -429,7 +429,7 @@ std::move_backward(vec.begin(), vec.end(), dest.end());
 ```cpp
 std::fill(vec.begin(), vec.end(), 0);
 ```
-**Example**: [fill.cpp](../examples/C++98/fill.cpp)
+**Example**: [fill.cpp](../../examples/C++98/fill.cpp)
 
 ### std::fill_n
 **Explanation**: Fills n elements with a specified value.  
@@ -438,7 +438,7 @@ std::fill(vec.begin(), vec.end(), 0);
 ```cpp
 std::fill_n(vec.begin(), 5, 0);
 ```
-**Example**: [fill_n.cpp](../examples/C++98/fill_n.cpp)
+**Example**: [fill_n.cpp](../../examples/C++98/fill_n.cpp)
 
 ### std::transform
 **Explanation**: Applies a function to a range, storing results elsewhere.  
@@ -447,7 +447,7 @@ std::fill_n(vec.begin(), 5, 0);
 ```cpp
 std::transform(vec.begin(), vec.end(), dest.begin(), toFahrenheit);
 ```
-**Example**: [transform.cpp](../examples/C++98/transform.cpp)
+**Example**: [transform.cpp](../../examples/C++98/transform.cpp)
 
 ### std::generate
 **Explanation**: Assigns values from a generator function to a range.  
@@ -456,7 +456,7 @@ std::transform(vec.begin(), vec.end(), dest.begin(), toFahrenheit);
 ```cpp
 std::generate(vec.begin(), vec.end(), rand);
 ```
-**Example**: [generate.cpp](../examples/C++98/generate.cpp)
+**Example**: [generate.cpp](../../examples/C++98/generate.cpp)
 
 ### std::generate_n
 **Explanation**: Assigns values from a generator to n elements.  
@@ -465,7 +465,7 @@ std::generate(vec.begin(), vec.end(), rand);
 ```cpp
 std::generate_n(vec.begin(), 5, rand);
 ```
-**Example**: [generate_n.cpp](../examples/C++98/generate_n.cpp)
+**Example**: [generate_n.cpp](../../examples/C++98/generate_n.cpp)
 
 ### std::remove
 **Explanation**: Moves elements not matching a value to the front of a range.  
@@ -474,7 +474,7 @@ std::generate_n(vec.begin(), 5, rand);
 ```cpp
 std::remove(vec.begin(), vec.end(), 0);
 ```
-**Example**: [remove.cpp](../examples/C++98/remove.cpp)
+**Example**: [remove.cpp](../../examples/C++98/remove.cpp)
 
 ### std::remove_if
 **Explanation**: Moves elements not satisfying a predicate to the front.  
@@ -483,7 +483,7 @@ std::remove(vec.begin(), vec.end(), 0);
 ```cpp
 std::remove_if(vec.begin(), vec.end(), isNegative);
 ```
-**Example**: [remove_if.cpp](../examples/C++98/remove_if.cpp)
+**Example**: [remove_if.cpp](../../examples/C++98/remove_if.cpp)
 
 ### std::replace
 **Explanation**: Replaces all occurrences of a value in a range.  
@@ -492,7 +492,7 @@ std::remove_if(vec.begin(), vec.end(), isNegative);
 ```cpp
 std::replace(vec.begin(), vec.end(), 0, 1);
 ```
-**Example**: [replace.cpp](../examples/C++98/replace.cpp)
+**Example**: [replace.cpp](../../examples/C++98/replace.cpp)
 
 ### std::replace_if
 **Explanation**: Replaces elements satisfying a predicate.  
@@ -501,7 +501,7 @@ std::replace(vec.begin(), vec.end(), 0, 1);
 ```cpp
 std::replace_if(vec.begin(), vec.end(), isNegative, 0);
 ```
-**Example**: [replace_if.cpp](../examples/C++98/replace_if.cpp)
+**Example**: [replace_if.cpp](../../examples/C++98/replace_if.cpp)
 
 ### std::swap
 **Explanation**: Exchanges values of two variables.  
@@ -510,7 +510,7 @@ std::replace_if(vec.begin(), vec.end(), isNegative, 0);
 ```cpp
 std::swap(x, y);
 ```
-**Example**: [swap.cpp](../examples/C++98/swap.cpp)
+**Example**: [swap.cpp](../../examples/C++98/swap.cpp)
 
 ### std::swap_ranges
 **Explanation**: Exchanges elements between two ranges.  
@@ -519,7 +519,7 @@ std::swap(x, y);
 ```cpp
 std::swap_ranges(vec1.begin(), vec1.end(), vec2.begin());
 ```
-**Example**: [swap_ranges.cpp](../examples/C++98/swap_ranges.cpp)
+**Example**: [swap_ranges.cpp](../../examples/C++98/swap_ranges.cpp)
 
 ### std::iter_swap
 **Explanation**: Swaps elements pointed to by two iterators.  
@@ -528,7 +528,7 @@ std::swap_ranges(vec1.begin(), vec1.end(), vec2.begin());
 ```cpp
 std::iter_swap(vec.begin(), vec.begin() + 1);
 ```
-**Example**: [iter_swap.cpp](../examples/C++98/iter_swap.cpp)
+**Example**: [iter_swap.cpp](../../examples/C++98/iter_swap.cpp)
 
 ### std::reverse
 **Explanation**: Reverses the order of elements in a range.  
@@ -537,7 +537,7 @@ std::iter_swap(vec.begin(), vec.begin() + 1);
 ```cpp
 std::reverse(vec.begin(), vec.end());
 ```
-**Example**: [reverse.cpp](../examples/C++98/reverse.cpp)
+**Example**: [reverse.cpp](../../examples/C++98/reverse.cpp)
 
 ### std::reverse_copy
 **Explanation**: Copies a range in reverse order to a destination.  
@@ -546,7 +546,7 @@ std::reverse(vec.begin(), vec.end());
 ```cpp
 std::reverse_copy(vec.begin(), vec.end(), dest.begin());
 ```
-**Example**: [reverse_copy.cpp](../examples/C++98/reverse_copy.cpp)
+**Example**: [reverse_copy.cpp](../../examples/C++98/reverse_copy.cpp)
 
 ### std::rotate
 **Explanation**: Rotates elements in a range around a pivot.  
@@ -555,7 +555,7 @@ std::reverse_copy(vec.begin(), vec.end(), dest.begin());
 ```cpp
 std::rotate(vec.begin(), vec.begin() + 2, vec.end());
 ```
-**Example**: [rotate.cpp](../examples/C++98/rotate.cpp)
+**Example**: [rotate.cpp](../../examples/C++98/rotate.cpp)
 
 ### std::rotate_copy
 **Explanation**: Copies a rotated range to a destination.  
@@ -564,7 +564,7 @@ std::rotate(vec.begin(), vec.begin() + 2, vec.end());
 ```cpp
 std::rotate_copy(vec.begin(), vec.begin() + 2, vec.end(), dest.begin());
 ```
-**Example**: [rotate_copy.cpp](../examples/C++98/rotate_copy.cpp)
+**Example**: [rotate_copy.cpp](../../examples/C++98/rotate_copy.cpp)
 
 ### std::unique
 **Explanation**: Removes consecutive duplicates in a range.  
@@ -573,7 +573,7 @@ std::rotate_copy(vec.begin(), vec.begin() + 2, vec.end(), dest.begin());
 ```cpp
 std::unique(vec.begin(), vec.end());
 ```
-**Example**: [unique.cpp](../examples/C++98/unique.cpp)
+**Example**: [unique.cpp](../../examples/C++98/unique.cpp)
 
 ### std::unique_copy
 **Explanation**: Copies a range, removing consecutive duplicates.  
@@ -582,7 +582,7 @@ std::unique(vec.begin(), vec.end());
 ```cpp
 std::unique_copy(vec.begin(), vec.end(), dest.begin());
 ```
-**Example**: [unique_copy.cpp](../examples/C++98/unique_copy.cpp)
+**Example**: [unique_copy.cpp](../../examples/C++98/unique_copy.cpp)
 
 ### std::partition
 **Explanation**: Reorders elements so those satisfying a predicate come first.  
@@ -591,7 +591,7 @@ std::unique_copy(vec.begin(), vec.end(), dest.begin());
 ```cpp
 std::partition(vec.begin(), vec.end(), isPositive);
 ```
-**Example**: [partition.cpp](../examples/C++98/partition.cpp)
+**Example**: [partition.cpp](../../examples/C++98/partition.cpp)
 
 ### std::stable_partition
 **Explanation**: Partitions while preserving relative order.  
@@ -600,7 +600,7 @@ std::partition(vec.begin(), vec.end(), isPositive);
 ```cpp
 std::stable_partition(vec.begin(), vec.end(), isPositive);
 ```
-**Example**: [stable_partition.cpp](../examples/C++98/stable_partition.cpp)
+**Example**: [stable_partition.cpp](../../examples/C++98/stable_partition.cpp)
 
 ### std::sort
 **Explanation**: Sorts elements in a range.  
@@ -609,7 +609,7 @@ std::stable_partition(vec.begin(), vec.end(), isPositive);
 ```cpp
 std::sort(vec.begin(), vec.end());
 ```
-**Example**: [sort.cpp](../examples/C++98/sort.cpp)
+**Example**: [sort.cpp](../../examples/C++98/sort.cpp)
 
 ### std::stable_sort
 **Explanation**: Sorts while preserving relative order of equal elements.  
@@ -618,7 +618,7 @@ std::sort(vec.begin(), vec.end());
 ```cpp
 std::stable_sort(vec.begin(), vec.end());
 ```
-**Example**: [stable_sort.cpp](../examples/C++98/stable_sort.cpp)
+**Example**: [stable_sort.cpp](../../examples/C++98/stable_sort.cpp)
 
 ### std::partial_sort
 **Explanation**: Sorts the first n elements of a range.  
@@ -627,7 +627,7 @@ std::stable_sort(vec.begin(), vec.end());
 ```cpp
 std::partial_sort(vec.begin(), vec.begin() + 5, vec.end());
 ```
-**Example**: [partial_sort.cpp](../examples/C++98/partial_sort.cpp)
+**Example**: [partial_sort.cpp](../../examples/C++98/partial_sort.cpp)
 
 ### std::partial_sort_copy
 **Explanation**: Copies the smallest n elements in sorted order.  
@@ -636,7 +636,7 @@ std::partial_sort(vec.begin(), vec.begin() + 5, vec.end());
 ```cpp
 std::partial_sort_copy(vec.begin(), vec.end(), dest.begin(), dest.end());
 ```
-**Example**: [partial_sort_copy.cpp](../examples/C++98/partial_sort_copy.cpp)
+**Example**: [partial_sort_copy.cpp](../../examples/C++98/partial_sort_copy.cpp)
 
 ### std::nth_element
 **Explanation**: Places the nth element in its sorted position.  
@@ -645,7 +645,7 @@ std::partial_sort_copy(vec.begin(), vec.end(), dest.begin(), dest.end());
 ```cpp
 std::nth_element(vec.begin(), vec.begin() + n, vec.end());
 ```
-**Example**: [nth_element.cpp](../examples/C++98/nth_element.cpp)
+**Example**: [nth_element.cpp](../../examples/C++98/nth_element.cpp)
 
 ### std::merge
 **Explanation**: Merges two sorted ranges into a destination.  
@@ -654,7 +654,7 @@ std::nth_element(vec.begin(), vec.begin() + n, vec.end());
 ```cpp
 std::merge(vec1.begin(), vec1.end(), vec2.begin(), vec2.end(), dest.begin());
 ```
-**Example**: [merge.cpp](../examples/C++98/merge.cpp)
+**Example**: [merge.cpp](../../examples/C++98/merge.cpp)
 
 ### std::inplace_merge
 **Explanation**: Merges two sorted subranges in place.  
@@ -663,7 +663,7 @@ std::merge(vec1.begin(), vec1.end(), vec2.begin(), vec2.end(), dest.begin());
 ```cpp
 std::inplace_merge(vec.begin(), vec.begin() + n, vec.end());
 ```
-**Example**: [inplace_merge.cpp](../examples/C++98/inplace_merge.cpp)
+**Example**: [inplace_merge.cpp](../../examples/C++98/inplace_merge.cpp)
 
 ### std::includes
 **Explanation**: Checks if one sorted range is a subset of another.  
@@ -672,7 +672,7 @@ std::inplace_merge(vec.begin(), vec.begin() + n, vec.end());
 ```cpp
 std::includes(vec1.begin(), vec1.end(), vec2.begin(), vec2.end());
 ```
-**Example**: [includes.cpp](../examples/C++98/includes.cpp)
+**Example**: [includes.cpp](../../examples/C++98/includes.cpp)
 
 ### std::set_union
 **Explanation**: Combines two sorted ranges, keeping unique elements.  
@@ -681,7 +681,7 @@ std::includes(vec1.begin(), vec1.end(), vec2.begin(), vec2.end());
 ```cpp
 std::set_union(vec1.begin(), vec1.end(), vec2.begin(), vec2.end(), dest.begin());
 ```
-**Example**: [set_union.cpp](../examples/C++98/set_union.cpp)
+**Example**: [set_union.cpp](../../examples/C++98/set_union.cpp)
 
 ### std::set_intersection
 **Explanation**: Finds elements common to two sorted ranges.  
@@ -690,7 +690,7 @@ std::set_union(vec1.begin(), vec1.end(), vec2.begin(), vec2.end(), dest.begin())
 ```cpp
 std::set_intersection(vec1.begin(), vec1.end(), vec2.begin(), vec2.end(), dest.begin());
 ```
-**Example**: [set_intersection.cpp](../examples/C++98/set_intersection.cpp)
+**Example**: [set_intersection.cpp](../../examples/C++98/set_intersection.cpp)
 
 ### std::set_difference
 **Explanation**: Finds elements in one sorted range but not another.  
@@ -699,7 +699,7 @@ std::set_intersection(vec1.begin(), vec1.end(), vec2.begin(), vec2.end(), dest.b
 ```cpp
 std::set_difference(vec1.begin(), vec1.end(), vec2.begin(), vec2.end(), dest.begin());
 ```
-**Example**: [set_difference.cpp](../examples/C++98/set_difference.cpp)
+**Example**: [set_difference.cpp](../../examples/C++98/set_difference.cpp)
 
 ### std::set_symmetric_difference
 **Explanation**: Finds elements in either sorted range but not both.  
@@ -708,7 +708,7 @@ std::set_difference(vec1.begin(), vec1.end(), vec2.begin(), vec2.end(), dest.beg
 ```cpp
 std::set_symmetric_difference(vec1.begin(), vec1.end(), vec2.begin(), vec2.end(), dest.begin());
 ```
-**Example**: [set_symmetric_difference.cpp](../examples/C++98/set_symmetric_difference.cpp)
+**Example**: [set_symmetric_difference.cpp](../../examples/C++98/set_symmetric_difference.cpp)
 
 ### std::push_heap
 **Explanation**: Adds an element to a heap.  
@@ -717,7 +717,7 @@ std::set_symmetric_difference(vec1.begin(), vec1.end(), vec2.begin(), vec2.end()
 ```cpp
 std::push_heap(vec.begin(), vec.end());
 ```
-**Example**: [push_heap.cpp](../examples/C++98/push_heap.cpp)
+**Example**: [push_heap.cpp](../../examples/C++98/push_heap.cpp)
 
 ### std::pop_heap
 **Explanation**: Removes the largest element from a heap.  
@@ -726,7 +726,7 @@ std::push_heap(vec.begin(), vec.end());
 ```cpp
 std::pop_heap(vec.begin(), vec.end());
 ```
-**Example**: [pop_heap.cpp](../examples/C++98/pop_heap.cpp)
+**Example**: [pop_heap.cpp](../../examples/C++98/pop_heap.cpp)
 
 ### std::make_heap
 **Explanation**: Converts a range into a heap.  
@@ -735,7 +735,7 @@ std::pop_heap(vec.begin(), vec.end());
 ```cpp
 std::make_heap(vec.begin(), vec.end());
 ```
-**Example**: [make_heap.cpp](../examples/C++98/make_heap.cpp)
+**Example**: [make_heap.cpp](../../examples/C++98/make_heap.cpp)
 
 ### std::sort_heap
 **Explanation**: Sorts a heap into a sorted range.  
@@ -744,7 +744,7 @@ std::make_heap(vec.begin(), vec.end());
 ```cpp
 std::sort_heap(vec.begin(), vec.end());
 ```
-**Example**: [sort_heap.cpp](../examples/C++98/sort_heap.cpp)
+**Example**: [sort_heap.cpp](../../examples/C++98/sort_heap.cpp)
 
 ### std::min
 **Explanation**: Returns the smaller of two values.  
@@ -753,7 +753,7 @@ std::sort_heap(vec.begin(), vec.end());
 ```cpp
 std::min(a, b);
 ```
-**Example**: [min.cpp](../examples/C++98/min.cpp)
+**Example**: [min.cpp](../../examples/C++98/min.cpp)
 
 ### std::max
 **Explanation**: Returns the larger of two values.  
@@ -762,7 +762,7 @@ std::min(a, b);
 ```cpp
 std::max(a, b);
 ```
-**Example**: [max.cpp](../examples/C++98/max.cpp)
+**Example**: [max.cpp](../../examples/C++98/max.cpp)
 
 ### std::min_element
 **Explanation**: Finds the smallest element in a range.  
@@ -771,7 +771,7 @@ std::max(a, b);
 ```cpp
 std::min_element(vec.begin(), vec.end());
 ```
-**Example**: [min_element.cpp](../examples/C++98/min_element.cpp)
+**Example**: [min_element.cpp](../../examples/C++98/min_element.cpp)
 
 ### std::max_element
 **Explanation**: Finds the largest element in a range.  
@@ -780,7 +780,7 @@ std::min_element(vec.begin(), vec.end());
 ```cpp
 std::max_element(vec.begin(), vec.end());
 ```
-**Example**: [max_element.cpp](../examples/C++98/max_element.cpp)
+**Example**: [max_element.cpp](../../examples/C++98/max_element.cpp)
 
 ### std::lexicographical_compare
 **Explanation**: Compares two ranges lexicographically.  
@@ -789,7 +789,7 @@ std::max_element(vec.begin(), vec.end());
 ```cpp
 std::lexicographical_compare(str1.begin(), str1.end(), str2.begin(), str2.end());
 ```
-**Example**: [lexicographical_compare.cpp](../examples/C++98/lexicographical_compare.cpp)
+**Example**: [lexicographical_compare.cpp](../../examples/C++98/lexicographical_compare.cpp)
 
 ### std::next_permutation
 **Explanation**: Generates the next permutation of a range.  
@@ -798,7 +798,7 @@ std::lexicographical_compare(str1.begin(), str1.end(), str2.begin(), str2.end())
 ```cpp
 std::next_permutation(vec.begin(), vec.end());
 ```
-**Example**: [next_permutation.cpp](../examples/C++98/next_permutation.cpp)
+**Example**: [next_permutation.cpp](../../examples/C++98/next_permutation.cpp)
 
 ### std::prev_permutation
 **Explanation**: Generates the previous permutation of a range.  
@@ -807,7 +807,7 @@ std::next_permutation(vec.begin(), vec.end());
 ```cpp
 std::prev_permutation(vec.begin(), vec.end());
 ```
-**Example**: [prev_permutation.cpp](../examples/C++98/prev_permutation.cpp)
+**Example**: [prev_permutation.cpp](../../examples/C++98/prev_permutation.cpp)
 
 ## Function Objects (Functors)
 ### std::unary_function
@@ -817,7 +817,7 @@ std::prev_permutation(vec.begin(), vec.end());
 ```cpp
 struct MyFunc : std::unary_function<int, int> { int operator()(int x) { return x; } };
 ```
-**Example**: [unary_function.cpp](../examples/C++98/unary_function.cpp)
+**Example**: [unary_function.cpp](../../examples/C++98/unary_function.cpp)
 
 ### std::binary_function
 **Explanation**: Base for binary function objects (deprecated in C++11).  
@@ -826,7 +826,7 @@ struct MyFunc : std::unary_function<int, int> { int operator()(int x) { return x
 ```cpp
 struct MyComp : std::binary_function<int, int, bool> { bool operator()(int x, int y) { return x < y; } };
 ```
-**Example**: [binary_function.cpp](../examples/C++98/binary_function.cpp)
+**Example**: [binary_function.cpp](../../examples/C++98/binary_function.cpp)
 
 ### std::plus
 **Explanation**: Adds two values.  
@@ -835,7 +835,7 @@ struct MyComp : std::binary_function<int, int, bool> { bool operator()(int x, in
 ```cpp
 std::plus<int> add; add(2, 3);
 ```
-**Example**: [plus.cpp](../examples/C++98/plus.cpp)
+**Example**: [plus.cpp](../../examples/C++98/plus.cpp)
 
 ### std::minus
 **Explanation**: Subtracts one value from another.  
@@ -844,7 +844,7 @@ std::plus<int> add; add(2, 3);
 ```cpp
 std::minus<int> sub; sub(5, 3);
 ```
-**Example**: [minus.cpp](../examples/C++98/minus.cpp)
+**Example**: [minus.cpp](../../examples/C++98/minus.cpp)
 
 ### std::multiplies
 **Explanation**: Multiplies two values.  
@@ -853,7 +853,7 @@ std::minus<int> sub; sub(5, 3);
 ```cpp
 std::multiplies<int> mul; mul(2, 3);
 ```
-**Example**: [multiplies.cpp](../examples/C++98/multiplies.cpp)
+**Example**: [multiplies.cpp](../../examples/C++98/multiplies.cpp)
 
 ### std::divides
 **Explanation**: Divides one value by another.  
@@ -862,7 +862,7 @@ std::multiplies<int> mul; mul(2, 3);
 ```cpp
 std::divides<int> div; div(6, 2);
 ```
-**Example**: [divides.cpp](../examples/C++98/divides.cpp)
+**Example**: [divides.cpp](../../examples/C++98/divides.cpp)
 
 ### std::modulus
 **Explanation**: Computes the remainder of division.  
@@ -871,7 +871,7 @@ std::divides<int> div; div(6, 2);
 ```cpp
 std::modulus<int> mod; mod(5, 2);
 ```
-**Example**: [modulus.cpp](../examples/C++98/modulus.cpp)
+**Example**: [modulus.cpp](../../examples/C++98/modulus.cpp)
 
 ### std::negate
 **Explanation**: Negates a value.  
@@ -880,7 +880,7 @@ std::modulus<int> mod; mod(5, 2);
 ```cpp
 std::negate<int> neg; neg(5);
 ```
-**Example**: [negate.cpp](../examples/C++98/negate.cpp)
+**Example**: [negate.cpp](../../examples/C++98/negate.cpp)
 
 ### std::equal_to
 **Explanation**: Checks if two values are equal.  
@@ -889,7 +889,7 @@ std::negate<int> neg; neg(5);
 ```cpp
 std::equal_to<int> eq; eq(5, 5);
 ```
-**Example**: [equal_to.cpp](../examples/C++98/equal_to.cpp)
+**Example**: [equal_to.cpp](../../examples/C++98/equal_to.cpp)
 
 ### std::not_equal_to
 **Explanation**: Checks if two values are not equal.  
@@ -898,7 +898,7 @@ std::equal_to<int> eq; eq(5, 5);
 ```cpp
 std::not_equal_to<int> neq; neq(5, 3);
 ```
-**Example**: [not_equal_to.cpp](../examples/C++98/not_equal_to.cpp)
+**Example**: [not_equal_to.cpp](../../examples/C++98/not_equal_to.cpp)
 
 ### std::greater
 **Explanation**: Checks if one value is greater than another.  
@@ -907,7 +907,7 @@ std::not_equal_to<int> neq; neq(5, 3);
 ```cpp
 std::greater<int> gt; gt(5, 3);
 ```
-**Example**: [greater.cpp](../examples/C++98/greater.cpp)
+**Example**: [greater.cpp](../../examples/C++98/greater.cpp)
 
 ### std::less
 **Explanation**: Checks if one value is less than another.  
@@ -916,7 +916,7 @@ std::greater<int> gt; gt(5, 3);
 ```cpp
 std::less<int> lt; lt(3, 5);
 ```
-**Example**: [less.cpp](../examples/C++98/less.cpp)
+**Example**: [less.cpp](../../examples/C++98/less.cpp)
 
 ### std::greater_equal
 **Explanation**: Checks if one value is greater than or equal to another.  
@@ -925,7 +925,7 @@ std::less<int> lt; lt(3, 5);
 ```cpp
 std::greater_equal<int> ge; ge(5, 5);
 ```
-**Example**: [greater_equal.cpp](../examples/C++98/greater_equal.cpp)
+**Example**: [greater_equal.cpp](../../examples/C++98/greater_equal.cpp)
 
 ### std::less_equal
 **Explanation**: Checks if one value is less than or equal to another.  
@@ -934,7 +934,7 @@ std::greater_equal<int> ge; ge(5, 5);
 ```cpp
 std::less_equal<int> le; le(3, 5);
 ```
-**Example**: [less_equal.cpp](../examples/C++98/less_equal.cpp)
+**Example**: [less_equal.cpp](../../examples/C++98/less_equal.cpp)
 
 ### std::logical_and
 **Explanation**: Performs logical AND on two values.  
@@ -943,7 +943,7 @@ std::less_equal<int> le; le(3, 5);
 ```cpp
 std::logical_and<bool> and_op; and_op(true, true);
 ```
-**Example**: [logical_and.cpp](../examples/C++98/logical_and.cpp)
+**Example**: [logical_and.cpp](../../examples/C++98/logical_and.cpp)
 
 ### std::logical_or
 **Explanation**: Performs logical OR on two values.  
@@ -952,7 +952,7 @@ std::logical_and<bool> and_op; and_op(true, true);
 ```cpp
 std::logical_or<bool> or_op; or_op(true, false);
 ```
-**Example**: [logical_or.cpp](../examples/C++98/logical_or.cpp)
+**Example**: [logical_or.cpp](../../examples/C++98/logical_or.cpp)
 
 ### std::logical_not
 **Explanation**: Performs logical NOT on a value.  
@@ -961,7 +961,7 @@ std::logical_or<bool> or_op; or_op(true, false);
 ```cpp
 std::logical_not<bool> not_op; not_op(true);
 ```
-**Example**: [logical_not.cpp](../examples/C++98/logical_not.cpp)
+**Example**: [logical_not.cpp](../../examples/C++98/logical_not.cpp)
 
 ### std::unary_negate
 **Explanation**: Negates the result of a unary predicate (deprecated in C++11).  
@@ -970,7 +970,7 @@ std::logical_not<bool> not_op; not_op(true);
 ```cpp
 std::unary_negate<MyPred> neg(pred);
 ```
-**Example**: [unary_negate.cpp](../examples/C++98/unary_negate.cpp)
+**Example**: [unary_negate.cpp](../../examples/C++98/unary_negate.cpp)
 
 ### std::binary_negate
 **Explanation**: Negates the result of a binary predicate (deprecated in C++11).  
@@ -979,7 +979,7 @@ std::unary_negate<MyPred> neg(pred);
 ```cpp
 std::binary_negate<MyComp> neg(comp);
 ```
-**Example**: [binary_negate.cpp](../examples/C++98/binary_negate.cpp)
+**Example**: [binary_negate.cpp](../../examples/C++98/binary_negate.cpp)
 
 ### std::binder1st
 **Explanation**: Binds the first argument of a binary function (deprecated in C++11).  
@@ -988,7 +988,7 @@ std::binary_negate<MyComp> neg(comp);
 ```cpp
 std::binder1st<std::plus<int>> add_to_5(std::plus<int>(), 5);
 ```
-**Example**: [binder1st.cpp](../examples/C++98/binder1st.cpp)
+**Example**: [binder1st.cpp](../../examples/C++98/binder1st.cpp)
 
 ### std::binder2nd
 **Explanation**: Binds the second argument of a binary function (deprecated in C++11).  
@@ -997,7 +997,7 @@ std::binder1st<std::plus<int>> add_to_5(std::plus<int>(), 5);
 ```cpp
 std::binder2nd<std::minus<int>> sub_from_5(std::minus<int>(), 5);
 ```
-**Example**: [binder2nd.cpp](../examples/C++98/binder2nd.cpp)
+**Example**: [binder2nd.cpp](../../examples/C++98/binder2nd.cpp)
 
 ### std::pointer_to_unary_function
 **Explanation**: Converts a unary function pointer to a function object (deprecated in C++11).  
@@ -1006,7 +1006,7 @@ std::binder2nd<std::minus<int>> sub_from_5(std::minus<int>(), 5);
 ```cpp
 std::pointer_to_unary_function<int, int> func_ptr(myFunc);
 ```
-**Example**: [pointer_to_unary_function.cpp](../examples/C++98/pointer_to_unary_function.cpp)
+**Example**: [pointer_to_unary_function.cpp](../../examples/C++98/pointer_to_unary_function.cpp)
 
 ### std::pointer_to_binary_function
 **Explanation**: Converts a binary function pointer to a function object (deprecated in C++11).  
@@ -1015,7 +1015,7 @@ std::pointer_to_unary_function<int, int> func_ptr(myFunc);
 ```cpp
 std::pointer_to_binary_function<int, int, int> func_ptr(myFunc);
 ```
-**Example**: [pointer_to_binary_function.cpp](../examples/C++98/pointer_to_binary_function.cpp)
+**Example**: [pointer_to_binary_function.cpp](../../examples/C++98/pointer_to_binary_function.cpp)
 
 ### std::mem_fun
 **Explanation**: Creates a function object from a member function (deprecated in C++11).  
@@ -1024,7 +1024,7 @@ std::pointer_to_binary_function<int, int, int> func_ptr(myFunc);
 ```cpp
 std::mem_fun(&MyClass::myMethod);
 ```
-**Example**: [mem_fun.cpp](../examples/C++98/mem_fun.cpp)
+**Example**: [mem_fun.cpp](../../examples/C++98/mem_fun.cpp)
 
 ### std::mem_fun_ref
 **Explanation**: Creates a function object from a member function for references (deprecated in C++11).  
@@ -1033,7 +1033,7 @@ std::mem_fun(&MyClass::myMethod);
 ```cpp
 std::mem_fun_ref(&MyClass::myMethod);
 ```
-**Example**: [mem_fun_ref.cpp](../examples/C++98/mem_fun_ref.cpp)
+**Example**: [mem_fun_ref.cpp](../../examples/C++98/mem_fun_ref.cpp)
 
 ## Utilities
 ### std::pair
@@ -1043,7 +1043,7 @@ std::mem_fun_ref(&MyClass::myMethod);
 ```cpp
 std::pair<int, string> p = {1, "value"};
 ```
-**Example**: [pair.cpp](../examples/C++98/pair.cpp)
+**Example**: [pair.cpp](../../examples/C++98/pair.cpp)
 
 ### std::string
 **Explanation**: Manages sequences of characters.  
@@ -1052,7 +1052,7 @@ std::pair<int, string> p = {1, "value"};
 ```cpp
 std::string s = "hello";
 ```
-**Example**: [string.cpp](../examples/C++98/string.cpp)
+**Example**: [string.cpp](../../examples/C++98/string.cpp)
 
 ### std::auto_ptr (Deprecated in C++11)
 **Explanation**: Smart pointer for automatic memory management.  
@@ -1061,7 +1061,7 @@ std::string s = "hello";
 ```cpp
 std::auto_ptr<int> ptr(new int(5));
 ```
-**Example**: [auto_ptr.cpp](../examples/C++98/auto_ptr.cpp)
+**Example**: [auto_ptr.cpp](../../examples/C++98/auto_ptr.cpp)
 
 ### std::rel_ops
 **Explanation**: Generates relational operators from `==` and `<`.  
@@ -1070,7 +1070,7 @@ std::auto_ptr<int> ptr(new int(5));
 ```cpp
 using namespace std::rel_ops; bool operator==(MyClass, MyClass);
 ```
-**Example**: [rel_ops.cpp](../examples/C++98/rel_ops.cpp)
+**Example**: [rel_ops.cpp](../../examples/C++98/rel_ops.cpp)
 
 ## Input/Output
 ### std::iostream
@@ -1080,7 +1080,7 @@ using namespace std::rel_ops; bool operator==(MyClass, MyClass);
 ```cpp
 std::cout << "Hello"; std::cin >> x;
 ```
-**Example**: [iostream.cpp](../examples/C++98/iostream.cpp)
+**Example**: [iostream.cpp](../../examples/C++98/iostream.cpp)
 
 ### std::istream
 **Explanation**: Handles input operations from streams.  
@@ -1089,7 +1089,7 @@ std::cout << "Hello"; std::cin >> x;
 ```cpp
 std::ifstream in("file.txt"); int x; in >> x;
 ```
-**Example**: [istream.cpp](../examples/C++98/istream.cpp)
+**Example**: [istream.cpp](../../examples/C++98/istream.cpp)
 
 ### std::ostream
 **Explanation**: Handles output operations to streams.  
@@ -1098,7 +1098,7 @@ std::ifstream in("file.txt"); int x; in >> x;
 ```cpp
 std::ofstream out("log.txt"); out << "Log";
 ```
-**Example**: [ostream.cpp](../examples/C++98/ostream.cpp)
+**Example**: [ostream.cpp](../../examples/C++98/ostream.cpp)
 
 ### std::stringstream
 **Explanation**: Manages string-based input/output operations.  
@@ -1107,7 +1107,7 @@ std::ofstream out("log.txt"); out << "Log";
 ```cpp
 std::stringstream ss; ss << "123"; int x; ss >> x;
 ```
-**Example**: [stringstream.cpp](../examples/C++98/stringstream.cpp)
+**Example**: [stringstream.cpp](../../examples/C++98/stringstream.cpp)
 
 ### std::fstream
 **Explanation**: A stream class for both reading from and writing to files.
@@ -1117,7 +1117,7 @@ std::stringstream ss; ss << "123"; int x; ss >> x;
 #include <fstream>
 std::fstream file("data.txt", std::ios::in | std::ios::out);
 ```
-**Example**: [fstream.cpp](../examples/C++98/fstream.cpp)
+**Example**: [fstream.cpp](../../examples/C++98/fstream.cpp)
 
 ### std::ifstream
 **Explanation**: An input stream for reading data from files.
@@ -1127,7 +1127,7 @@ std::fstream file("data.txt", std::ios::in | std::ios::out);
 #include <fstream>
 std::ifstream in("level.dat"); int val; in >> val;
 ```
-**Example**: [ifstream.cpp](../examples/C++98/ifstream.cpp)
+**Example**: [ifstream.cpp](../../examples/C++98/ifstream.cpp)
 
 ### std::ofstream
 **Explanation**: An output stream for writing data to files.
@@ -1137,7 +1137,7 @@ std::ifstream in("level.dat"); int val; in >> val;
 #include <fstream>
 std::ofstream out("report.csv"); out << "Name,Score\n";
 ```
-**Example**: [ofstream.cpp](../examples/C++98/ofstream.cpp)
+**Example**: [ofstream.cpp](../../examples/C++98/ofstream.cpp)
 
 ### std::streambuf
 **Explanation**: The low-level buffer abstraction underlying all stream I/O, managing character sequences.
@@ -1147,7 +1147,7 @@ std::ofstream out("report.csv"); out << "Name,Score\n";
 std::streambuf* original = std::cout.rdbuf();
 std::cout.rdbuf(fileStream.rdbuf());
 ```
-**Example**: [streambuf.cpp](../examples/C++98/streambuf.cpp)
+**Example**: [streambuf.cpp](../../examples/C++98/streambuf.cpp)
 
 ### std::ios_base
 **Explanation**: The base class for all I/O streams, managing format flags, state bits, and locale.
@@ -1157,7 +1157,7 @@ std::cout.rdbuf(fileStream.rdbuf());
 std::cout.setf(std::ios_base::fixed);
 std::cout.precision(2);
 ```
-**Example**: [ios_base.cpp](../examples/C++98/ios_base.cpp)
+**Example**: [ios_base.cpp](../../examples/C++98/ios_base.cpp)
 
 ### std::cin, std::cout, std::cerr, std::clog
 **Explanation**: The four standard global stream objects for console input, output, error output, and logging.
@@ -1168,7 +1168,7 @@ std::string name; std::cin >> name;
 std::cout << "Hello " << name;
 std::cerr << "Warning: low memory";
 ```
-**Example**: [standard_streams.cpp](../examples/C++98/standard_streams.cpp)
+**Example**: [standard_streams.cpp](../../examples/C++98/standard_streams.cpp)
 
 ## Numeric Algorithms
 ### std::accumulate
@@ -1180,7 +1180,7 @@ std::cerr << "Warning: low memory";
 std::vector<int> v = {1, 2, 3, 4};
 int sum = std::accumulate(v.begin(), v.end(), 0);
 ```
-**Example**: [accumulate.cpp](../examples/C++98/accumulate.cpp)
+**Example**: [accumulate.cpp](../../examples/C++98/accumulate.cpp)
 
 ### std::inner_product
 **Explanation**: Computes the sum of element-wise products of two ranges (dot product by default).
@@ -1190,7 +1190,7 @@ int sum = std::accumulate(v.begin(), v.end(), 0);
 #include <numeric>
 int dot = std::inner_product(a.begin(), a.end(), b.begin(), 0);
 ```
-**Example**: [inner_product.cpp](../examples/C++98/inner_product.cpp)
+**Example**: [inner_product.cpp](../../examples/C++98/inner_product.cpp)
 
 ### std::partial_sum
 **Explanation**: Computes running cumulative sums of a range, writing results to an output range.
@@ -1200,7 +1200,7 @@ int dot = std::inner_product(a.begin(), a.end(), b.begin(), 0);
 #include <numeric>
 std::partial_sum(v.begin(), v.end(), result.begin());
 ```
-**Example**: [partial_sum.cpp](../examples/C++98/partial_sum.cpp)
+**Example**: [partial_sum.cpp](../../examples/C++98/partial_sum.cpp)
 
 ### std::adjacent_difference
 **Explanation**: Computes the difference between consecutive elements in a range.
@@ -1210,7 +1210,7 @@ std::partial_sum(v.begin(), v.end(), result.begin());
 #include <numeric>
 std::adjacent_difference(v.begin(), v.end(), result.begin());
 ```
-**Example**: [adjacent_difference.cpp](../examples/C++98/adjacent_difference.cpp)
+**Example**: [adjacent_difference.cpp](../../examples/C++98/adjacent_difference.cpp)
 
 ## Numerics
 ### std::valarray
@@ -1222,7 +1222,7 @@ std::adjacent_difference(v.begin(), v.end(), result.begin());
 std::valarray<double> data = {1.0, 2.0, 3.0};
 std::valarray<double> squared = data * data;
 ```
-**Example**: [valarray.cpp](../examples/C++98/valarray.cpp)
+**Example**: [valarray.cpp](../../examples/C++98/valarray.cpp)
 
 ### std::complex
 **Explanation**: Represents complex numbers with real and imaginary parts, supporting arithmetic operations.
@@ -1233,7 +1233,7 @@ std::valarray<double> squared = data * data;
 std::complex<double> z(3.0, 4.0); // 3 + 4i
 double magnitude = std::abs(z);   // 5.0
 ```
-**Example**: [complex.cpp](../examples/C++98/complex.cpp)
+**Example**: [complex.cpp](../../examples/C++98/complex.cpp)
 
 ### std::numeric_limits
 **Explanation**: Provides information about the properties of arithmetic types (min, max, precision, etc.).
@@ -1244,7 +1244,7 @@ double magnitude = std::abs(z);   // 5.0
 int maxInt = std::numeric_limits<int>::max();
 bool hasInfinity = std::numeric_limits<double>::has_infinity;
 ```
-**Example**: [numeric_limits.cpp](../examples/C++98/numeric_limits.cpp)
+**Example**: [numeric_limits.cpp](../../examples/C++98/numeric_limits.cpp)
 
 ## Memory
 ### std::allocator
@@ -1257,7 +1257,7 @@ std::allocator<int> alloc;
 int* p = alloc.allocate(10);
 alloc.deallocate(p, 10);
 ```
-**Example**: [allocator.cpp](../examples/C++98/allocator.cpp)
+**Example**: [allocator.cpp](../../examples/C++98/allocator.cpp)
 
 ## Exception Classes
 ### std::exception
@@ -1267,7 +1267,7 @@ alloc.deallocate(p, 10);
 ```cpp
 try { /* ... */ } catch (const std::exception& e) { std::cerr << e.what(); }
 ```
-**Example**: [exception.cpp](../examples/C++98/exception.cpp)
+**Example**: [exception.cpp](../../examples/C++98/exception.cpp)
 
 ### std::runtime_error
 **Explanation**: Exception for errors detectable only during program execution.
@@ -1276,7 +1276,7 @@ try { /* ... */ } catch (const std::exception& e) { std::cerr << e.what(); }
 ```cpp
 throw std::runtime_error("Connection failed");
 ```
-**Example**: [runtime_error.cpp](../examples/C++98/runtime_error.cpp)
+**Example**: [runtime_error.cpp](../../examples/C++98/runtime_error.cpp)
 
 ### std::logic_error
 **Explanation**: Exception for errors caused by flawed program logic that could be caught before runtime.
@@ -1285,7 +1285,7 @@ throw std::runtime_error("Connection failed");
 ```cpp
 throw std::logic_error("Invalid state transition");
 ```
-**Example**: [logic_error.cpp](../examples/C++98/logic_error.cpp)
+**Example**: [logic_error.cpp](../../examples/C++98/logic_error.cpp)
 
 ### std::out_of_range
 **Explanation**: Exception thrown when an index or key is outside the valid range.
@@ -1294,7 +1294,7 @@ throw std::logic_error("Invalid state transition");
 ```cpp
 std::vector<int> v = {1, 2}; v.at(5); // throws std::out_of_range
 ```
-**Example**: [out_of_range.cpp](../examples/C++98/out_of_range.cpp)
+**Example**: [out_of_range.cpp](../../examples/C++98/out_of_range.cpp)
 
 ### std::invalid_argument
 **Explanation**: Exception thrown when a function receives an argument with an invalid value.
@@ -1303,7 +1303,7 @@ std::vector<int> v = {1, 2}; v.at(5); // throws std::out_of_range
 ```cpp
 int n = std::stoi("abc"); // throws std::invalid_argument
 ```
-**Example**: [invalid_argument.cpp](../examples/C++98/invalid_argument.cpp)
+**Example**: [invalid_argument.cpp](../../examples/C++98/invalid_argument.cpp)
 
 ### std::overflow_error
 **Explanation**: Exception thrown when an arithmetic overflow is detected.
@@ -1312,7 +1312,7 @@ int n = std::stoi("abc"); // throws std::invalid_argument
 ```cpp
 throw std::overflow_error("Integer overflow in multiply");
 ```
-**Example**: [overflow_error.cpp](../examples/C++98/overflow_error.cpp)
+**Example**: [overflow_error.cpp](../../examples/C++98/overflow_error.cpp)
 
 ### std::underflow_error
 **Explanation**: Exception thrown when an arithmetic underflow is detected.
@@ -1321,7 +1321,7 @@ throw std::overflow_error("Integer overflow in multiply");
 ```cpp
 throw std::underflow_error("Value too small to represent");
 ```
-**Example**: [underflow_error.cpp](../examples/C++98/underflow_error.cpp)
+**Example**: [underflow_error.cpp](../../examples/C++98/underflow_error.cpp)
 
 ### std::length_error
 **Explanation**: Exception thrown when an operation would exceed the maximum allowed size.
@@ -1330,7 +1330,7 @@ throw std::underflow_error("Value too small to represent");
 ```cpp
 std::string s; s.resize(s.max_size() + 1); // throws std::length_error
 ```
-**Example**: [length_error.cpp](../examples/C++98/length_error.cpp)
+**Example**: [length_error.cpp](../../examples/C++98/length_error.cpp)
 
 ### std::domain_error
 **Explanation**: Exception thrown when a mathematical function is called outside its domain.
@@ -1339,7 +1339,7 @@ std::string s; s.resize(s.max_size() + 1); // throws std::length_error
 ```cpp
 throw std::domain_error("sqrt of negative number");
 ```
-**Example**: [domain_error.cpp](../examples/C++98/domain_error.cpp)
+**Example**: [domain_error.cpp](../../examples/C++98/domain_error.cpp)
 
 ### std::range_error
 **Explanation**: Exception thrown when a computation produces a result outside the representable range.
@@ -1348,7 +1348,7 @@ throw std::domain_error("sqrt of negative number");
 ```cpp
 throw std::range_error("Result out of representable range");
 ```
-**Example**: [range_error.cpp](../examples/C++98/range_error.cpp)
+**Example**: [range_error.cpp](../../examples/C++98/range_error.cpp)
 
 ### std::bad_alloc
 **Explanation**: Exception thrown when `new` fails to allocate memory.
@@ -1357,7 +1357,7 @@ throw std::range_error("Result out of representable range");
 ```cpp
 try { int* p = new int[1000000000]; } catch (const std::bad_alloc& e) {}
 ```
-**Example**: [bad_alloc.cpp](../examples/C++98/bad_alloc.cpp)
+**Example**: [bad_alloc.cpp](../../examples/C++98/bad_alloc.cpp)
 
 ### std::bad_cast
 **Explanation**: Exception thrown by `dynamic_cast` when a reference cast to an invalid type fails.
@@ -1366,7 +1366,7 @@ try { int* p = new int[1000000000]; } catch (const std::bad_alloc& e) {}
 ```cpp
 try { Derived& d = dynamic_cast<Derived&>(baseRef); } catch (const std::bad_cast& e) {}
 ```
-**Example**: [bad_cast.cpp](../examples/C++98/bad_cast.cpp)
+**Example**: [bad_cast.cpp](../../examples/C++98/bad_cast.cpp)
 
 ### std::bad_typeid
 **Explanation**: Exception thrown when `typeid` is applied to a dereferenced null pointer of a polymorphic type.
@@ -1376,7 +1376,7 @@ try { Derived& d = dynamic_cast<Derived&>(baseRef); } catch (const std::bad_cast
 Base* p = nullptr;
 try { typeid(*p); } catch (const std::bad_typeid& e) {}
 ```
-**Example**: [bad_typeid.cpp](../examples/C++98/bad_typeid.cpp)
+**Example**: [bad_typeid.cpp](../../examples/C++98/bad_typeid.cpp)
 
 ### std::bad_exception
 **Explanation**: Exception thrown when an unexpected exception type violates a function's exception specification.
@@ -1385,7 +1385,7 @@ try { typeid(*p); } catch (const std::bad_typeid& e) {}
 ```cpp
 void func() throw(std::bad_exception) { throw 42; }
 ```
-**Example**: [bad_exception.cpp](../examples/C++98/bad_exception.cpp)
+**Example**: [bad_exception.cpp](../../examples/C++98/bad_exception.cpp)
 
 ## Localization
 ### std::locale
@@ -1397,7 +1397,7 @@ void func() throw(std::bad_exception) { throw 42; }
 std::locale loc("en_US.UTF-8");
 std::cout.imbue(loc);
 ```
-**Example**: [locale.cpp](../examples/C++98/locale.cpp)
+**Example**: [locale.cpp](../../examples/C++98/locale.cpp)
 
 ### std::locale::facet
 **Explanation**: The base class for locale-specific formatting categories like number formatting, collation, and character classification.
@@ -1408,7 +1408,7 @@ std::cout.imbue(loc);
 const std::numpunct<char>& np = std::use_facet<std::numpunct<char>>(std::locale());
 char sep = np.thousands_sep();
 ```
-**Example**: [locale_facet.cpp](../examples/C++98/locale_facet.cpp)
+**Example**: [locale_facet.cpp](../../examples/C++98/locale_facet.cpp)
 
 ## C Library Wrappers
 ### \<cmath\>
@@ -1420,7 +1420,7 @@ char sep = np.thousands_sep();
 double angle = std::atan2(y, x);
 double dist = std::sqrt(x*x + y*y);
 ```
-**Example**: [cmath.cpp](../examples/C++98/cmath.cpp)
+**Example**: [cmath.cpp](../../examples/C++98/cmath.cpp)
 
 ### \<cstdlib\>
 **Explanation**: General-purpose utilities including memory allocation (`malloc`/`free`), random numbers (`rand`/`srand`), conversions (`atoi`/`atof`), and program control (`exit`/`abort`).
@@ -1431,7 +1431,7 @@ double dist = std::sqrt(x*x + y*y);
 std::srand(42);
 int roll = std::rand() % 6 + 1;
 ```
-**Example**: [cstdlib.cpp](../examples/C++98/cstdlib.cpp)
+**Example**: [cstdlib.cpp](../../examples/C++98/cstdlib.cpp)
 
 ### \<cstring\>
 **Explanation**: C-style string manipulation functions including `strlen`, `strcpy`, `strcat`, `strcmp`, `memcpy`, and `memset`.
@@ -1442,7 +1442,7 @@ int roll = std::rand() % 6 + 1;
 char dest[20]; std::strcpy(dest, "Hello");
 int len = std::strlen(dest);
 ```
-**Example**: [cstring.cpp](../examples/C++98/cstring.cpp)
+**Example**: [cstring.cpp](../../examples/C++98/cstring.cpp)
 
 ### \<cstdio\>
 **Explanation**: C-style formatted I/O functions including `printf`, `scanf`, `fprintf`, `fscanf`, `sprintf`, and `FILE` operations.
@@ -1452,7 +1452,7 @@ int len = std::strlen(dest);
 #include <cstdio>
 std::printf("Score: %d, Time: %.2f\n", score, elapsed);
 ```
-**Example**: [cstdio.cpp](../examples/C++98/cstdio.cpp)
+**Example**: [cstdio.cpp](../../examples/C++98/cstdio.cpp)
 
 ### \<cctype\>
 **Explanation**: Character classification and conversion functions including `isalpha`, `isdigit`, `isspace`, `toupper`, and `tolower`.
@@ -1463,7 +1463,7 @@ std::printf("Score: %d, Time: %.2f\n", score, elapsed);
 char c = 'a';
 if (std::isalpha(c)) { c = std::toupper(c); }
 ```
-**Example**: [cctype.cpp](../examples/C++98/cctype.cpp)
+**Example**: [cctype.cpp](../../examples/C++98/cctype.cpp)
 
 ### \<climits\>
 **Explanation**: Defines constants for the limits of integer types such as `INT_MAX`, `INT_MIN`, `LONG_MAX`, `CHAR_BIT`, etc.
@@ -1473,7 +1473,7 @@ if (std::isalpha(c)) { c = std::toupper(c); }
 #include <climits>
 if (a > INT_MAX - b) { /* overflow! */ }
 ```
-**Example**: [climits.cpp](../examples/C++98/climits.cpp)
+**Example**: [climits.cpp](../../examples/C++98/climits.cpp)
 
 ### \<cfloat\>
 **Explanation**: Defines constants for the limits of floating-point types such as `FLT_MAX`, `FLT_MIN`, `DBL_EPSILON`, `FLT_DIG`, etc.
@@ -1483,7 +1483,7 @@ if (a > INT_MAX - b) { /* overflow! */ }
 #include <cfloat>
 bool equal = std::abs(a - b) < DBL_EPSILON;
 ```
-**Example**: [cfloat.cpp](../examples/C++98/cfloat.cpp)
+**Example**: [cfloat.cpp](../../examples/C++98/cfloat.cpp)
 
 ### \<cassert\>
 **Explanation**: Provides the `assert` macro for runtime assertion checking, disabled in release builds with `NDEBUG`.
@@ -1493,7 +1493,7 @@ bool equal = std::abs(a - b) < DBL_EPSILON;
 #include <cassert>
 assert(ptr != nullptr); // aborts if ptr is null
 ```
-**Example**: [cassert.cpp](../examples/C++98/cassert.cpp)
+**Example**: [cassert.cpp](../../examples/C++98/cassert.cpp)
 
 ### \<ctime\>
 **Explanation**: Date and time utilities including `time`, `clock`, `difftime`, `mktime`, `strftime`, and the `struct tm` type.
@@ -1505,4 +1505,4 @@ std::time_t start = std::time(nullptr);
 // ... work ...
 double elapsed = std::difftime(std::time(nullptr), start);
 ```
-**Example**: [ctime.cpp](../examples/C++98/ctime.cpp)
+**Example**: [ctime.cpp](../../examples/C++98/ctime.cpp)

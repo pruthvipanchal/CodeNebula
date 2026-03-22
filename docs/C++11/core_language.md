@@ -1,6 +1,6 @@
 # C++11 Core Language Concepts
 
-This document covers new or evolved C++11 core language concepts, with simple explanations, real-world scenarios, and short code snippets. Full examples will be added in [examples folder](../examples/C++11/). Only additions or evolutions from C++98/C++03 are included.
+This document covers new or evolved C++11 core language concepts, with simple explanations, real-world scenarios, and short code snippets. Full examples will be added in [examples folder](../../examples/C++11/). Only additions or evolutions from C++98/C++03 are included.
 
 ## Rvalue References (C++11 Addition)
 **Explanation**: References to temporary objects (`&&`), enabling move semantics for efficient resource transfer.  
@@ -9,7 +9,7 @@ This document covers new or evolved C++11 core language concepts, with simple ex
 ```cpp
 void process(int&& rvalue) {}
 ```
-**Example**: [rvalue_references.cpp](../examples/C++11/rvalue_references.cpp)
+**Example**: [rvalue_references.cpp](../../examples/C++11/rvalue_references.cpp)
 
 ## Move Semantics (C++11 Addition)
 **Explanation**: Transfers resources from temporary objects, avoiding copies, using rvalue references.  
@@ -18,7 +18,7 @@ void process(int&& rvalue) {}
 ```cpp
 std::vector<int> vec; vec = std::move(otherVec);
 ```
-**Example**: [move_semantics.cpp](../examples/C++11/move_semantics.cpp)
+**Example**: [move_semantics.cpp](../../examples/C++11/move_semantics.cpp)
 
 ## std::move (C++11 Addition)
 **Explanation**: Converts an lvalue to an rvalue, enabling move semantics.  
@@ -27,7 +27,7 @@ std::vector<int> vec; vec = std::move(otherVec);
 ```cpp
 #include <utility> std::vector<int> vec = std::move(otherVec);
 ```
-**Example**: [move.cpp](../examples/C++11/move.cpp)
+**Example**: [move.cpp](../../examples/C++11/move.cpp)
 
 ## std::forward (C++11 Addition)
 **Explanation**: Preserves value category (lvalue/rvalue) in template forwarding.  
@@ -36,7 +36,7 @@ std::vector<int> vec; vec = std::move(otherVec);
 ```cpp
 template<typename T> void forward(T&& arg) { func(std::forward<T>(arg)); }
 ```
-**Example**: [forward.cpp](../examples/C++11/forward.cpp)
+**Example**: [forward.cpp](../../examples/C++11/forward.cpp)
 
 ## Lambda Expressions (C++11 Addition)
 **Explanation**: Anonymous functions for concise, inline logic, with capture lists for accessing variables.  
@@ -45,7 +45,7 @@ template<typename T> void forward(T&& arg) { func(std::forward<T>(arg)); }
 ```cpp
 auto lambda = [](int a, int b) { return a > b; };
 ```
-**Example**: [lambda_expressions.cpp](../examples/C++11/lambda_expressions.cpp)
+**Example**: [lambda_expressions.cpp](../../examples/C++11/lambda_expressions.cpp)
 
 ## Delegating Constructors (C++11 Addition)
 **Explanation**: Constructors can call other constructors in the same class, reducing code duplication.  
@@ -54,7 +54,7 @@ auto lambda = [](int a, int b) { return a > b; };
 ```cpp
 class Player { Player() : Player(100) {} Player(int health) {} };
 ```
-**Example**: [delegating_constructors.cpp](../examples/C++11/delegating_constructors.cpp)
+**Example**: [delegating_constructors.cpp](../../examples/C++11/delegating_constructors.cpp)
 
 ## Defaulted and Deleted Functions (C++11 Addition)
 **Explanation**: Explicitly default or delete special member functions (e.g., copy constructor).  
@@ -63,7 +63,7 @@ class Player { Player() : Player(100) {} Player(int health) {} };
 ```cpp
 class Resource { Resource(const Resource&) = delete; };
 ```
-**Example**: [defaulted_deleted_functions.cpp](../examples/C++11/defaulted_deleted_functions.cpp)
+**Example**: [defaulted_deleted_functions.cpp](../../examples/C++11/defaulted_deleted_functions.cpp)
 
 ## Override Specifier (C++11 Addition)
 **Explanation**: Ensures a function overrides a virtual function, improving code clarity.  
@@ -72,7 +72,7 @@ class Resource { Resource(const Resource&) = delete; };
 ```cpp
 class Enemy { virtual void attack() {} }; class Boss : public Enemy { void attack() override {} };
 ```
-**Example**: [override_specifier.cpp](../examples/C++11/override_specifier.cpp)
+**Example**: [override_specifier.cpp](../../examples/C++11/override_specifier.cpp)
 
 ## Final Specifier (C++11 Addition)
 **Explanation**: Prevents class inheritance or function overriding for safety.  
@@ -81,7 +81,7 @@ class Enemy { virtual void attack() {} }; class Boss : public Enemy { void attac
 ```cpp
 class Secure final {};
 ```
-**Example**: [final_specifier.cpp](../examples/C++11/final_specifier.cpp)
+**Example**: [final_specifier.cpp](../../examples/C++11/final_specifier.cpp)
 
 ## Variadic Templates (C++11 Addition)
 **Explanation**: Templates with a variable number of arguments for flexible generic programming.  
@@ -90,7 +90,7 @@ class Secure final {};
 ```cpp
 template<typename... Args> void log(Args... args) {}
 ```
-**Example**: [variadic_templates.cpp](../examples/C++11/variadic_templates.cpp)
+**Example**: [variadic_templates.cpp](../../examples/C++11/variadic_templates.cpp)
 
 ## Template Aliases (C++11 Addition)
 **Explanation**: Simplifies template types using `using` declarations.  
@@ -99,7 +99,7 @@ template<typename... Args> void log(Args... args) {}
 ```cpp
 template<typename T> using Vec = std::vector<T>;
 ```
-**Example**: [template_aliases.cpp](../examples/C++11/template_aliases.cpp)
+**Example**: [template_aliases.cpp](../../examples/C++11/template_aliases.cpp)
 
 ## noexcept Specifier (C++11 Addition)
 **Explanation**: Specifies whether a function can throw exceptions, aiding optimization.  
@@ -108,7 +108,7 @@ template<typename T> using Vec = std::vector<T>;
 ```cpp
 void safeFunc() noexcept {}
 ```
-**Example**: [noexcept_specifier.cpp](../examples/C++11/noexcept_specifier.cpp)
+**Example**: [noexcept_specifier.cpp](../../examples/C++11/noexcept_specifier.cpp)
 
 ## Inline Namespaces (C++11 Addition)
 **Explanation**: Automatically includes namespace contents in parent scope for versioning.  
@@ -117,7 +117,7 @@ void safeFunc() noexcept {}
 ```cpp
 inline namespace V1 { void func() {} }
 ```
-**Example**: [inline_namespaces.cpp](../examples/C++11/inline_namespaces.cpp)
+**Example**: [inline_namespaces.cpp](../../examples/C++11/inline_namespaces.cpp)
 
 ## std::unique_ptr (C++11 Addition)
 **Explanation**: Smart pointer with single ownership semantics, replacing `std::auto_ptr`.  
@@ -126,7 +126,7 @@ inline namespace V1 { void func() {} }
 ```cpp
 #include <memory> std::unique_ptr<int> ptr = std::make_unique<int>(5);
 ```
-**Example**: [unique_ptr.cpp](../examples/C++11/unique_ptr.cpp)
+**Example**: [unique_ptr.cpp](../../examples/C++11/unique_ptr.cpp)
 
 ## std::shared_ptr (C++11 Addition)
 **Explanation**: Smart pointer with shared ownership, tracking reference counts.  
@@ -135,7 +135,7 @@ inline namespace V1 { void func() {} }
 ```cpp
 #include <memory> std::shared_ptr<int> ptr = std::make_shared<int>(5);
 ```
-**Example**: [shared_ptr.cpp](../examples/C++11/shared_ptr.cpp)
+**Example**: [shared_ptr.cpp](../../examples/C++11/shared_ptr.cpp)
 
 ## std::weak_ptr (C++11 Addition)
 **Explanation**: Non-owning reference to a `shared_ptr` resource, prevents circular references.  
@@ -144,7 +144,7 @@ inline namespace V1 { void func() {} }
 ```cpp
 #include <memory> std::weak_ptr<int> wptr;
 ```
-**Example**: [weak_ptr.cpp](../examples/C++11/weak_ptr.cpp)
+**Example**: [weak_ptr.cpp](../../examples/C++11/weak_ptr.cpp)
 
 ## static_assert (C++11 Addition)
 **Explanation**: Compile-time assertions for type or condition checking.  
@@ -153,7 +153,7 @@ inline namespace V1 { void func() {} }
 ```cpp
 static_assert(sizeof(int) == 4, "Int size must be 4 bytes");
 ```
-**Example**: [static_assert.cpp](../examples/C++11/static_assert.cpp)
+**Example**: [static_assert.cpp](../../examples/C++11/static_assert.cpp)
 
 ## Type Traits (C++11 Addition)
 **Explanation**: Provides compile-time type information (e.g., `is_integral`).  
@@ -162,7 +162,7 @@ static_assert(sizeof(int) == 4, "Int size must be 4 bytes");
 ```cpp
 #include <type_traits> std::is_integral<int>::value;
 ```
-**Example**: [type_traits.cpp](../examples/C++11/type_traits.cpp)
+**Example**: [type_traits.cpp](../../examples/C++11/type_traits.cpp)
 
 ## auto (C++11 Addition)
 **Explanation**: Automatically deduces variable types, simplifying declarations.  
@@ -171,7 +171,7 @@ static_assert(sizeof(int) == 4, "Int size must be 4 bytes");
 ```cpp
 auto x = 10; // int
 ```
-**Example**: [auto.cpp](../examples/C++11/auto.cpp)
+**Example**: [auto.cpp](../../examples/C++11/auto.cpp)
 
 ## decltype (C++11 Addition)
 **Explanation**: Deduce type of an expression at compile time.  
@@ -180,7 +180,7 @@ auto x = 10; // int
 ```cpp
 decltype(10 + 20.0) x; // double
 ```
-**Example**: [decltype.cpp](../examples/C++11/decltype.cpp)
+**Example**: [decltype.cpp](../../examples/C++11/decltype.cpp)
 
 ## Range-based For Loop (C++11 Addition)
 **Explanation**: Simplified loop syntax for iterating containers.  
@@ -189,7 +189,7 @@ decltype(10 + 20.0) x; // double
 ```cpp
 for (int x : std::vector<int>{1, 2, 3}) {}
 ```
-**Example**: [range_based_for.cpp](../examples/C++11/range_based_for.cpp)
+**Example**: [range_based_for.cpp](../../examples/C++11/range_based_for.cpp)
 
 ## nullptr (C++11 Addition)
 **Explanation**: Type-safe null pointer constant, replacing `NULL`.  
@@ -198,7 +198,7 @@ for (int x : std::vector<int>{1, 2, 3}) {}
 ```cpp
 int* ptr = nullptr;
 ```
-**Example**: [nullptr.cpp](../examples/C++11/nullptr.cpp)
+**Example**: [nullptr.cpp](../../examples/C++11/nullptr.cpp)
 
 ## Uniform Initialization (C++11 Addition)
 **Explanation**: Consistent initialization syntax using braces.  
@@ -207,7 +207,7 @@ int* ptr = nullptr;
 ```cpp
 struct Point { int x, y; }; Point p{1, 2};
 ```
-**Example**: [uniform_initialization.cpp](../examples/C++11/uniform_initialization.cpp)
+**Example**: [uniform_initialization.cpp](../../examples/C++11/uniform_initialization.cpp)
 
 ## Initializer Lists (C++11 Addition)
 **Explanation**: Initialize containers or objects with brace-enclosed lists.  
@@ -216,7 +216,7 @@ struct Point { int x, y; }; Point p{1, 2};
 ```cpp
 #include <initializer_list> std::vector<int> vec{1, 2, 3};
 ```
-**Example**: [initializer_lists.cpp](../examples/C++11/initializer_lists.cpp)
+**Example**: [initializer_lists.cpp](../../examples/C++11/initializer_lists.cpp)
 
 ## constexpr (C++11 Addition)
 **Explanation**: Evaluates expressions at compile time for performance.  
@@ -225,7 +225,7 @@ struct Point { int x, y; }; Point p{1, 2};
 ```cpp
 constexpr int square(int x) { return x * x; }
 ```
-**Example**: [constexpr.cpp](../examples/C++11/constexpr.cpp)
+**Example**: [constexpr.cpp](../../examples/C++11/constexpr.cpp)
 
 ## enum class (C++11 Addition)
 **Explanation**: Scoped enumerations with stronger type safety.  
@@ -234,7 +234,7 @@ constexpr int square(int x) { return x * x; }
 ```cpp
 enum class State { Idle, Running };
 ```
-**Example**: [enum_class.cpp](../examples/C++11/enum_class.cpp)
+**Example**: [enum_class.cpp](../../examples/C++11/enum_class.cpp)
 
 ## Attributes (C++11 Addition)
 **Explanation**: Add metadata to code (e.g., `[[noreturn]]`).  
@@ -243,7 +243,7 @@ enum class State { Idle, Running };
 ```cpp
 [[noreturn]] void exit() {}
 ```
-**Example**: [attributes.cpp](../examples/C++11/attributes.cpp)
+**Example**: [attributes.cpp](../../examples/C++11/attributes.cpp)
 
 ## alignas and alignof (C++11 Addition)
 **Explanation**: Control and query alignment of variables for optimization.
@@ -252,7 +252,7 @@ enum class State { Idle, Running };
 ```cpp
 alignas(16) int x; alignof(int);
 ```
-**Example**: [alignment.cpp](../examples/C++11/alignment.cpp)
+**Example**: [alignment.cpp](../../examples/C++11/alignment.cpp)
 
 ## Move Constructor (C++11 Addition)
 **Explanation**: A constructor that transfers resources from a temporary object rather than copying them, enabling efficient object creation from rvalues.
@@ -270,7 +270,7 @@ public:
     }
 };
 ```
-**Example**: [move_constructor.cpp](../examples/C++11/move_constructor.cpp)
+**Example**: [move_constructor.cpp](../../examples/C++11/move_constructor.cpp)
 
 ## Move Assignment Operator (C++11 Addition)
 **Explanation**: An assignment operator that transfers resources from a temporary object to an existing object, releasing the target's old resources and taking ownership of the source's resources.
@@ -290,7 +290,7 @@ public:
     }
 };
 ```
-**Example**: [move_assignment.cpp](../examples/C++11/move_assignment.cpp)
+**Example**: [move_assignment.cpp](../../examples/C++11/move_assignment.cpp)
 
 ## Perfect Forwarding (C++11 Addition)
 **Explanation**: A technique using universal references and `std::forward` to pass arguments to another function while preserving their original value category (lvalue or rvalue). This is essential for writing generic wrapper functions.
@@ -302,7 +302,7 @@ std::unique_ptr<T> make(Args&&... args) {
     return std::unique_ptr<T>(new T(std::forward<Args>(args)...));
 }
 ```
-**Example**: [perfect_forwarding.cpp](../examples/C++11/perfect_forwarding.cpp)
+**Example**: [perfect_forwarding.cpp](../../examples/C++11/perfect_forwarding.cpp)
 
 ## In-class Member Initializers (NSDMI) (C++11 Addition)
 **Explanation**: Allows non-static data members to be initialized directly at the point of declaration inside the class body, providing default values without requiring constructor initialization lists.
@@ -315,7 +315,7 @@ class Config {
     bool verbose = false;
 };
 ```
-**Example**: [nsdmi.cpp](../examples/C++11/nsdmi.cpp)
+**Example**: [nsdmi.cpp](../../examples/C++11/nsdmi.cpp)
 
 ## Explicit Conversion Operators (C++11 Addition)
 **Explanation**: The `explicit` keyword can now be applied to conversion operators, preventing implicit type conversions that could lead to subtle bugs while still allowing explicit casts.
@@ -330,7 +330,7 @@ public:
 // if (handle) {} // OK: explicit bool in boolean context
 // int x = handle; // Error: no implicit conversion
 ```
-**Example**: [explicit_conversion.cpp](../examples/C++11/explicit_conversion.cpp)
+**Example**: [explicit_conversion.cpp](../../examples/C++11/explicit_conversion.cpp)
 
 ## User-defined Literals (C++11 Addition)
 **Explanation**: Allows defining custom suffixes for literals, enabling expressive, type-safe constants by overloading the `operator""` syntax.
@@ -342,7 +342,7 @@ constexpr long double operator"" _km(long double val) {
 }
 auto distance = 5.0_km; // 5000.0 meters
 ```
-**Example**: [user_defined_literals.cpp](../examples/C++11/user_defined_literals.cpp)
+**Example**: [user_defined_literals.cpp](../../examples/C++11/user_defined_literals.cpp)
 
 ## Raw String Literals (C++11 Addition)
 **Explanation**: String literals prefixed with `R` that ignore escape sequences, making it easy to embed regex patterns, file paths, and multi-line text without excessive backslash escaping.
@@ -354,7 +354,7 @@ std::string multiline = R"(Line 1
 Line 2
 Line 3)";
 ```
-**Example**: [raw_string_literals.cpp](../examples/C++11/raw_string_literals.cpp)
+**Example**: [raw_string_literals.cpp](../../examples/C++11/raw_string_literals.cpp)
 
 ## Trailing Return Types (C++11 Addition)
 **Explanation**: A syntax using `auto` and `->` to specify the return type after the parameter list, essential when the return type depends on parameter types in template functions.
@@ -366,7 +366,7 @@ auto add(T a, U b) -> decltype(a + b) {
     return a + b;
 }
 ```
-**Example**: [trailing_return_types.cpp](../examples/C++11/trailing_return_types.cpp)
+**Example**: [trailing_return_types.cpp](../../examples/C++11/trailing_return_types.cpp)
 
 ## extern template (C++11 Addition)
 **Explanation**: Prevents implicit instantiation of a template in a translation unit, reducing compilation time by declaring that the instantiation exists elsewhere.
@@ -379,7 +379,7 @@ extern template class std::vector<std::string>; // suppress instantiation here
 // source.cpp
 template class std::vector<std::string>; // explicit instantiation here
 ```
-**Example**: [extern_template.cpp](../examples/C++11/extern_template.cpp)
+**Example**: [extern_template.cpp](../../examples/C++11/extern_template.cpp)
 
 ## thread_local Storage (C++11 Addition)
 **Explanation**: The `thread_local` storage specifier declares variables with thread-local storage duration, meaning each thread gets its own independent copy of the variable.
@@ -392,7 +392,7 @@ void processRequest() {
     errorCode = doWork(); // each thread has its own errorCode
 }
 ```
-**Example**: [thread_local.cpp](../examples/C++11/thread_local.cpp)
+**Example**: [thread_local.cpp](../../examples/C++11/thread_local.cpp)
 
 ## char16_t/char32_t (C++11 Addition)
 **Explanation**: New character types `char16_t` and `char32_t` provide guaranteed-width types for UTF-16 and UTF-32 encoded characters, enabling portable Unicode handling.
@@ -402,7 +402,7 @@ void processRequest() {
 char16_t c16 = u'A';       // UTF-16 character
 char32_t c32 = U'\U0001F600'; // UTF-32 character (emoji)
 ```
-**Example**: [char16_char32.cpp](../examples/C++11/char16_char32.cpp)
+**Example**: [char16_char32.cpp](../../examples/C++11/char16_char32.cpp)
 
 ## Unicode String Literals (C++11 Addition)
 **Explanation**: New string literal prefixes `u8`, `u`, and `U` create strings encoded in UTF-8, UTF-16, and UTF-32 respectively, providing explicit control over string encoding.
@@ -413,7 +413,7 @@ const char* utf8 = u8"Hello \u00E9";           // UTF-8
 const char16_t* utf16 = u"Hello \u00E9";       // UTF-16
 const char32_t* utf32 = U"Hello \U0001F600";   // UTF-32
 ```
-**Example**: [unicode_string_literals.cpp](../examples/C++11/unicode_string_literals.cpp)
+**Example**: [unicode_string_literals.cpp](../../examples/C++11/unicode_string_literals.cpp)
 
 ## Inheriting Constructors (C++11 Addition)
 **Explanation**: A derived class can inherit all constructors from a base class using a `using` declaration, eliminating the need to manually write forwarding constructors.
@@ -429,7 +429,7 @@ class Derived : public Base {
     using Base::Base; // inherits all Base constructors
 };
 ```
-**Example**: [inheriting_constructors.cpp](../examples/C++11/inheriting_constructors.cpp)
+**Example**: [inheriting_constructors.cpp](../../examples/C++11/inheriting_constructors.cpp)
 
 ## Unrestricted Unions (C++11 Addition)
 **Explanation**: Unions can now contain members with non-trivial constructors, destructors, and copy/move operations, though the programmer must manually manage construction and destruction of such members.
@@ -443,7 +443,7 @@ union Variant {
     ~Variant() {} // must manually manage non-trivial members
 };
 ```
-**Example**: [unrestricted_unions.cpp](../examples/C++11/unrestricted_unions.cpp)
+**Example**: [unrestricted_unions.cpp](../../examples/C++11/unrestricted_unions.cpp)
 
 ## std::thread (C++11 Addition)
 **Explanation**: Provides a portable, standard way to create and manage threads, replacing platform-specific threading APIs.
@@ -455,7 +455,7 @@ void compress(const std::string& file) { /* ... */ }
 std::thread t(compress, "data.bin");
 t.join();
 ```
-**Example**: [thread.cpp](../examples/C++11/thread.cpp)
+**Example**: [thread.cpp](../../examples/C++11/thread.cpp)
 
 ## std::mutex (C++11 Addition)
 **Explanation**: A synchronization primitive that provides mutual exclusion, ensuring only one thread accesses a shared resource at a time.
@@ -470,7 +470,7 @@ void safeWrite(const std::string& msg) {
     mtx.unlock();
 }
 ```
-**Example**: [mutex.cpp](../examples/C++11/mutex.cpp)
+**Example**: [mutex.cpp](../../examples/C++11/mutex.cpp)
 
 ## std::lock_guard (C++11 Addition)
 **Explanation**: A RAII wrapper that acquires a mutex on construction and releases it on destruction, guaranteeing the mutex is always released even if an exception occurs.
@@ -484,7 +484,7 @@ void increment(int& counter) {
     ++counter; // mutex released when lock goes out of scope
 }
 ```
-**Example**: [lock_guard.cpp](../examples/C++11/lock_guard.cpp)
+**Example**: [lock_guard.cpp](../../examples/C++11/lock_guard.cpp)
 
 ## std::unique_lock (C++11 Addition)
 **Explanation**: A flexible RAII mutex wrapper that supports deferred locking, timed locking, recursive locking, and transfer of lock ownership. More versatile than `std::lock_guard`.
@@ -500,7 +500,7 @@ void timedAccess() {
     }
 }
 ```
-**Example**: [unique_lock.cpp](../examples/C++11/unique_lock.cpp)
+**Example**: [unique_lock.cpp](../../examples/C++11/unique_lock.cpp)
 
 ## std::condition_variable (C++11 Addition)
 **Explanation**: A synchronization primitive that allows threads to wait until a condition is met, enabling producer-consumer patterns and other thread coordination scenarios.
@@ -518,7 +518,7 @@ void worker() {
     // proceed with work
 }
 ```
-**Example**: [condition_variable.cpp](../examples/C++11/condition_variable.cpp)
+**Example**: [condition_variable.cpp](../../examples/C++11/condition_variable.cpp)
 
 ## std::atomic (C++11 Addition)
 **Explanation**: Provides lock-free atomic operations on fundamental types, enabling safe concurrent access without mutexes for simple shared variables.
@@ -532,7 +532,7 @@ void increment() {
     counter.fetch_add(1, std::memory_order_relaxed);
 }
 ```
-**Example**: [atomic.cpp](../examples/C++11/atomic.cpp)
+**Example**: [atomic.cpp](../../examples/C++11/atomic.cpp)
 
 ## Memory Model (C++11 Addition)
 **Explanation**: C++11 defines a formal memory model that specifies how threads interact through memory, including ordering guarantees such as `memory_order_relaxed`, `memory_order_acquire`, `memory_order_release`, and `memory_order_seq_cst`.
@@ -552,7 +552,7 @@ void consumer() {
     assert(data == 42); // guaranteed by acquire/release
 }
 ```
-**Example**: [memory_model.cpp](../examples/C++11/memory_model.cpp)
+**Example**: [memory_model.cpp](../../examples/C++11/memory_model.cpp)
 
 ## std::future (C++11 Addition)
 **Explanation**: Represents a value that will be available in the future, providing a mechanism to retrieve the result of an asynchronous operation.
@@ -563,7 +563,7 @@ void consumer() {
 std::future<int> fut = std::async(std::launch::async, [] { return 42; });
 int result = fut.get(); // blocks until ready
 ```
-**Example**: [future.cpp](../examples/C++11/future.cpp)
+**Example**: [future.cpp](../../examples/C++11/future.cpp)
 
 ## std::promise (C++11 Addition)
 **Explanation**: A mechanism for a thread to set a value or exception that can be retrieved by an associated `std::future`, providing explicit control over asynchronous result delivery.
@@ -579,7 +579,7 @@ std::thread t([&prom] { prom.set_value(42); });
 int result = fut.get(); // 42
 t.join();
 ```
-**Example**: [promise.cpp](../examples/C++11/promise.cpp)
+**Example**: [promise.cpp](../../examples/C++11/promise.cpp)
 
 ## std::async (C++11 Addition)
 **Explanation**: Launches a function asynchronously (potentially in a new thread) and returns a `std::future` holding the result, providing the simplest way to run tasks concurrently.
@@ -591,4 +591,4 @@ auto fut1 = std::async(std::launch::async, fetchFromServiceA);
 auto fut2 = std::async(std::launch::async, fetchFromServiceB);
 auto result = combine(fut1.get(), fut2.get());
 ```
-**Example**: [async.cpp](../examples/C++11/async.cpp)
+**Example**: [async.cpp](../../examples/C++11/async.cpp)

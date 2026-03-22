@@ -1,6 +1,6 @@
 # C++26 STL Concepts
 
-This document covers new or evolved C++26 STL concepts, with simple explanations, real-world scenarios, and short code snippets. Full examples will be added in [examples folder](../examples/C++26/). Only additions or evolutions from C++98/C++03/C++11/C++14/C++17/C++20/C++23 are included.
+This document covers new or evolved C++26 STL concepts, with simple explanations, real-world scenarios, and short code snippets. Full examples will be added in [examples folder](../../examples/C++26/). Only additions or evolutions from C++98/C++03/C++11/C++14/C++17/C++20/C++23 are included.
 
 ## Containers
 ### std::inplace_vector (C++26 Addition)
@@ -16,7 +16,7 @@ iv.push_back(2);
 iv.push_back(3);
 // iv.size() == 3, iv.capacity() == 16, no heap allocation
 ```
-**Example**: [inplace_vector.cpp](../examples/C++26/inplace_vector.cpp)
+**Example**: [inplace_vector.cpp](../../examples/C++26/inplace_vector.cpp)
 
 ### std::mdspan Improvements (C++26 Evolution)
 **Explanation**: Adds support for `dynamic_extent` in `std::mdspan` for flexible multidimensional views.  
@@ -25,7 +25,7 @@ iv.push_back(3);
 ```cpp
 #include <mdspan> std::mdspan<int, std::dynamic_extent, std::dynamic_extent> ms(data, rows, cols);
 ```
-**Example**: [mdspan_improvements.cpp](../examples/C++26/mdspan_improvements.cpp)
+**Example**: [mdspan_improvements.cpp](../../examples/C++26/mdspan_improvements.cpp)
 
 ### std::flat_map Improvements (C++26 Evolution)
 **Explanation**: Enhanced performance and usability for `std::flat_map` (e.g., better insertion).  
@@ -34,7 +34,7 @@ iv.push_back(3);
 ```cpp
 #include <flat_map> std::flat_map<int, std::string> fm; fm.insert({1, "one"});
 ```
-**Example**: [flat_map_improvements.cpp](../examples/C++26/flat_map_improvements.cpp)
+**Example**: [flat_map_improvements.cpp](../../examples/C++26/flat_map_improvements.cpp)
 
 ### std::flat_set Improvements (C++26 Evolution)
 **Explanation**: Enhanced performance and usability for `std::flat_set` (e.g., faster searches).  
@@ -43,7 +43,7 @@ iv.push_back(3);
 ```cpp
 #include <flat_set> std::flat_set<int> fs; fs.insert(42);
 ```
-**Example**: [flat_set_improvements.cpp](../examples/C++26/flat_set_improvements.cpp)
+**Example**: [flat_set_improvements.cpp](../../examples/C++26/flat_set_improvements.cpp)
 
 ## Utilities
 ### std::text_encoding (C++26 Addition)
@@ -53,7 +53,7 @@ iv.push_back(3);
 ```cpp
 #include <text_encoding> auto enc = std::text_encoding::utf8();
 ```
-**Example**: [text_encoding.cpp](../examples/C++26/text_encoding.cpp)
+**Example**: [text_encoding.cpp](../../examples/C++26/text_encoding.cpp)
 
 ### std::spanstream (C++26 Addition)
 **Explanation**: Stream interface for `std::span` to read/write contiguous data.  
@@ -62,7 +62,7 @@ iv.push_back(3);
 ```cpp
 #include <spanstream> std::spanstream ss(span); ss << "data";
 ```
-**Example**: [spanstream.cpp](../examples/C++26/spanstream.cpp)
+**Example**: [spanstream.cpp](../../examples/C++26/spanstream.cpp)
 
 ### std::out_ptr, std::inout_ptr (C++26 Addition)
 **Explanation**: Smart pointers for interoperating with C-style output parameters.  
@@ -71,7 +71,7 @@ iv.push_back(3);
 ```cpp
 #include <out_ptr> void c_api(int** p); std::unique_ptr<int> ptr; c_api(std::out_ptr(ptr));
 ```
-**Example**: [out_ptr.cpp](../examples/C++26/out_ptr.cpp)
+**Example**: [out_ptr.cpp](../../examples/C++26/out_ptr.cpp)
 
 ### std::format Improvements (C++26 Evolution)
 **Explanation**: Adds range formatting support to `std::format`.  
@@ -80,7 +80,7 @@ iv.push_back(3);
 ```cpp
 #include <format> auto s = std::format("Scores: {}", std::vector{1, 2, 3});
 ```
-**Example**: [format_improvements.cpp](../examples/C++26/format_improvements.cpp)
+**Example**: [format_improvements.cpp](../../examples/C++26/format_improvements.cpp)
 
 ### std::print Improvements (C++26 Evolution)
 **Explanation**: Enhanced `std::print` with better formatting and stream support.  
@@ -89,7 +89,7 @@ iv.push_back(3);
 ```cpp
 #include <print> std::print("Values: {}\n", std::vector{1, 2, 3});
 ```
-**Example**: [print_improvements.cpp](../examples/C++26/print_improvements.cpp)
+**Example**: [print_improvements.cpp](../../examples/C++26/print_improvements.cpp)
 
 ### std::copyable_function (C++26 Addition)
 **Explanation**: A type-erased callable wrapper similar to `std::function` but with a `const`-correct call operator. Unlike `std::function`, invoking a `const std::copyable_function` only calls the stored callable as `const`, preventing surprising mutations through a `const` reference.
@@ -102,7 +102,7 @@ std::copyable_function<int(int) const> fn = [factor = 2](int x) { return x * fac
 const auto& ref = fn;
 int result = ref(21); // Safe: const-correct invocation, result == 42
 ```
-**Example**: [copyable_function.cpp](../examples/C++26/copyable_function.cpp)
+**Example**: [copyable_function.cpp](../../examples/C++26/copyable_function.cpp)
 
 ### std::function_ref (C++26 Addition)
 **Explanation**: A lightweight, non-owning reference to a callable. Unlike `std::function`, it never allocates and never copies the callable, making it ideal for passing callbacks to functions that do not need to store them beyond the call.
@@ -118,7 +118,7 @@ void apply(std::function_ref<int(int)> fn, int value) {
 auto square = [](int x) { return x * x; };
 apply(square, 5); // No allocation, no copy -- just a reference
 ```
-**Example**: [function_ref.cpp](../examples/C++26/function_ref.cpp)
+**Example**: [function_ref.cpp](../../examples/C++26/function_ref.cpp)
 
 ### std::bit_int (C++26 Addition)
 **Explanation**: Arbitrary-precision integer type for bit manipulation.  
@@ -127,7 +127,7 @@ apply(square, 5); // No allocation, no copy -- just a reference
 ```cpp
 #include <bit_int> std::bit_int<128> mask = 1;
 ```
-**Example**: [bit_int.cpp](../examples/C++26/bit_int.cpp)
+**Example**: [bit_int.cpp](../../examples/C++26/bit_int.cpp)
 
 ## Range Algorithms
 ### std::ranges::inplace_transform (C++26 Addition)
@@ -137,7 +137,7 @@ apply(square, 5); // No allocation, no copy -- just a reference
 ```cpp
 #include <ranges> std::ranges::inplace_transform(vec, [](int x) { return x * 2; });
 ```
-**Example**: [ranges_inplace_transform.cpp](../examples/C++26/ranges_inplace_transform.cpp)
+**Example**: [ranges_inplace_transform.cpp](../../examples/C++26/ranges_inplace_transform.cpp)
 
 ### std::ranges::inplace_sort (C++26 Addition)
 **Explanation**: Sorts a range in-place with a comparator or projection.  
@@ -146,7 +146,7 @@ apply(square, 5); // No allocation, no copy -- just a reference
 ```cpp
 #include <ranges> std::ranges::inplace_sort(vec, std::less{});
 ```
-**Example**: [ranges_inplace_sort.cpp](../examples/C++26/ranges_inplace_sort.cpp)
+**Example**: [ranges_inplace_sort.cpp](../../examples/C++26/ranges_inplace_sort.cpp)
 
 ### std::ranges::inplace_merge (C++26 Addition)
 **Explanation**: Merges two sorted subranges in-place within a range.  
@@ -155,7 +155,7 @@ apply(square, 5); // No allocation, no copy -- just a reference
 ```cpp
 #include <ranges> std::ranges::inplace_merge(vec, vec.begin() + 5, std::less{});
 ```
-**Example**: [ranges_inplace_merge.cpp](../examples/C++26/ranges_inplace_merge.cpp)
+**Example**: [ranges_inplace_merge.cpp](../../examples/C++26/ranges_inplace_merge.cpp)
 
 ## Saturation Arithmetic
 ### std::add_sat, std::sub_sat, std::mul_sat, std::div_sat (C++26 Addition)
@@ -171,7 +171,7 @@ auto result = std::add_sat(a, b);  // 255 (clamped), not 44 (wrapped)
 auto diff   = std::sub_sat<unsigned char>(50, 100); // 0 (clamped), not 206 (wrapped)
 auto prod   = std::mul_sat<unsigned char>(20, 20);  // 255 (clamped), not 144 (wrapped)
 ```
-**Example**: [saturation_arithmetic.cpp](../examples/C++26/saturation_arithmetic.cpp)
+**Example**: [saturation_arithmetic.cpp](../../examples/C++26/saturation_arithmetic.cpp)
 
 ### std::saturate_cast (C++26 Addition)
 **Explanation**: Casts a value to a narrower or different integer type with saturation semantics, clamping the value to the destination type's range instead of truncating or producing undefined behavior.
@@ -184,7 +184,7 @@ int large = 100000;
 auto small = std::saturate_cast<short>(large);       // 32767 (SHORT_MAX, clamped)
 auto byte  = std::saturate_cast<unsigned char>(-10);  // 0 (clamped, not wrapped)
 ```
-**Example**: [saturate_cast.cpp](../examples/C++26/saturate_cast.cpp)
+**Example**: [saturate_cast.cpp](../../examples/C++26/saturate_cast.cpp)
 
 ## Compile-Time Utilities
 ### std::is_within_lifetime (C++26 Addition)
@@ -210,7 +210,7 @@ constexpr int test() {
 
 static_assert(test() == 42);
 ```
-**Example**: [is_within_lifetime.cpp](../examples/C++26/is_within_lifetime.cpp)
+**Example**: [is_within_lifetime.cpp](../../examples/C++26/is_within_lifetime.cpp)
 
 ## Container Improvements
 ### std::string_view Improvements (C++26 Evolution)
@@ -220,7 +220,7 @@ static_assert(test() == 42);
 ```cpp
 #include <string_view> std::string_view sv = "config"; // Enhanced operations
 ```
-**Example**: [string_view_improvements.cpp](../examples/C++26/string_view_improvements.cpp)
+**Example**: [string_view_improvements.cpp](../../examples/C++26/string_view_improvements.cpp)
 
 ### std::u8string_view (C++26 Addition)
 **Explanation**: UTF-8 string view for efficient Unicode handling.  
@@ -229,7 +229,7 @@ static_assert(test() == 42);
 ```cpp
 #include <string> std::u8string_view sv = u8"hello";
 ```
-**Example**: [u8string_view.cpp](../examples/C++26/u8string_view.cpp)
+**Example**: [u8string_view.cpp](../../examples/C++26/u8string_view.cpp)
 
 ### std::u8string Improvements (C++26 Evolution)
 **Explanation**: Enhanced `std::u8string` for better UTF-8 string manipulation.  
@@ -238,7 +238,7 @@ static_assert(test() == 42);
 ```cpp
 #include <string> std::u8string s = u8"hello"; // Improved operations
 ```
-**Example**: [u8string_improvements.cpp](../examples/C++26/u8string_improvements.cpp)
+**Example**: [u8string_improvements.cpp](../../examples/C++26/u8string_improvements.cpp)
 
 ### std::optional::and_then (C++26 Evolution)
 **Explanation**: Enhanced `and_then` for `std::optional` with better chaining support.  
@@ -247,7 +247,7 @@ static_assert(test() == 42);
 ```cpp
 #include <optional> auto result = opt.and_then([](int x) { return std::optional{x * x}; });
 ```
-**Example**: [optional_and_then.cpp](../examples/C++26/optional_and_then.cpp)
+**Example**: [optional_and_then.cpp](../../examples/C++26/optional_and_then.cpp)
 
 ### std::variant::and_then (C++26 Evolution)
 **Explanation**: Enhanced `and_then` for `std::variant` with improved chaining.  
@@ -256,7 +256,7 @@ static_assert(test() == 42);
 ```cpp
 #include <variant> auto result = var.and_then([](int x) { return std::variant<int>{x * x}; });
 ```
-**Example**: [variant_and_then.cpp](../examples/C++26/variant_and_then.cpp)
+**Example**: [variant_and_then.cpp](../../examples/C++26/variant_and_then.cpp)
 
 ### std::expected Monadic Operations (C++26 Evolution)
 **Explanation**: Adds `and_then`, `transform`, and `or_else` to `std::expected` for monadic operations.  
@@ -265,7 +265,7 @@ static_assert(test() == 42);
 ```cpp
 #include <expected> auto result = exp.transform([](int x) { return x * x; });
 ```
-**Example**: [expected_monadic.cpp](../examples/C++26/expected_monadic.cpp)
+**Example**: [expected_monadic.cpp](../../examples/C++26/expected_monadic.cpp)
 
 ## Chrono Extensions
 ### std::chrono::tai_clock Improvements (C++26 Evolution)
@@ -275,7 +275,7 @@ static_assert(test() == 42);
 ```cpp
 #include <chrono> auto now = std::chrono::tai_clock::now();
 ```
-**Example**: [tai_clock_improvements.cpp](../examples/C++26/tai_clock_improvements.cpp)
+**Example**: [tai_clock_improvements.cpp](../../examples/C++26/tai_clock_improvements.cpp)
 
 ### std::chrono::gps_clock Improvements (C++26 Evolution)
 **Explanation**: Enhanced `std::chrono::gps_clock` for better GPS time handling.  
@@ -284,7 +284,7 @@ static_assert(test() == 42);
 ```cpp
 #include <chrono> auto now = std::chrono::gps_clock::now();
 ```
-**Example**: [gps_clock_improvements.cpp](../examples/C++26/gps_clock_improvements.cpp)
+**Example**: [gps_clock_improvements.cpp](../../examples/C++26/gps_clock_improvements.cpp)
 
 ### std::chrono::leap_second Support (C++26 Evolution)
 **Explanation**: Improved support for leap seconds in chrono types.  
@@ -293,7 +293,7 @@ static_assert(test() == 42);
 ```cpp
 #include <chrono> auto ls = std::chrono::leap_second::list();
 ```
-**Example**: [leap_second_support.cpp](../examples/C++26/leap_second_support.cpp)
+**Example**: [leap_second_support.cpp](../../examples/C++26/leap_second_support.cpp)
 
 ## Math Functions
 ### std::frexp, std::modf, std::remquo (C++26 Addition)
@@ -303,7 +303,7 @@ static_assert(test() == 42);
 ```cpp
 #include <cmath> auto [mant, exp] = std::frexp(3.14);
 ```
-**Example**: [math_functions.cpp](../examples/C++26/math_functions.cpp)
+**Example**: [math_functions.cpp](../../examples/C++26/math_functions.cpp)
 
 ### std::lerp Improvements (C++26 Evolution)
 **Explanation**: Enhanced `std::lerp` for better precision or overloads.  
@@ -312,7 +312,7 @@ static_assert(test() == 42);
 ```cpp
 #include <cmath> auto pos = std::lerp(0.0f, 100.0f, 0.5f);
 ```
-**Example**: [lerp_improvements.cpp](../examples/C++26/lerp_improvements.cpp)
+**Example**: [lerp_improvements.cpp](../../examples/C++26/lerp_improvements.cpp)
 
 ### std::complex Improvements (C++26 Evolution)
 **Explanation**: Enhanced `std::complex` with better operations or performance.  
@@ -321,7 +321,7 @@ static_assert(test() == 42);
 ```cpp
 #include <complex> std::complex<float> c(1.0f, 2.0f); // Improved operations
 ```
-**Example**: [complex_improvements.cpp](../examples/C++26/complex_improvements.cpp)
+**Example**: [complex_improvements.cpp](../../examples/C++26/complex_improvements.cpp)
 
 ## SIMD Support
 ### std::simd (C++26 Addition)
@@ -336,7 +336,7 @@ std::simd<float> b = {5.0f, 6.0f, 7.0f, 8.0f};
 auto c = a + b; // Element-wise addition: {6.0f, 8.0f, 10.0f, 12.0f}
 auto d = a * b; // Element-wise multiplication: {5.0f, 12.0f, 21.0f, 32.0f}
 ```
-**Example**: [simd.cpp](../examples/C++26/simd.cpp)
+**Example**: [simd.cpp](../../examples/C++26/simd.cpp)
 
 ### std::simd_mask (C++26 Addition)
 **Explanation**: A companion type to `std::simd` that represents a vector of boolean values. Used for conditional SIMD operations, enabling element-wise selection and masked computation without branching.
@@ -349,7 +349,7 @@ std::simd<float> values = {1.0f, -2.0f, 3.0f, -4.0f};
 std::simd_mask<float> positive = values > 0.0f; // {true, false, true, false}
 auto clamped = std::simd::where(positive, values); // Keeps only positive elements
 ```
-**Example**: [simd_mask.cpp](../examples/C++26/simd_mask.cpp)
+**Example**: [simd_mask.cpp](../../examples/C++26/simd_mask.cpp)
 
 ### std::simd::reduce (C++26 Addition)
 **Explanation**: Reduces all elements of a SIMD vector into a single scalar value using a specified binary operation (e.g., addition, multiplication, min, max). Enables efficient horizontal reductions across vector lanes.
@@ -362,7 +362,7 @@ std::simd<float> values = {1.0f, 2.0f, 3.0f, 4.0f};
 float sum = std::reduce(values);                    // 10.0f (default: addition)
 float product = std::reduce(values, std::multiplies{}); // 24.0f
 ```
-**Example**: [simd_reduce.cpp](../examples/C++26/simd_reduce.cpp)
+**Example**: [simd_reduce.cpp](../../examples/C++26/simd_reduce.cpp)
 
 ## Threading
 ### std::hazard_pointer (C++26 Addition)
@@ -372,7 +372,7 @@ float product = std::reduce(values, std::multiplies{}); // 24.0f
 ```cpp
 #include <hazard_pointer> std::hazard_pointer hp; auto ptr = hp.protect(raw_ptr);
 ```
-**Example**: [hazard_pointer.cpp](../examples/C++26/hazard_pointer.cpp)
+**Example**: [hazard_pointer.cpp](../../examples/C++26/hazard_pointer.cpp)
 
 ### std::rcu (Reader-Copy-Update) (C++26 Addition)
 **Explanation**: Synchronization mechanism for read-heavy concurrent data structures.  
@@ -381,7 +381,7 @@ float product = std::reduce(values, std::multiplies{}); // 24.0f
 ```cpp
 #include <rcu> std::rcu::synchronize(); // Wait for readers
 ```
-**Example**: [rcu.cpp](../examples/C++26/rcu.cpp)
+**Example**: [rcu.cpp](../../examples/C++26/rcu.cpp)
 
 ## Execution Framework
 ### std::execution (Senders/Receivers) (C++26 Addition)
@@ -400,7 +400,7 @@ auto work = ex::schedule(my_scheduler)
 // Execute synchronously for demonstration
 auto result = ex::sync_wait(std::move(work));
 ```
-**Example**: [execution.cpp](../examples/C++26/execution.cpp)
+**Example**: [execution.cpp](../../examples/C++26/execution.cpp)
 
 ### std::execution::scheduler, sender, receiver (C++26 Addition)
 **Explanation**: Core concepts of the execution framework. A `scheduler` represents an execution context (e.g., a thread pool). A `sender` describes an asynchronous operation that will produce values. A `receiver` consumes those values (or errors/cancellation). Together they form a type-safe, composable async model.
@@ -415,7 +415,7 @@ ex::scheduler auto sched = get_thread_pool().get_scheduler();
 ex::sender auto work = ex::schedule(sched); // A sender representing "start on this scheduler"
 // A receiver would be connected to consume the result
 ```
-**Example**: [execution_concepts.cpp](../examples/C++26/execution_concepts.cpp)
+**Example**: [execution_concepts.cpp](../../examples/C++26/execution_concepts.cpp)
 
 ### std::execution::then, when_all, let_value (C++26 Addition)
 **Explanation**: Sender adaptors for composing asynchronous operations. `then` chains a continuation. `when_all` waits for multiple senders to complete. `let_value` creates a new sender based on the result of a previous one, enabling dynamic async composition.
@@ -437,7 +437,7 @@ auto dynamic = ex::just(42) | ex::let_value([](int x) {
     return ex::just(x * 2); // Create a new sender based on the value
 });
 ```
-**Example**: [execution_adaptors.cpp](../examples/C++26/execution_adaptors.cpp)
+**Example**: [execution_adaptors.cpp](../../examples/C++26/execution_adaptors.cpp)
 
 ### std::execution::bulk, split, ensure_started (C++26 Addition)
 **Explanation**: Advanced sender adaptors. `bulk` executes a function over an index range in parallel. `split` allows a sender to be consumed by multiple receivers. `ensure_started` eagerly starts an async operation so it runs in the background.
@@ -463,4 +463,4 @@ auto background = ex::schedule(sched)
                 | ex::then([] { return precompute_data(); })
                 | ex::ensure_started();
 ```
-**Example**: [execution_advanced.cpp](../examples/C++26/execution_advanced.cpp)
+**Example**: [execution_advanced.cpp](../../examples/C++26/execution_advanced.cpp)

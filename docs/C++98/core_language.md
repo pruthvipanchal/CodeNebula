@@ -1,6 +1,6 @@
 # C++98 Core Language Concepts
 
-This document covers C++98 core language concepts with simple explanations, real-world scenarios, and short code snippets. Full examples will be added in [examples folder](../examples/C++98/).
+This document covers C++98 core language concepts with simple explanations, real-world scenarios, and short code snippets. Full examples will be added in [examples folder](../../examples/C++98/).
 
 ## Basic Types
 **Explanation**: Fundamental data types like integers, floating-point numbers, characters, and booleans store basic values.  
@@ -9,7 +9,7 @@ This document covers C++98 core language concepts with simple explanations, real
 ```cpp
 int x = 10; float y = 3.14;
 ```
-**Example**: [basic_types.cpp](../examples/C++98/basic_types.cpp)
+**Example**: [basic_types.cpp](../../examples/C++98/basic_types.cpp)
 
 ## Enumerations (Unscoped Enums)
 **Explanation**: Named integer constants grouped under a type, providing meaningful names for sets of related values.
@@ -18,7 +18,7 @@ int x = 10; float y = 3.14;
 ```cpp
 enum Color { Red, Green, Blue }; Color c = Green;
 ```
-**Example**: [enumerations.cpp](../examples/C++98/enumerations.cpp)
+**Example**: [enumerations.cpp](../../examples/C++98/enumerations.cpp)
 
 ## Unions
 **Explanation**: A type where all members share the same memory location, holding only one member's value at a time.
@@ -27,7 +27,7 @@ enum Color { Red, Green, Blue }; Color c = Green;
 ```cpp
 union Data { int i; float f; }; Data d; d.i = 42;
 ```
-**Example**: [unions.cpp](../examples/C++98/unions.cpp)
+**Example**: [unions.cpp](../../examples/C++98/unions.cpp)
 
 ## Bitfields
 **Explanation**: Struct members with exact bit widths, enabling compact storage of flags and small values.
@@ -36,7 +36,7 @@ union Data { int i; float f; }; Data d; d.i = 42;
 ```cpp
 struct Flags { unsigned int bold : 1; unsigned int italic : 1; };
 ```
-**Example**: [bitfields.cpp](../examples/C++98/bitfields.cpp)
+**Example**: [bitfields.cpp](../../examples/C++98/bitfields.cpp)
 
 ## sizeof Operator
 **Explanation**: Returns the size in bytes of a type or object at compile time.
@@ -45,7 +45,7 @@ struct Flags { unsigned int bold : 1; unsigned int italic : 1; };
 ```cpp
 int size = sizeof(int); // typically 4
 ```
-**Example**: [sizeof_operator.cpp](../examples/C++98/sizeof_operator.cpp)
+**Example**: [sizeof_operator.cpp](../../examples/C++98/sizeof_operator.cpp)
 
 ## Pointers
 **Explanation**: Variables that store memory addresses, enabling direct memory access.  
@@ -54,7 +54,7 @@ int size = sizeof(int); // typically 4
 ```cpp
 int x = 10; int* ptr = &x;
 ```
-**Example**: [pointers.cpp](../examples/C++98/pointers.cpp)
+**Example**: [pointers.cpp](../../examples/C++98/pointers.cpp)
 
 ## References
 **Explanation**: Aliases for existing variables, providing another name to access the same data.  
@@ -63,7 +63,7 @@ int x = 10; int* ptr = &x;
 ```cpp
 int x = 10; int& ref = x;
 ```
-**Example**: [references.cpp](../examples/C++98/references.cpp)
+**Example**: [references.cpp](../../examples/C++98/references.cpp)
 
 ## Arrays
 **Explanation**: Fixed-size collections of elements of the same type, stored contiguously.  
@@ -72,7 +72,7 @@ int x = 10; int& ref = x;
 ```cpp
 int arr[5] = {1, 2, 3, 4, 5};
 ```
-**Example**: [arrays.cpp](../examples/C++98/arrays.cpp)
+**Example**: [arrays.cpp](../../examples/C++98/arrays.cpp)
 
 ## Functions
 **Explanation**: Reusable code blocks that perform tasks, accepting parameters and returning values.  
@@ -81,7 +81,7 @@ int arr[5] = {1, 2, 3, 4, 5};
 ```cpp
 int add(int a, int b) { return a + b; }
 ```
-**Example**: [functions.cpp](../examples/C++98/functions.cpp)
+**Example**: [functions.cpp](../../examples/C++98/functions.cpp)
 
 ## Function Overloading
 **Explanation**: Multiple functions with the same name but different parameters.  
@@ -90,7 +90,7 @@ int add(int a, int b) { return a + b; }
 ```cpp
 void print(int x) {} void print(float x) {}
 ```
-**Example**: [function_overloading.cpp](../examples/C++98/function_overloading.cpp)
+**Example**: [function_overloading.cpp](../../examples/C++98/function_overloading.cpp)
 
 ## Default Arguments
 **Explanation**: Parameter values automatically used when the caller omits them from a function call.
@@ -99,7 +99,7 @@ void print(int x) {} void print(float x) {}
 ```cpp
 void log(const char* msg, int level = 1) {}
 ```
-**Example**: [default_arguments.cpp](../examples/C++98/default_arguments.cpp)
+**Example**: [default_arguments.cpp](../../examples/C++98/default_arguments.cpp)
 
 ## Inline Functions
 **Explanation**: A hint to the compiler to expand the function body at each call site, avoiding function call overhead.
@@ -108,7 +108,7 @@ void log(const char* msg, int level = 1) {}
 ```cpp
 inline int square(int x) { return x * x; }
 ```
-**Example**: [inline_functions.cpp](../examples/C++98/inline_functions.cpp)
+**Example**: [inline_functions.cpp](../../examples/C++98/inline_functions.cpp)
 
 ## Function Pointers
 **Explanation**: Pointers that store the address of a function, enabling dynamic function dispatch and callbacks.
@@ -117,7 +117,7 @@ inline int square(int x) { return x * x; }
 ```cpp
 void greet() {} void (*fptr)() = &greet; fptr();
 ```
-**Example**: [function_pointers.cpp](../examples/C++98/function_pointers.cpp)
+**Example**: [function_pointers.cpp](../../examples/C++98/function_pointers.cpp)
 
 ## Pointers to Members
 **Explanation**: Pointers that refer to a specific data member or member function of a class.
@@ -126,7 +126,7 @@ void greet() {} void (*fptr)() = &greet; fptr();
 ```cpp
 struct S { int x; }; int S::*p = &S::x; S s; s.*p = 42;
 ```
-**Example**: [pointers_to_members.cpp](../examples/C++98/pointers_to_members.cpp)
+**Example**: [pointers_to_members.cpp](../../examples/C++98/pointers_to_members.cpp)
 
 ## Classes
 **Explanation**: User-defined types combining data and functions to model entities.  
@@ -135,7 +135,7 @@ struct S { int x; }; int S::*p = &S::x; S s; s.*p = 42;
 ```cpp
 class Car { public: int speed; void drive() {}; };
 ```
-**Example**: [classes.cpp](../examples/C++98/classes.cpp)
+**Example**: [classes.cpp](../../examples/C++98/classes.cpp)
 
 ## Objects
 **Explanation**: Instances of classes, representing specific entities.  
@@ -144,7 +144,7 @@ class Car { public: int speed; void drive() {}; };
 ```cpp
 Car myCar; myCar.speed = 100;
 ```
-**Example**: [objects.cpp](../examples/C++98/objects.cpp)
+**Example**: [objects.cpp](../../examples/C++98/objects.cpp)
 
 ## Constructors
 **Explanation**: Special functions called during object creation to initialize data.  
@@ -153,7 +153,7 @@ Car myCar; myCar.speed = 100;
 ```cpp
 class Account { public: Account(int bal) {} };
 ```
-**Example**: [constructors.cpp](../examples/C++98/constructors.cpp)
+**Example**: [constructors.cpp](../../examples/C++98/constructors.cpp)
 
 ## Copy Constructor
 **Explanation**: A special constructor that creates a new object as a copy of an existing object of the same type.
@@ -162,7 +162,7 @@ class Account { public: Account(int bal) {} };
 ```cpp
 class Widget { public: Widget(const Widget& other) {} };
 ```
-**Example**: [copy_constructor.cpp](../examples/C++98/copy_constructor.cpp)
+**Example**: [copy_constructor.cpp](../../examples/C++98/copy_constructor.cpp)
 
 ## Destructors
 **Explanation**: Special functions called when an object is destroyed to clean up resources.  
@@ -171,7 +171,7 @@ class Widget { public: Widget(const Widget& other) {} };
 ```cpp
 class File { public: ~File() {} };
 ```
-**Example**: [destructors.cpp](../examples/C++98/destructors.cpp)
+**Example**: [destructors.cpp](../../examples/C++98/destructors.cpp)
 
 ## Copy Assignment Operator
 **Explanation**: An overloaded `operator=` that assigns one object's state to another existing object of the same type.
@@ -180,7 +180,7 @@ class File { public: ~File() {} };
 ```cpp
 class Config { public: Config& operator=(const Config& other) { return *this; } };
 ```
-**Example**: [copy_assignment.cpp](../examples/C++98/copy_assignment.cpp)
+**Example**: [copy_assignment.cpp](../../examples/C++98/copy_assignment.cpp)
 
 ## Conversion Functions
 **Explanation**: Member functions that define implicit or explicit conversions from a class type to another type.
@@ -189,7 +189,7 @@ class Config { public: Config& operator=(const Config& other) { return *this; } 
 ```cpp
 class Fraction { public: operator double() const { return 0.5; } };
 ```
-**Example**: [conversion_functions.cpp](../examples/C++98/conversion_functions.cpp)
+**Example**: [conversion_functions.cpp](../../examples/C++98/conversion_functions.cpp)
 
 ## Inheritance
 ### Single Inheritance
@@ -199,7 +199,7 @@ class Fraction { public: operator double() const { return 0.5; } };
 ```cpp
 class Car {}; class SportsCar : public Car {};
 ```
-**Example**: [single_inheritance.cpp](../examples/C++98/single_inheritance.cpp)
+**Example**: [single_inheritance.cpp](../../examples/C++98/single_inheritance.cpp)
 
 ### Multiple Inheritance
 **Explanation**: A class inherits from multiple base classes.  
@@ -208,7 +208,7 @@ class Car {}; class SportsCar : public Car {};
 ```cpp
 class Car {}; class Airplane {}; class FlyingCar : public Car, public Airplane {};
 ```
-**Example**: [multiple_inheritance.cpp](../examples/C++98/multiple_inheritance.cpp)
+**Example**: [multiple_inheritance.cpp](../../examples/C++98/multiple_inheritance.cpp)
 
 ### Virtual Inheritance
 **Explanation**: Prevents duplicate base class instances in multiple inheritance using `virtual`.  
@@ -217,7 +217,7 @@ class Car {}; class Airplane {}; class FlyingCar : public Car, public Airplane {
 ```cpp
 class Vehicle {}; class Car : virtual public Vehicle {};
 ```
-**Example**: [virtual_inheritance.cpp](../examples/C++98/virtual_inheritance.cpp)
+**Example**: [virtual_inheritance.cpp](../../examples/C++98/virtual_inheritance.cpp)
 
 ## Polymorphism
 **Explanation**: Treats objects of different types as a common base type.  
@@ -226,7 +226,7 @@ class Vehicle {}; class Car : virtual public Vehicle {};
 ```cpp
 class Shape { virtual void draw() {} };
 ```
-**Example**: [polymorphism.cpp](../examples/C++98/polymorphism.cpp)
+**Example**: [polymorphism.cpp](../../examples/C++98/polymorphism.cpp)
 
 ## Virtual Functions
 **Explanation**: Base class functions overridden by derived classes for dynamic dispatch.  
@@ -235,7 +235,7 @@ class Shape { virtual void draw() {} };
 ```cpp
 class Enemy { virtual void attack() {} };
 ```
-**Example**: [virtual_functions.cpp](../examples/C++98/virtual_functions.cpp)
+**Example**: [virtual_functions.cpp](../../examples/C++98/virtual_functions.cpp)
 
 ## Pure Virtual Functions
 **Explanation**: Virtual functions declared with `= 0`, making a class abstract.  
@@ -244,7 +244,7 @@ class Enemy { virtual void attack() {} };
 ```cpp
 class Shape { virtual void draw() = 0; };
 ```
-**Example**: [pure_virtual_functions.cpp](../examples/C++98/pure_virtual_functions.cpp)
+**Example**: [pure_virtual_functions.cpp](../../examples/C++98/pure_virtual_functions.cpp)
 
 ## Abstract Classes
 **Explanation**: Classes with pure virtual functions that cannot be instantiated.  
@@ -253,7 +253,7 @@ class Shape { virtual void draw() = 0; };
 ```cpp
 class Vehicle { virtual void move() = 0; };
 ```
-**Example**: [abstract_classes.cpp](../examples/C++98/abstract_classes.cpp)
+**Example**: [abstract_classes.cpp](../../examples/C++98/abstract_classes.cpp)
 
 ## Encapsulation
 **Explanation**: Hides data using access specifiers to control access.  
@@ -262,7 +262,7 @@ class Vehicle { virtual void move() = 0; };
 ```cpp
 class Account { private: int balance; public: int getBalance() {} };
 ```
-**Example**: [encapsulation.cpp](../examples/C++98/encapsulation.cpp)
+**Example**: [encapsulation.cpp](../../examples/C++98/encapsulation.cpp)
 
 ## Access Specifiers
 **Explanation**: `public`, `private`, and `protected` control member visibility.  
@@ -271,7 +271,7 @@ class Account { private: int balance; public: int getBalance() {} };
 ```cpp
 class Player { private: int health; public: void move() {} };
 ```
-**Example**: [access_specifiers.cpp](../examples/C++98/access_specifiers.cpp)
+**Example**: [access_specifiers.cpp](../../examples/C++98/access_specifiers.cpp)
 
 ## Friend Functions
 **Explanation**: Non-member functions granted access to a class’s private members.  
@@ -280,7 +280,7 @@ class Player { private: int health; public: void move() {} };
 ```cpp
 class Data { friend void log(Data&); };
 ```
-**Example**: [friend_functions.cpp](../examples/C++98/friend_functions.cpp)
+**Example**: [friend_functions.cpp](../../examples/C++98/friend_functions.cpp)
 
 ## Friend Classes
 **Explanation**: A class granted access to another class’s private members.  
@@ -289,7 +289,7 @@ class Data { friend void log(Data&); };
 ```cpp
 class GameObject { friend class Renderer; };
 ```
-**Example**: [friend_classes.cpp](../examples/C++98/friend_classes.cpp)
+**Example**: [friend_classes.cpp](../../examples/C++98/friend_classes.cpp)
 
 ## Nested Classes
 **Explanation**: A class defined inside the scope of another class, typically used as an implementation detail.
@@ -298,7 +298,7 @@ class GameObject { friend class Renderer; };
 ```cpp
 class List { class Node { int data; Node* next; }; };
 ```
-**Example**: [nested_classes.cpp](../examples/C++98/nested_classes.cpp)
+**Example**: [nested_classes.cpp](../../examples/C++98/nested_classes.cpp)
 
 ## Local Classes
 **Explanation**: A class defined inside a function body, scoped to that function only.
@@ -307,7 +307,7 @@ class List { class Node { int data; Node* next; }; };
 ```cpp
 void process() { class Helper { public: void run() {} }; Helper h; h.run(); }
 ```
-**Example**: [local_classes.cpp](../examples/C++98/local_classes.cpp)
+**Example**: [local_classes.cpp](../../examples/C++98/local_classes.cpp)
 
 ## Operator Overloading
 **Explanation**: Redefines operators (e.g., +, ==) for user-defined types.  
@@ -316,7 +316,7 @@ void process() { class Helper { public: void run() {} }; Helper h; h.run(); }
 ```cpp
 class Vector2D { Vector2D operator+(Vector2D& other) {} };
 ```
-**Example**: [operator_overloading.cpp](../examples/C++98/operator_overloading.cpp)
+**Example**: [operator_overloading.cpp](../../examples/C++98/operator_overloading.cpp)
 
 ## Templates
 ### Function Templates
@@ -326,7 +326,7 @@ class Vector2D { Vector2D operator+(Vector2D& other) {} };
 ```cpp
 template<typename T> T max(T a, T b) { return a > b ? a : b; }
 ```
-**Example**: [function_templates.cpp](../examples/C++98/function_templates.cpp)
+**Example**: [function_templates.cpp](../../examples/C++98/function_templates.cpp)
 
 ### Class Templates
 **Explanation**: Classes that work with any data type via a template parameter.  
@@ -335,7 +335,7 @@ template<typename T> T max(T a, T b) { return a > b ? a : b; }
 ```cpp
 template<typename T> class Stack { void push(T item) {} };
 ```
-**Example**: [class_templates.cpp](../examples/C++98/class_templates.cpp)
+**Example**: [class_templates.cpp](../../examples/C++98/class_templates.cpp)
 
 ## Exception Handling
 **Explanation**: Handles errors using `try`, `catch`, and `throw`.  
@@ -344,7 +344,7 @@ template<typename T> class Stack { void push(T item) {} };
 ```cpp
 try { throw "Error"; } catch(const char* msg) {}
 ```
-**Example**: [exception_handling.cpp](../examples/C++98/exception_handling.cpp)
+**Example**: [exception_handling.cpp](../../examples/C++98/exception_handling.cpp)
 
 ## Namespaces
 **Explanation**: Groups related code to avoid name conflicts.  
@@ -353,7 +353,7 @@ try { throw "Error"; } catch(const char* msg) {}
 ```cpp
 namespace Utils { void func() {} }
 ```
-**Example**: [namespaces.cpp](../examples/C++98/namespaces.cpp)
+**Example**: [namespaces.cpp](../../examples/C++98/namespaces.cpp)
 
 ## Scope Resolution Operator (::)
 **Explanation**: Accesses members of a namespace, class, or enum, and resolves ambiguity in nested scopes.
@@ -363,7 +363,7 @@ namespace Utils { void func() {} }
 namespace Math { int add(int a, int b) { return a + b; } }
 int result = Math::add(1, 2);
 ```
-**Example**: [scope_resolution.cpp](../examples/C++98/scope_resolution.cpp)
+**Example**: [scope_resolution.cpp](../../examples/C++98/scope_resolution.cpp)
 
 ## Dynamic Memory Management
 **Explanation**: Allocates and deallocates memory at runtime using `new` and `delete`.  
@@ -372,7 +372,7 @@ int result = Math::add(1, 2);
 ```cpp
 int* ptr = new int; delete ptr;
 ```
-**Example**: [dynamic_memory.cpp](../examples/C++98/dynamic_memory.cpp)
+**Example**: [dynamic_memory.cpp](../../examples/C++98/dynamic_memory.cpp)
 
 ## Type Casting
 **Explanation**: Converts between types using `static_cast`, `dynamic_cast`, etc.  
@@ -381,7 +381,7 @@ int* ptr = new int; delete ptr;
 ```cpp
 Base* b; Derived* d = dynamic_cast<Derived*>(b);
 ```
-**Example**: [type_casting.cpp](../examples/C++98/type_casting.cpp)
+**Example**: [type_casting.cpp](../../examples/C++98/type_casting.cpp)
 
 ## Run-Time Type Information (RTTI)
 **Explanation**: Identifies object types at runtime using `typeid` or `dynamic_cast`.  
@@ -390,7 +390,7 @@ Base* b; Derived* d = dynamic_cast<Derived*>(b);
 ```cpp
 #include <typeinfo> typeid(obj).name();
 ```
-**Example**: [rtti.cpp](../examples/C++98/rtti.cpp)
+**Example**: [rtti.cpp](../../examples/C++98/rtti.cpp)
 
 ## Typeid
 **Explanation**: Operator to get type information of an object at runtime.  
@@ -399,7 +399,7 @@ Base* b; Derived* d = dynamic_cast<Derived*>(b);
 ```cpp
 #include <typeinfo> cout << typeid(int).name();
 ```
-**Example**: [typeid.cpp](../examples/C++98/typeid.cpp)
+**Example**: [typeid.cpp](../../examples/C++98/typeid.cpp)
 
 ## Storage Class Specifiers
 **Explanation**: Keywords (`static`, `extern`, `register`) that control the storage duration, linkage, and lifetime of variables.
@@ -408,7 +408,7 @@ Base* b; Derived* d = dynamic_cast<Derived*>(b);
 ```cpp
 void counter() { static int count = 0; count++; }
 ```
-**Example**: [storage_class.cpp](../examples/C++98/storage_class.cpp)
+**Example**: [storage_class.cpp](../../examples/C++98/storage_class.cpp)
 
 ## Volatile Keyword
 **Explanation**: Tells the compiler that a variable may change at any time, preventing optimization of reads/writes.
@@ -417,7 +417,7 @@ void counter() { static int count = 0; count++; }
 ```cpp
 volatile int* status_reg = (volatile int*)0x40000;
 ```
-**Example**: [volatile.cpp](../examples/C++98/volatile.cpp)
+**Example**: [volatile.cpp](../../examples/C++98/volatile.cpp)
 
 ## Mutable Keyword
 **Explanation**: Allows a data member to be modified even inside a `const` member function.
@@ -426,7 +426,7 @@ volatile int* status_reg = (volatile int*)0x40000;
 ```cpp
 class Data { mutable int cache; public: int get() const { cache = 42; return cache; } };
 ```
-**Example**: [mutable.cpp](../examples/C++98/mutable.cpp)
+**Example**: [mutable.cpp](../../examples/C++98/mutable.cpp)
 
 ## Conditional (Ternary) Operator
 **Explanation**: An inline expression `condition ? true_value : false_value` that returns one of two values based on a condition.
@@ -435,7 +435,7 @@ class Data { mutable int cache; public: int get() const { cache = 42; return cac
 ```cpp
 int x = 10; int abs_x = (x >= 0) ? x : -x;
 ```
-**Example**: [ternary_operator.cpp](../examples/C++98/ternary_operator.cpp)
+**Example**: [ternary_operator.cpp](../../examples/C++98/ternary_operator.cpp)
 
 ## Comma Operator
 **Explanation**: Evaluates two expressions in sequence, discards the first result, and returns the second.
@@ -444,7 +444,7 @@ int x = 10; int abs_x = (x >= 0) ? x : -x;
 ```cpp
 for (int i = 0, j = 10; i < j; i++, j--) {}
 ```
-**Example**: [comma_operator.cpp](../examples/C++98/comma_operator.cpp)
+**Example**: [comma_operator.cpp](../../examples/C++98/comma_operator.cpp)
 
 ## Preprocessor Directives
 **Explanation**: Compile-time instructions (`#define`, `#include`, `#ifdef`, `#ifndef`, `#pragma`) that control text substitution and conditional compilation.
@@ -456,4 +456,4 @@ for (int i = 0, j = 10; i < j; i++, j--) {}
 // declarations
 #endif
 ```
-**Example**: [preprocessor.cpp](../examples/C++98/preprocessor.cpp)
+**Example**: [preprocessor.cpp](../../examples/C++98/preprocessor.cpp)

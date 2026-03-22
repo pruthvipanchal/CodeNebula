@@ -1,6 +1,6 @@
 # C++23 STL Concepts
 
-This document covers new or evolved C++23 STL concepts, with simple explanations, real-world scenarios, and short code snippets. Full examples will be added in [examples folder](../examples/C++23/). Only additions or evolutions from C++98/C++03/C++11/C++14/C++17/C++20 are included.
+This document covers new or evolved C++23 STL concepts, with simple explanations, real-world scenarios, and short code snippets. Full examples will be added in [examples folder](../../examples/C++23/). Only additions or evolutions from C++98/C++03/C++11/C++14/C++17/C++20 are included.
 
 ## Containers
 ### std::flat_map (C++23 Addition)
@@ -10,7 +10,7 @@ This document covers new or evolved C++23 STL concepts, with simple explanations
 ```cpp
 #include <flat_map> std::flat_map<int, std::string> fm = {{1, "one"}};
 ```
-**Example**: [flat_map.cpp](../examples/C++23/flat_map.cpp)
+**Example**: [flat_map.cpp](../../examples/C++23/flat_map.cpp)
 
 ### std::flat_set (C++23 Addition)
 **Explanation**: A sorted, contiguous set container for efficient storage and lookup.  
@@ -19,7 +19,7 @@ This document covers new or evolved C++23 STL concepts, with simple explanations
 ```cpp
 #include <flat_set> std::flat_set<int> fs = {1, 2, 3};
 ```
-**Example**: [flat_set.cpp](../examples/C++23/flat_set.cpp)
+**Example**: [flat_set.cpp](../../examples/C++23/flat_set.cpp)
 
 ### std::flat_multimap (C++23 Addition)
 **Explanation**: A sorted key-value container allowing duplicate keys, backed by contiguous storage for cache-friendly access.
@@ -30,7 +30,7 @@ This document covers new or evolved C++23 STL concepts, with simple explanations
 std::flat_multimap<std::string, int> scores;
 scores.insert({"Alice", 95}); scores.insert({"Alice", 87});
 ```
-**Example**: [flat_multimap.cpp](../examples/C++23/flat_multimap.cpp)
+**Example**: [flat_multimap.cpp](../../examples/C++23/flat_multimap.cpp)
 
 ### std::flat_multiset (C++23 Addition)
 **Explanation**: A sorted container allowing duplicate elements, backed by contiguous storage for optimal iteration performance.
@@ -40,7 +40,7 @@ scores.insert({"Alice", 95}); scores.insert({"Alice", 87});
 #include <flat_set>
 std::flat_multiset<double> latencies = {1.2, 0.8, 1.2, 0.5};
 ```
-**Example**: [flat_multiset.cpp](../examples/C++23/flat_multiset.cpp)
+**Example**: [flat_multiset.cpp](../../examples/C++23/flat_multiset.cpp)
 
 ### std::mdspan (C++23 Addition)
 **Explanation**: Multidimensional array view for accessing data with dynamic extents.  
@@ -49,7 +49,7 @@ std::flat_multiset<double> latencies = {1.2, 0.8, 1.2, 0.5};
 ```cpp
 #include <mdspan> std::mdspan<int, std::extents<size_t, 2, 2>> ms(data);
 ```
-**Example**: [mdspan.cpp](../examples/C++23/mdspan.cpp)
+**Example**: [mdspan.cpp](../../examples/C++23/mdspan.cpp)
 
 ### std::generator (C++23 Addition)
 **Explanation**: Coroutine-based range for lazy generation of sequences.  
@@ -58,7 +58,7 @@ std::flat_multiset<double> latencies = {1.2, 0.8, 1.2, 0.5};
 ```cpp
 #include <generator> std::generator<int> gen() { for (int i = 0; i < 5; ++i) co_yield i; }
 ```
-**Example**: [generator.cpp](../examples/C++23/generator.cpp)
+**Example**: [generator.cpp](../../examples/C++23/generator.cpp)
 
 ## Range Views
 ### std::ranges::zip_view (C++23 Addition)
@@ -68,7 +68,7 @@ std::flat_multiset<double> latencies = {1.2, 0.8, 1.2, 0.5};
 ```cpp
 #include <ranges> auto zv = std::ranges::zip_view(names, scores);
 ```
-**Example**: [ranges_zip_view.cpp](../examples/C++23/ranges_zip_view.cpp)
+**Example**: [ranges_zip_view.cpp](../../examples/C++23/ranges_zip_view.cpp)
 
 ### std::ranges::zip_transform_view (C++23 Addition)
 **Explanation**: View that applies a function to zipped range elements.  
@@ -77,7 +77,7 @@ std::flat_multiset<double> latencies = {1.2, 0.8, 1.2, 0.5};
 ```cpp
 #include <ranges> auto ztv = std::ranges::zip_transform_view([](int x, int y) { return x + y; }, vec1, vec2);
 ```
-**Example**: [ranges_zip_transform_view.cpp](../examples/C++23/ranges_zip_transform_view.cpp)
+**Example**: [ranges_zip_transform_view.cpp](../../examples/C++23/ranges_zip_transform_view.cpp)
 
 ### std::ranges::adjacent_view (C++23 Addition)
 **Explanation**: View that yields adjacent element pairs from a range.  
@@ -86,7 +86,7 @@ std::flat_multiset<double> latencies = {1.2, 0.8, 1.2, 0.5};
 ```cpp
 #include <ranges> auto av = std::ranges::adjacent_view<2>(vec);
 ```
-**Example**: [ranges_adjacent_view.cpp](../examples/C++23/ranges_adjacent_view.cpp)
+**Example**: [ranges_adjacent_view.cpp](../../examples/C++23/ranges_adjacent_view.cpp)
 
 ### std::ranges::adjacent_transform_view (C++23 Addition)
 **Explanation**: View that applies a function to adjacent element pairs.  
@@ -95,7 +95,7 @@ std::flat_multiset<double> latencies = {1.2, 0.8, 1.2, 0.5};
 ```cpp
 #include <ranges> auto atv = std::ranges::adjacent_transform_view<2>(vec, [](int a, int b) { return b - a; });
 ```
-**Example**: [ranges_adjacent_transform_view.cpp](../examples/C++23/ranges_adjacent_transform_view.cpp)
+**Example**: [ranges_adjacent_transform_view.cpp](../../examples/C++23/ranges_adjacent_transform_view.cpp)
 
 ### std::ranges::chunk_view (C++23 Addition)
 **Explanation**: View that splits a range into chunks of fixed size.  
@@ -104,7 +104,7 @@ std::flat_multiset<double> latencies = {1.2, 0.8, 1.2, 0.5};
 ```cpp
 #include <ranges> auto cv = std::ranges::chunk_view(vec, 3);
 ```
-**Example**: [ranges_chunk_view.cpp](../examples/C++23/ranges_chunk_view.cpp)
+**Example**: [ranges_chunk_view.cpp](../../examples/C++23/ranges_chunk_view.cpp)
 
 ### std::ranges::chunk_by_view (C++23 Addition)
 **Explanation**: View that splits a range into chunks based on a predicate.  
@@ -113,7 +113,7 @@ std::flat_multiset<double> latencies = {1.2, 0.8, 1.2, 0.5};
 ```cpp
 #include <ranges> auto cbv = std::ranges::chunk_by_view(vec, [](int a, int b) { return a <= b; });
 ```
-**Example**: [ranges_chunk_by_view.cpp](../examples/C++23/ranges_chunk_by_view.cpp)
+**Example**: [ranges_chunk_by_view.cpp](../../examples/C++23/ranges_chunk_by_view.cpp)
 
 ### std::ranges::slide_view (C++23 Addition)
 **Explanation**: View that yields sliding windows of a fixed size from a range.  
@@ -122,7 +122,7 @@ std::flat_multiset<double> latencies = {1.2, 0.8, 1.2, 0.5};
 ```cpp
 #include <ranges> auto sv = std::ranges::slide_view(vec, 3);
 ```
-**Example**: [ranges_slide_view.cpp](../examples/C++23/ranges_slide_view.cpp)
+**Example**: [ranges_slide_view.cpp](../../examples/C++23/ranges_slide_view.cpp)
 
 ### std::ranges::stride_view (C++23 Addition)
 **Explanation**: View that yields every nth element from a range.  
@@ -131,7 +131,7 @@ std::flat_multiset<double> latencies = {1.2, 0.8, 1.2, 0.5};
 ```cpp
 #include <ranges> auto sv = std::ranges::stride_view(vec, 2);
 ```
-**Example**: [ranges_stride_view.cpp](../examples/C++23/ranges_stride_view.cpp)
+**Example**: [ranges_stride_view.cpp](../../examples/C++23/ranges_stride_view.cpp)
 
 ### std::ranges::cartesian_product_view (C++23 Addition)
 **Explanation**: View that yields the Cartesian product of multiple ranges.  
@@ -140,7 +140,7 @@ std::flat_multiset<double> latencies = {1.2, 0.8, 1.2, 0.5};
 ```cpp
 #include <ranges> auto cpv = std::ranges::cartesian_product_view(vec1, vec2);
 ```
-**Example**: [ranges_cartesian_product_view.cpp](../examples/C++23/ranges_cartesian_product_view.cpp)
+**Example**: [ranges_cartesian_product_view.cpp](../../examples/C++23/ranges_cartesian_product_view.cpp)
 
 ### std::ranges::repeat_view (C++23 Addition)
 **Explanation**: Generates a view that repeats a value a specified number of times, or infinitely.
@@ -149,7 +149,7 @@ std::flat_multiset<double> latencies = {1.2, 0.8, 1.2, 0.5};
 ```cpp
 for (int x : std::views::repeat(42, 5)) { /* 42, 42, 42, 42, 42 */ }
 ```
-**Example**: [repeat_view.cpp](../examples/C++23/repeat_view.cpp)
+**Example**: [repeat_view.cpp](../../examples/C++23/repeat_view.cpp)
 
 ### std::ranges::join_with_view (C++23 Addition)
 **Explanation**: Flattens nested ranges into one, inserting a delimiter between each inner range.
@@ -159,7 +159,7 @@ for (int x : std::views::repeat(42, 5)) { /* 42, 42, 42, 42, 42 */ }
 std::vector<std::string> words = {"Hello", "World"};
 auto joined = words | std::views::join_with(' ');
 ```
-**Example**: [join_with_view.cpp](../examples/C++23/join_with_view.cpp)
+**Example**: [join_with_view.cpp](../../examples/C++23/join_with_view.cpp)
 
 ### std::ranges::as_rvalue_view (C++23 Addition)
 **Explanation**: Wraps a range so that every element is cast to an rvalue reference, enabling move operations.
@@ -168,7 +168,7 @@ auto joined = words | std::views::join_with(' ');
 ```cpp
 auto moved = source | std::views::as_rvalue;
 ```
-**Example**: [as_rvalue_view.cpp](../examples/C++23/as_rvalue_view.cpp)
+**Example**: [as_rvalue_view.cpp](../../examples/C++23/as_rvalue_view.cpp)
 
 ### std::ranges::as_const_view (C++23 Addition)
 **Explanation**: Wraps a range so that all elements are accessed as const references, preventing modification.
@@ -177,7 +177,7 @@ auto moved = source | std::views::as_rvalue;
 ```cpp
 auto readonly = data | std::views::as_const;
 ```
-**Example**: [as_const_view.cpp](../examples/C++23/as_const_view.cpp)
+**Example**: [as_const_view.cpp](../../examples/C++23/as_const_view.cpp)
 
 ### std::ranges::enumerate_view (C++23 Addition)
 **Explanation**: Pairs each element with its zero-based index, similar to Python's `enumerate()`.
@@ -188,7 +188,7 @@ for (auto [idx, val] : data | std::views::enumerate) {
     std::println("#{}: {}", idx, val);
 }
 ```
-**Example**: [enumerate_view.cpp](../examples/C++23/enumerate_view.cpp)
+**Example**: [enumerate_view.cpp](../../examples/C++23/enumerate_view.cpp)
 
 ## Range Adaptors
 ### std::ranges::views::zip, zip_transform, adjacent, adjacent_transform, chunk, chunk_by, slide, stride, cartesian_product (C++23 Addition)
@@ -198,7 +198,7 @@ for (auto [idx, val] : data | std::views::enumerate) {
 ```cpp
 #include <ranges> auto v = vec | std::views::zip(vec2) | std::views::transform([](auto p) { return std::get<0>(p) + std::get<1>(p); });
 ```
-**Example**: [ranges_adaptors.cpp](../examples/C++23/ranges_adaptors.cpp)
+**Example**: [ranges_adaptors.cpp](../../examples/C++23/ranges_adaptors.cpp)
 
 ## Range Algorithms
 ### std::ranges::fold_left, fold_right, fold_left_first, fold_right_last (C++23 Addition)
@@ -208,7 +208,7 @@ for (auto [idx, val] : data | std::views::enumerate) {
 ```cpp
 #include <ranges> auto sum = std::ranges::fold_left(vec, 0, std::plus{});
 ```
-**Example**: [ranges_fold.cpp](../examples/C++23/ranges_fold.cpp)
+**Example**: [ranges_fold.cpp](../../examples/C++23/ranges_fold.cpp)
 
 ### std::ranges::find_last, find_last_if, find_last_if_not (C++23 Addition)
 **Explanation**: Algorithms to find the last occurrence of a value or matching a predicate.  
@@ -217,7 +217,7 @@ for (auto [idx, val] : data | std::views::enumerate) {
 ```cpp
 #include <ranges> auto it = std::ranges::find_last(vec, 42);
 ```
-**Example**: [ranges_find_last.cpp](../examples/C++23/ranges_find_last.cpp)
+**Example**: [ranges_find_last.cpp](../../examples/C++23/ranges_find_last.cpp)
 
 ### std::ranges::contains, starts_with, ends_with (C++23 Evolution)
 **Explanation**: Range-based versions of `contains`, `starts_with`, and `ends_with`, moved to `std::ranges`.  
@@ -226,7 +226,7 @@ for (auto [idx, val] : data | std::views::enumerate) {
 ```cpp
 #include <ranges> bool starts = std::ranges::starts_with(vec, subvec);
 ```
-**Example**: [ranges_contains_starts_ends.cpp](../examples/C++23/ranges_contains_starts_ends.cpp)
+**Example**: [ranges_contains_starts_ends.cpp](../../examples/C++23/ranges_contains_starts_ends.cpp)
 
 ### std::ranges::to (C++23 Addition)
 **Explanation**: Converts a range to a container or another range type.  
@@ -235,7 +235,7 @@ for (auto [idx, val] : data | std::views::enumerate) {
 ```cpp
 #include <ranges> auto vec = std::ranges::to<std::vector<int>>(view);
 ```
-**Example**: [ranges_to.cpp](../examples/C++23/ranges_to.cpp)
+**Example**: [ranges_to.cpp](../../examples/C++23/ranges_to.cpp)
 
 ## Utilities
 ### std::expected (C++23 Addition)
@@ -245,7 +245,7 @@ for (auto [idx, val] : data | std::views::enumerate) {
 ```cpp
 #include <expected> std::expected<int, std::string> result = 42;
 ```
-**Example**: [expected.cpp](../examples/C++23/expected.cpp)
+**Example**: [expected.cpp](../../examples/C++23/expected.cpp)
 
 ### std::print, std::println (C++23 Addition)
 **Explanation**: Type-safe, efficient printing to streams with formatting.  
@@ -254,7 +254,7 @@ for (auto [idx, val] : data | std::views::enumerate) {
 ```cpp
 #include <print> std::print("Value: {}\n", 42);
 ```
-**Example**: [print.cpp](../examples/C++23/print.cpp)
+**Example**: [print.cpp](../../examples/C++23/print.cpp)
 
 ### std::stacktrace, std::stacktrace_entry, std::basic_stacktrace (C++23 Addition)
 **Explanation**: Capture and manipulate stack traces for debugging.  
@@ -263,7 +263,7 @@ for (auto [idx, val] : data | std::views::enumerate) {
 ```cpp
 #include <stacktrace> auto trace = std::stacktrace::current();
 ```
-**Example**: [stacktrace.cpp](../examples/C++23/stacktrace.cpp)
+**Example**: [stacktrace.cpp](../../examples/C++23/stacktrace.cpp)
 
 ### std::to_underlying (C++23 Addition)
 **Explanation**: Converts an enum to its underlying type.  
@@ -272,7 +272,7 @@ for (auto [idx, val] : data | std::views::enumerate) {
 ```cpp
 #include <utility> enum class E { A = 1 }; auto val = std::to_underlying(E::A);
 ```
-**Example**: [to_underlying.cpp](../examples/C++23/to_underlying.cpp)
+**Example**: [to_underlying.cpp](../../examples/C++23/to_underlying.cpp)
 
 ### std::byteswap (C++23 Addition)
 **Explanation**: Reverses the byte order of an integral value.  
@@ -281,7 +281,7 @@ for (auto [idx, val] : data | std::views::enumerate) {
 ```cpp
 #include <bit> auto swapped = std::byteswap(0x1234);
 ```
-**Example**: [byteswap.cpp](../examples/C++23/byteswap.cpp)
+**Example**: [byteswap.cpp](../../examples/C++23/byteswap.cpp)
 
 ### std::assume_aligned (C++23 Addition)
 **Explanation**: Informs the compiler of pointer alignment for optimization.  
@@ -290,7 +290,7 @@ for (auto [idx, val] : data | std::views::enumerate) {
 ```cpp
 #include <memory> int* p = std::assume_aligned<alignof(int)>(ptr);
 ```
-**Example**: [assume_aligned.cpp](../examples/C++23/assume_aligned.cpp)
+**Example**: [assume_aligned.cpp](../../examples/C++23/assume_aligned.cpp)
 
 ### std::unreachable (C++23 Addition)
 **Explanation**: Marks code as unreachable, triggering undefined behavior if executed.  
@@ -299,7 +299,7 @@ for (auto [idx, val] : data | std::views::enumerate) {
 ```cpp
 #include <utility> if (false) std::unreachable();
 ```
-**Example**: [unreachable.cpp](../examples/C++23/unreachable.cpp)
+**Example**: [unreachable.cpp](../../examples/C++23/unreachable.cpp)
 
 ### std::invoke_r (C++23 Addition)
 **Explanation**: Invokes a callable with a specified return type.  
@@ -308,7 +308,7 @@ for (auto [idx, val] : data | std::views::enumerate) {
 ```cpp
 #include <functional> auto result = std::invoke_r<int>(func, args...);
 ```
-**Example**: [invoke_r.cpp](../examples/C++23/invoke_r.cpp)
+**Example**: [invoke_r.cpp](../../examples/C++23/invoke_r.cpp)
 
 ### std::forward_like (C++23 Addition)
 **Explanation**: Forwards arguments with the same value category as a reference.  
@@ -317,7 +317,7 @@ for (auto [idx, val] : data | std::views::enumerate) {
 ```cpp
 #include <utility> auto x = std::forward_like<T>(arg);
 ```
-**Example**: [forward_like.cpp](../examples/C++23/forward_like.cpp)
+**Example**: [forward_like.cpp](../../examples/C++23/forward_like.cpp)
 
 ### std::move_only_function (C++23 Addition)
 **Explanation**: Function wrapper for move-only callables (e.g., lambdas with unique_ptr).  
@@ -326,7 +326,7 @@ for (auto [idx, val] : data | std::views::enumerate) {
 ```cpp
 #include <functional> std::move_only_function<void()> f = []{ /* action */ };
 ```
-**Example**: [move_only_function.cpp](../examples/C++23/move_only_function.cpp)
+**Example**: [move_only_function.cpp](../../examples/C++23/move_only_function.cpp)
 
 ### std::out_ptr / std::inout_ptr (C++23 Addition)
 **Explanation**: Smart pointer adaptors for C APIs that write to an output pointer parameter (`T**`).
@@ -336,7 +336,7 @@ for (auto [idx, val] : data | std::views::enumerate) {
 std::unique_ptr<FILE, decltype(&fclose)> file(nullptr, &fclose);
 c_api_open_file(std::out_ptr(file));
 ```
-**Example**: [out_ptr.cpp](../examples/C++23/out_ptr.cpp)
+**Example**: [out_ptr.cpp](../../examples/C++23/out_ptr.cpp)
 
 ### std::spanstream (C++23 Addition)
 **Explanation**: A stream class backed by a `std::span` buffer, enabling I/O operations on existing memory without allocation.
@@ -348,7 +348,7 @@ char buf[64];
 std::ospanstream os(buf);
 os << "Value: " << 42;
 ```
-**Example**: [spanstream.cpp](../examples/C++23/spanstream.cpp)
+**Example**: [spanstream.cpp](../../examples/C++23/spanstream.cpp)
 
 ### std::basic_string::contains / std::basic_string_view::contains (C++23 Addition)
 **Explanation**: Member function that checks if a string contains a substring, character, or string view.
@@ -358,7 +358,7 @@ os << "Value: " << 42;
 std::string msg = "Error: file not found";
 if (msg.contains("Error")) { /* handle */ }
 ```
-**Example**: [string_contains.cpp](../examples/C++23/string_contains.cpp)
+**Example**: [string_contains.cpp](../../examples/C++23/string_contains.cpp)
 
 ## Container Improvements
 ### std::string constexpr Support (C++23 Evolution)
@@ -368,7 +368,7 @@ if (msg.contains("Error")) { /* handle */ }
 ```cpp
 constexpr std::string s = "hello"; constexpr auto len = s.size();
 ```
-**Example**: [constexpr_string.cpp](../examples/C++23/constexpr_string.cpp)
+**Example**: [constexpr_string.cpp](../../examples/C++23/constexpr_string.cpp)
 
 ### std::vector constexpr Support (C++23 Evolution)
 **Explanation**: Enhanced `constexpr` support for `std::vector` operations.  
@@ -377,7 +377,7 @@ constexpr std::string s = "hello"; constexpr auto len = s.size();
 ```cpp
 constexpr std::vector<int> vec = {1, 2, 3};
 ```
-**Example**: [constexpr_vector.cpp](../examples/C++23/constexpr_vector.cpp)
+**Example**: [constexpr_vector.cpp](../../examples/C++23/constexpr_vector.cpp)
 
 ### std::optional Monadic Operations (C++23 Addition)
 **Explanation**: Adds `and_then`, `transform`, and `or_else` for monadic-style operations.  
@@ -386,7 +386,7 @@ constexpr std::vector<int> vec = {1, 2, 3};
 ```cpp
 #include <optional> auto result = opt.transform([](int x) { return x * x; });
 ```
-**Example**: [optional_monadic.cpp](../examples/C++23/optional_monadic.cpp)
+**Example**: [optional_monadic.cpp](../../examples/C++23/optional_monadic.cpp)
 
 ### std::variant Monadic Operations (C++23 Addition)
 **Explanation**: Adds `and_then` and `transform` for monadic-style operations on variants.  
@@ -395,7 +395,7 @@ constexpr std::vector<int> vec = {1, 2, 3};
 ```cpp
 #include <variant> auto result = var.transform([](int x) { return x * x; });
 ```
-**Example**: [variant_monadic.cpp](../examples/C++23/variant_monadic.cpp)
+**Example**: [variant_monadic.cpp](../../examples/C++23/variant_monadic.cpp)
 
 ### std::expected Monadic Operations (C++23 Addition)
 **Explanation**: Adds `and_then`, `transform`, and `or_else` to `std::expected`, enabling functional-style chaining of operations that may fail.
@@ -407,7 +407,7 @@ auto result = read_file("config.json")
     .transform(extract_settings)
     .or_else(use_defaults);
 ```
-**Example**: [expected_monadic.cpp](../examples/C++23/expected_monadic.cpp)
+**Example**: [expected_monadic.cpp](../../examples/C++23/expected_monadic.cpp)
 
 ### std::span subspan, as_bytes, as_writable_bytes (C++23 Evolution)
 **Explanation**: Adds methods for creating subviews and accessing bytes of a `std::span`.  
@@ -416,7 +416,7 @@ auto result = read_file("config.json")
 ```cpp
 #include <span> auto sub = span.subspan(1, 2);
 ```
-**Example**: [span_enhancements.cpp](../examples/C++23/span_enhancements.cpp)
+**Example**: [span_enhancements.cpp](../../examples/C++23/span_enhancements.cpp)
 
 ### std::reference_wrapper Improvements (C++23 Evolution)
 **Explanation**: Adds conversion to underlying type and better functor support.  
@@ -425,7 +425,7 @@ auto result = read_file("config.json")
 ```cpp
 #include <functional> std::reference_wrapper<int> ref(x); int val = ref;
 ```
-**Example**: [reference_wrapper.cpp](../examples/C++23/reference_wrapper.cpp)
+**Example**: [reference_wrapper.cpp](../../examples/C++23/reference_wrapper.cpp)
 
 ## Filesystem Improvements
 ### std::filesystem::recursive_directory_iterator Improvements (C++23 Evolution)
@@ -435,7 +435,7 @@ auto result = read_file("config.json")
 ```cpp
 #include <filesystem> for (auto& p : std::filesystem::recursive_directory_iterator("dir")) {}
 ```
-**Example**: [filesystem_recursive.cpp](../examples/C++23/filesystem_recursive.cpp)
+**Example**: [filesystem_recursive.cpp](../../examples/C++23/filesystem_recursive.cpp)
 
 ## Chrono Improvements
 ### std::chrono::parse, std::chrono::format (C++23 Addition)
@@ -445,7 +445,7 @@ auto result = read_file("config.json")
 ```cpp
 #include <chrono> auto tp = std::chrono::parse("%Y-%m-%d", "2025-09-09");
 ```
-**Example**: [chrono_parse_format.cpp](../examples/C++23/chrono_parse_format.cpp)
+**Example**: [chrono_parse_format.cpp](../../examples/C++23/chrono_parse_format.cpp)
 
 ### std::chrono::zoned_traits, std::chrono::choose, std::chrono::leap_second (C++23 Addition)
 **Explanation**: Enhances time zone support and leap second handling.  
@@ -454,7 +454,7 @@ auto result = read_file("config.json")
 ```cpp
 #include <chrono> auto zt = std::chrono::zoned_time{"UTC", std::chrono::system_clock::now()};
 ```
-**Example**: [chrono_zoned_leap.cpp](../examples/C++23/chrono_zoned_leap.cpp)
+**Example**: [chrono_zoned_leap.cpp](../../examples/C++23/chrono_zoned_leap.cpp)
 
 ## Modules
 ### import std (Standard Library Module) (C++23 Addition)
@@ -464,4 +464,4 @@ auto result = read_file("config.json")
 ```cpp
 import std; std::vector<int> vec = {1, 2, 3};
 ```
-**Example**: [import_std.cpp](../examples/C++23/import_std.cpp)
+**Example**: [import_std.cpp](../../examples/C++23/import_std.cpp)

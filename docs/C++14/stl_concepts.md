@@ -1,6 +1,6 @@
 # C++14 STL Concepts
 
-This document covers new or evolved C++14 STL concepts, with simple explanations, real-world scenarios, and short code snippets. Full examples will be added in [examples folder](../examples/C++14/). Only additions or evolutions from C++98/C++03/C++11 are included.
+This document covers new or evolved C++14 STL concepts, with simple explanations, real-world scenarios, and short code snippets. Full examples will be added in [examples folder](../../examples/C++14/). Only additions or evolutions from C++98/C++03/C++11 are included.
 
 ## Utilities
 
@@ -26,7 +26,7 @@ int main() {
     // automatic cleanup in reverse order
 }
 ```
-**Example**: [make_unique.cpp](../examples/C++14/make_unique.cpp)
+**Example**: [make_unique.cpp](../../examples/C++14/make_unique.cpp)
 
 ### std::quoted
 **Explanation**: A stream manipulator that wraps a string in quotation marks on output and parses quoted strings (handling embedded escapes) on input. It uses a configurable delimiter and escape character, defaulting to `"` and `\\`.
@@ -54,7 +54,7 @@ int main() {
     std::cout << restored << "\n"; // Hello, "World"!
 }
 ```
-**Example**: [quoted.cpp](../examples/C++14/quoted.cpp)
+**Example**: [quoted.cpp](../../examples/C++14/quoted.cpp)
 
 ### std::exchange
 **Explanation**: Replaces the value of an object with a new value and returns the old value in a single atomic-looking expression. It simplifies move constructors, state-machine transitions, and any pattern where you need the previous state before overwriting it.
@@ -89,7 +89,7 @@ int main() {
     // Connecting -> Connected
 }
 ```
-**Example**: [exchange.cpp](../examples/C++14/exchange.cpp)
+**Example**: [exchange.cpp](../../examples/C++14/exchange.cpp)
 
 ### std::integer_sequence / index_sequence / make_index_sequence / index_sequence_for
 **Explanation**: `std::integer_sequence<T, Ints...>` represents a compile-time sequence of integers. The aliases `std::index_sequence`, `std::make_index_sequence<N>`, and `std::index_sequence_for<Types...>` provide convenient ways to generate sequences of `std::size_t` values. These are essential building blocks for tuple unpacking, variadic template expansion, and compile-time iteration.
@@ -116,7 +116,7 @@ int main() {
     print_tuple(data); // 42, 3.14, hello
 }
 ```
-**Example**: [integer_sequence.cpp](../examples/C++14/integer_sequence.cpp)
+**Example**: [integer_sequence.cpp](../../examples/C++14/integer_sequence.cpp)
 
 ### std::get&lt;Type&gt;() for Tuples
 **Explanation**: Access tuple elements by their type instead of by index using `std::get<T>()`. Each type in the tuple must be unique for this overload to compile. This makes code more readable and less fragile when tuple layouts change.
@@ -140,7 +140,7 @@ int main() {
               << " Status: " << status << "\n";
 }
 ```
-**Example**: [get_type_tuple.cpp](../examples/C++14/get_type_tuple.cpp)
+**Example**: [get_type_tuple.cpp](../../examples/C++14/get_type_tuple.cpp)
 
 ## Container Improvements
 
@@ -167,7 +167,7 @@ int main() {
         std::cout << it->first << ": " << it->second << "\n"; // hello: 5
 }
 ```
-**Example**: [heterogeneous_lookup.cpp](../examples/C++14/heterogeneous_lookup.cpp)
+**Example**: [heterogeneous_lookup.cpp](../../examples/C++14/heterogeneous_lookup.cpp)
 
 ### Transparent Operator Functors (std::less<>, std::greater<>)
 **Explanation**: The standard comparison functors (`std::less`, `std::greater`, `std::equal_to`, etc.) now have a `void` specialization (e.g., `std::less<>`) that is a transparent comparator. It defines `is_transparent` and uses a templated `operator()`, enabling heterogeneous comparison without constructing temporaries. This is the enabler for heterogeneous lookup in associative containers.
@@ -195,7 +195,7 @@ int main() {
     std::cout << "\n";
 }
 ```
-**Example**: [transparent_functors.cpp](../examples/C++14/transparent_functors.cpp)
+**Example**: [transparent_functors.cpp](../../examples/C++14/transparent_functors.cpp)
 
 ## Type Traits
 
@@ -223,7 +223,7 @@ int main() {
     describe<Derived>(); // final
 }
 ```
-**Example**: [is_final.cpp](../examples/C++14/is_final.cpp)
+**Example**: [is_final.cpp](../../examples/C++14/is_final.cpp)
 
 ## Threading
 
@@ -260,7 +260,7 @@ int main() {
     r1.join(); r2.join();
 }
 ```
-**Example**: [shared_timed_mutex.cpp](../examples/C++14/shared_timed_mutex.cpp)
+**Example**: [shared_timed_mutex.cpp](../../examples/C++14/shared_timed_mutex.cpp)
 
 ### std::shared_lock
 **Explanation**: An RAII lock guard that acquires shared (read) ownership of a `SharedMutex` (typically `std::shared_timed_mutex`). It is the shared-ownership counterpart of `std::unique_lock` and supports deferred locking, timed locking, and manual lock/unlock, all with automatic release on destruction.
@@ -303,4 +303,4 @@ int main() {
     for (auto& t : readers) t.join();
 }
 ```
-**Example**: [shared_lock.cpp](../examples/C++14/shared_lock.cpp)
+**Example**: [shared_lock.cpp](../../examples/C++14/shared_lock.cpp)

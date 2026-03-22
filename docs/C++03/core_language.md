@@ -1,6 +1,6 @@
 # C++03 Core Language Concepts
 
-This document covers new or evolved C++03 core language concepts, with simple explanations, real-world scenarios, and short code snippets. Full examples will be added in [examples folder](../examples/C++03/). Only additions from C++98 are included.
+This document covers new or evolved C++03 core language concepts, with simple explanations, real-world scenarios, and short code snippets. Full examples will be added in [examples folder](../../examples/C++03/). Only additions from C++98 are included.
 
 ## Value Initialization (Refined Rules)
 **Explanation**: C++03 refined the rules for value initialization, establishing a clear three-step process: if a type has a user-declared constructor, that constructor is called; if it is a non-union class without a user-declared constructor, every member is value-initialized; otherwise, the object is zero-initialized. This eliminated inconsistencies in C++98 where the behavior of `T()` was ambiguous for certain class types, giving developers a reliable way to guarantee clean initial state.
@@ -31,7 +31,7 @@ int main() {
     return 0;
 }
 ```
-**Example**: [value_initialization.cpp](../examples/C++03/value_initialization.cpp)
+**Example**: [value_initialization.cpp](../../examples/C++03/value_initialization.cpp)
 
 ## Explicit Template Argument Specification for Constructors
 **Explanation**: C++03 clarified that template arguments can be explicitly specified for constructor templates during object creation. This matters when the compiler cannot deduce the template parameters from the constructor arguments alone, allowing developers to disambiguate or force a particular conversion path at construction time.
@@ -69,7 +69,7 @@ int main() {
     return 0;
 }
 ```
-**Example**: [explicit_template_constructors.cpp](../examples/C++03/explicit_template_constructors.cpp)
+**Example**: [explicit_template_constructors.cpp](../../examples/C++03/explicit_template_constructors.cpp)
 
 ## POD (Plain Old Data) Type Definition Refinement
 **Explanation**: C++03 tightened the definition of POD types to remove ambiguities from the C++98 standard. A POD-struct must be an aggregate class with no non-static members of non-POD type, no user-defined assignment operator or destructor, and no non-static reference members. These refined rules ensured that POD types are layout-compatible with equivalent C structs, making them safe for low-level operations such as `memcpy`, binary serialization, and hardware register mapping.
@@ -115,4 +115,4 @@ int main() {
     return 0;
 }
 ```
-**Example**: [pod_type_refinement.cpp](../examples/C++03/pod_type_refinement.cpp)
+**Example**: [pod_type_refinement.cpp](../../examples/C++03/pod_type_refinement.cpp)

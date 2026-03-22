@@ -1,6 +1,6 @@
 # C++26 Core Language Concepts
 
-This document covers new or evolved C++26 core language concepts, with simple explanations, real-world scenarios, and short code snippets. Full examples will be added in [examples folder](../examples/C++26/). Only additions or evolutions from C++98/C++03/C++11/C++14/C++17/C++20/C++23 are included. Note: Some features (e.g., contracts, pattern matching, reflection) are proposed and may be deferred to post-C++26.
+This document covers new or evolved C++26 core language concepts, with simple explanations, real-world scenarios, and short code snippets. Full examples will be added in [examples folder](../../examples/C++26/). Only additions or evolutions from C++98/C++03/C++11/C++14/C++17/C++20/C++23 are included. Note: Some features (e.g., contracts, pattern matching, reflection) are proposed and may be deferred to post-C++26.
 
 ## Contracts (C++26 Proposed, Deferred to Post-C++26)
 **Explanation**: Specify preconditions, postconditions, and assertions for functions (proposed, likely deferred).  
@@ -9,7 +9,7 @@ This document covers new or evolved C++26 core language concepts, with simple ex
 ```cpp
 void process(int x) [[pre: x > 0]]; // Proposed syntax
 ```
-**Example**: [contracts.cpp](../examples/C++26/contracts.cpp)
+**Example**: [contracts.cpp](../../examples/C++26/contracts.cpp)
 
 ## Pattern Matching (C++26 Proposed)
 **Explanation**: Match expressions against patterns, simplifying complex conditionals (proposed).  
@@ -18,7 +18,7 @@ void process(int x) [[pre: x > 0]]; // Proposed syntax
 ```cpp
 inspect (value) { <pattern> => expr; }; // Proposed syntax
 ```
-**Example**: [pattern_matching.cpp](../examples/C++26/pattern_matching.cpp)
+**Example**: [pattern_matching.cpp](../../examples/C++26/pattern_matching.cpp)
 
 ## Reflection (P2996, Static Reflection)
 **Explanation**: Compile-time introspection of types, members, and namespaces via static reflection (P2996). Enables querying type properties, enumerating members, and generating code based on type structure -- all at compile time without runtime overhead.
@@ -34,7 +34,7 @@ constexpr auto members = std::meta::members_of(^Player);
 static_assert(members.size() == 2);
 // Access member name: std::meta::name_of(members[0]) == "name"
 ```
-**Example**: [reflection.cpp](../examples/C++26/reflection.cpp)
+**Example**: [reflection.cpp](../../examples/C++26/reflection.cpp)
 
 ## std::meta (Meta-Programming, Proposed)
 **Explanation**: Meta-programming facilities for manipulating code as data (proposed).  
@@ -43,7 +43,7 @@ static_assert(members.size() == 2);
 ```cpp
 #include <meta> auto meta = std::meta::info<decltype(obj)>(); // Proposed
 ```
-**Example**: [meta_programming.cpp](../examples/C++26/meta_programming.cpp)
+**Example**: [meta_programming.cpp](../../examples/C++26/meta_programming.cpp)
 
 ## Extended Floating-Point Types (C++26 Addition)
 **Explanation**: Adds `std::float16_t`, `std::float32_t`, `std::float64_t`, `std::float128_t` for precise floating-point control.  
@@ -52,7 +52,7 @@ static_assert(members.size() == 2);
 ```cpp
 #include <stdfloat> std::float16_t x = 1.0f16;
 ```
-**Example**: [extended_float.cpp](../examples/C++26/extended_float.cpp)
+**Example**: [extended_float.cpp](../../examples/C++26/extended_float.cpp)
 
 ## Pack Indexing
 **Explanation**: Allows direct indexing into a parameter pack using `Pack...[N]` syntax, eliminating the need for recursive template tricks or `std::tuple` to access a specific element in a variadic pack.
@@ -69,7 +69,7 @@ constexpr auto get_first(Ts... args) {
 
 static_assert(get_first(10, 20, 30) == 10);
 ```
-**Example**: [pack_indexing.cpp](../examples/C++26/pack_indexing.cpp)
+**Example**: [pack_indexing.cpp](../../examples/C++26/pack_indexing.cpp)
 
 ## Placeholder Variables with Multiple _
 **Explanation**: Allows using the identifier `_` as a placeholder for variables that are intentionally unused. Multiple declarations of `_` in the same scope do not conflict, making it clear that the values are discarded.
@@ -83,7 +83,7 @@ for (auto [key, _] : my_map) {
     process(key); // Only the key matters
 }
 ```
-**Example**: [placeholder_variables.cpp](../examples/C++26/placeholder_variables.cpp)
+**Example**: [placeholder_variables.cpp](../../examples/C++26/placeholder_variables.cpp)
 
 ## Structured Bindings as Conditions
 **Explanation**: Enables structured bindings directly within `if` and `switch` conditions, combining decomposition and conditional testing in a single statement. This reduces boilerplate when a function returns a struct or pair and you want to test one field while binding others.
@@ -101,7 +101,7 @@ if (auto [ok, data] = fetch_data(); ok) {
     process(data);
 }
 ```
-**Example**: [structured_bindings_conditions.cpp](../examples/C++26/structured_bindings_conditions.cpp)
+**Example**: [structured_bindings_conditions.cpp](../../examples/C++26/structured_bindings_conditions.cpp)
 
 ## constexpr Cast from void*
 **Explanation**: Allows `static_cast` from `void*` to a typed pointer in `constexpr` contexts. Previously, `void*` casts were forbidden at compile time, limiting what could be done in constant expressions involving type-erased storage.
@@ -117,7 +117,7 @@ constexpr int test() {
 
 static_assert(test() == 42);
 ```
-**Example**: [constexpr_void_cast.cpp](../examples/C++26/constexpr_void_cast.cpp)
+**Example**: [constexpr_void_cast.cpp](../../examples/C++26/constexpr_void_cast.cpp)
 
 ## Erroneous Behavior for Uninitialized Reads
 **Explanation**: Reading an uninitialized variable is now classified as erroneous behavior rather than undefined behavior. The compiler may produce a predictable (but unspecified) value instead of enabling arbitrary miscompilation. This improves safety while giving implementations freedom to trap or diagnose.
@@ -129,7 +129,7 @@ int y = x; // C++26: erroneous behavior (not undefined)
 // The implementation may produce a valid-but-unspecified int value
 // Compilers can issue warnings or trap, but cannot assume "this never happens"
 ```
-**Example**: [erroneous_behavior.cpp](../examples/C++26/erroneous_behavior.cpp)
+**Example**: [erroneous_behavior.cpp](../../examples/C++26/erroneous_behavior.cpp)
 
 ## User-Generated static_assert Messages
 **Explanation**: Allows `static_assert` to accept a message generated at compile time from a user-defined object (e.g., a constexpr string or any type with `size()` and `data()` members), rather than only string literals. This enables far more informative compile-time diagnostics.
@@ -146,4 +146,4 @@ constexpr void validate() {
 }
 // Compiler output includes the formatted type name in the error
 ```
-**Example**: [static_assert_message.cpp](../examples/C++26/static_assert_message.cpp)
+**Example**: [static_assert_message.cpp](../../examples/C++26/static_assert_message.cpp)

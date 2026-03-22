@@ -19,10 +19,10 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![C++ Standards](https://img.shields.io/badge/C++-98%20%7C%2003%20%7C%2011%20%7C%2014%20%7C%2017%20%7C%2020%20%7C%2023%20%7C%2026-00599C?logo=cplusplus)](docs/)
-[![Concepts](https://img.shields.io/badge/Concepts-944+-blueviolet)](#whats-inside)
+[![Concepts](https://img.shields.io/badge/Concepts-968-blueviolet)](#whats-inside)
 [![Contributions Welcome](https://img.shields.io/badge/Contributions-Welcome-brightgreen)](CONTRIBUTING.md)
 
-*944+ concepts · 8 standards · Real-world scenarios · Production-ready examples*
+*968 concepts · 8 standards · Real-world scenarios · Production-ready examples*
 
 ---
 
@@ -57,7 +57,7 @@ CodeNebula covers every major C++ standard with **core language** and **STL** do
 | **C++23** | 2023 | [View](docs/C++23/core_language.md) | [View](docs/C++23/stl_concepts.md) | `expected`, `print`, deducing this |
 | **C++26** | 2026 | [View](docs/C++26/core_language.md) | [View](docs/C++26/stl_concepts.md) | Contracts, reflection, senders/receivers |
 
-> 📖 Browse the complete **[Master Concepts Index](docs/cpp_concepts_master.md)** — all 944+ concepts in one document.
+> 📖 Browse the complete **[Master Concepts Index](docs/cpp_concepts_master.md)** — all 968 concepts in one document.
 
 ---
 
@@ -137,7 +137,7 @@ CodeNebula/
 ├── CONTRIBUTING.md                  # How to contribute
 │
 ├── docs/
-│   ├── cpp_concepts_master.md       # 📖 Master index — all 944+ concepts
+│   ├── cpp_concepts_master.md       # 📖 Master index — all 968 concepts
 │   │
 │   ├── C++98/
 │   │   ├── core_language.md         # Classes, templates, OOP, pointers...

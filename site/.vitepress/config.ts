@@ -83,6 +83,16 @@ export default defineConfig({
   markdown: {
     theme: { light: "github-light", dark: "github-dark" },
     languages: ["cpp", "bash", "json"],
+    // Use GitHub-compatible anchor slugs so the navigation links inside
+    // cpp_concepts_master.md (authored for GitHub) resolve correctly here too.
+    // GitHub algorithm: lowercase → strip non-(word/space/hyphen) → spaces→hyphens
+    anchor: {
+      slugify: (str: string) =>
+        str
+          .toLowerCase()
+          .replace(/[^\w\s-]/g, "")
+          .replace(/\s/g, "-"),
+    },
     // Rewrite relative .cpp example file links to GitHub blob URLs
     // AND escape C++ template angle-brackets in text (e.g. std::vector<bool>)
     // so that Vue's template compiler doesn't treat them as HTML tags.
@@ -135,6 +145,14 @@ export default defineConfig({
                 const hrefAttr = child.attrs?.find(([k]) => k === "href");
                 if (hrefAttr && typeof hrefAttr[1] === "string") {
                   const href = hrefAttr[1] as string;
+                  // Rewrite doc-relative links like C++98/core_language.md → /cpp98/core
+                  // (used in cpp_concepts_master.md; these paths don't exist in VitePress)
+                  const docLink = href.match(/(?:\.\/)?C\+\+(\d+)\/(core_language|stl_concepts)\.md$/);
+                  if (docLink) {
+                    const type = docLink[2] === "core_language" ? "core" : "stl";
+                    hrefAttr[1] = `/cpp${docLink[1]}/${type}`;
+                  }
+
                   // Match relative links to .cpp files like ../../examples/C++11/file.cpp
                   const m = href.match(/\.\.\/\.\.\/examples\/(C\+\+\d+)\/(.+\.cpp)/);
                   if (m) {

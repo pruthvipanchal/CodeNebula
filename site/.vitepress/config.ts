@@ -82,7 +82,6 @@ export default defineConfig({
 
   markdown: {
     theme: { light: "github-light", dark: "github-dark" },
-    languages: ["cpp", "bash", "json"],
     // Use GitHub-compatible anchor slugs so the navigation links inside
     // cpp_concepts_master.md (authored for GitHub) resolve correctly here too.
     // GitHub algorithm: lowercase → strip non-(word/space/hyphen) → spaces→hyphens

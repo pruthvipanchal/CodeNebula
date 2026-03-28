@@ -87,6 +87,20 @@ export default defineConfig({
     // AND escape C++ template angle-brackets in text (e.g. std::vector<bool>)
     // so that Vue's template compiler doesn't treat them as HTML tags.
     config(md) {
+      // Preprocess: insert a blank line before every **Label**: field so each
+      // renders as its own paragraph instead of running together.
+      // Some source files have trailing "  " (→ <br>) but others don't, so we
+      // normalise everything here by wrapping md.render at the source level.
+      const _render = md.render.bind(md);
+      (md as unknown as { render: (src: string, env?: unknown) => string }).render =
+        (src: string, env?: unknown): string => {
+          const processed = src.replace(
+            /\n(?!\n)(\*\*(?:Explanation|Real-World Scenario|Snippet|Example|Compile[^*]*)\*\*\s*:)/gi,
+            "\n\n$1"
+          );
+          return _render(processed, env);
+        };
+
       // Escape C++ template angle-brackets that markdown-it parses as html_inline
       // (e.g. std::vector<bool> → std::vector&lt;bool&gt;) so Vue doesn't
       // treat them as unclosed component tags.

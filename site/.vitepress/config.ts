@@ -30,7 +30,7 @@ export default defineConfig({
   ignoreDeadLinks: true,
 
   head: [
-    ["link", { rel: "icon", href: "/CodeNebula/favicon.ico" }],
+    ["link", { rel: "icon", type: "image/svg+xml", href: "/CodeNebula/favicon.svg" }],
     ["meta", { name: "theme-color", content: "#00599C" }],
     ["meta", { property: "og:title", content: "CodeNebula — C++ Reference" }],
     ["meta", { property: "og:description", content: "966+ C++ concepts across 8 standards with real-world scenarios and examples." }],

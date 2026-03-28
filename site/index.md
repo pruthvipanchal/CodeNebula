@@ -4,10 +4,11 @@ layout: home
 hero:
   name: "CodeNebula"
   text: "C++ Reference"
-  tagline: "966+ concepts · 8 standards · C++98 → C++26  \nReal-world scenarios, code snippets, and runnable examples."
+  tagline: 966+ concepts · C++98 through C++26 · real-world scenarios and runnable examples.
   image:
-    src: /hero.svg
-    alt: CodeNebula
+    light: /hero-light.svg
+    dark: /hero-dark.svg
+    alt: CodeNebula — C++ nebula
   actions:
     - theme: brand
       text: Browse All Concepts
@@ -22,37 +23,69 @@ hero:
 features:
   - icon: 🔭
     title: 966+ Concepts
-    details: Every significant language and library feature from C++98 through C++26, documented with consistent structure.
+    details: Every significant language and library feature from C++98 through C++26, with consistent documentation structure.
   - icon: 📡
     title: 8 Standards
-    details: C++98, C++03, C++11, C++14, C++17, C++20, C++23, and C++26 — each with core language and STL sections.
+    details: C++98 → C++26 fully documented. Each standard has dedicated core language and STL sections.
   - icon: 🌍
     title: Real-World Scenarios
-    details: Each concept includes a practical scenario explaining why and when you'd use it in production code.
+    details: Each concept explains why and when you'd use it in production code — not just what it is.
   - icon: ⚡
     title: Runnable Examples
-    details: Every concept links to a complete, compilable .cpp file on GitHub with the exact compile command.
+    details: Every concept links to a complete, compilable .cpp example on GitHub with the exact compile command.
   - icon: 🔍
     title: Instant Search
-    details: Press <kbd>/</kbd> to search across all 966+ concepts by name, category, or keyword.
+    details: Built-in full-text search across all concepts. Press / or click the search bar.
   - icon: 📱
     title: Mobile Friendly
-    details: Responsive layout — browse concepts comfortably on phone, tablet, or desktop.
+    details: Responsive layout with collapsible sidebar — read on phone, tablet, or desktop.
 ---
 
-## Quick Start
+<div class="standards-section">
 
-Jump straight to a standard:
+## Browse by Standard
 
-| Standard | Year | Codename | Concepts |
-|----------|------|----------|---------|
-| [C++98](/cpp98/) | 1998 | The Foundation | 213 |
-| [C++03](/cpp03/) | 2003 | The Refinement | 5 |
-| [C++11](/cpp11/) | 2011 | The Modern Era | 213 |
-| [C++14](/cpp14/) | 2014 | The Polish | 23 |
-| [C++17](/cpp17/) | 2017 | The Pragmatic | 97 |
-| [C++20](/cpp20/) | 2020 | The Big Four | 284 |
-| [C++23](/cpp23/) | 2023 | The Refinement II | 89 |
-| [C++26](/cpp26/) | 2026 | The Future | 44 |
+<div class="standards-grid">
+  <a href="./cpp98/" class="std-card std-98">
+    <div class="std-label">C++98</div>
+    <div class="std-name">The Foundation</div>
+    <div class="std-count">213 concepts</div>
+  </a>
+  <a href="./cpp03/" class="std-card std-03">
+    <div class="std-label">C++03</div>
+    <div class="std-name">The Refinement</div>
+    <div class="std-count">5 concepts</div>
+  </a>
+  <a href="./cpp11/" class="std-card std-11">
+    <div class="std-label">C++11</div>
+    <div class="std-name">The Modern Era</div>
+    <div class="std-count">213 concepts</div>
+  </a>
+  <a href="./cpp14/" class="std-card std-14">
+    <div class="std-label">C++14</div>
+    <div class="std-name">The Polish</div>
+    <div class="std-count">23 concepts</div>
+  </a>
+  <a href="./cpp17/" class="std-card std-17">
+    <div class="std-label">C++17</div>
+    <div class="std-name">The Pragmatic</div>
+    <div class="std-count">97 concepts</div>
+  </a>
+  <a href="./cpp20/" class="std-card std-20">
+    <div class="std-label">C++20</div>
+    <div class="std-name">The Big Four</div>
+    <div class="std-count">284 concepts</div>
+  </a>
+  <a href="./cpp23/" class="std-card std-23">
+    <div class="std-label">C++23</div>
+    <div class="std-name">The Refinement II</div>
+    <div class="std-count">89 concepts</div>
+  </a>
+  <a href="./cpp26/" class="std-card std-26">
+    <div class="std-label">C++26</div>
+    <div class="std-name">The Future</div>
+    <div class="std-count">44 concepts</div>
+  </a>
+</div>
 
-Or [browse all 966+ concepts](/concepts) in one place.
+</div>

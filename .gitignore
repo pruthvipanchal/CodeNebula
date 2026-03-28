@@ -49,3 +49,5 @@ desktop.ini
 # Precompiled headers
 *.gch
 *.pch
+site/.vitepress/dist
+site/node_modules

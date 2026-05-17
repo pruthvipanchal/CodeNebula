@@ -314,3 +314,125 @@ func main() {
 ```
 
 **Example**: [pipelines.go](../../examples/go/concurrency/pipelines.go)
+
+---
+
+## sync.Once
+
+**Explanation**: `sync.Once` guarantees a function runs exactly once, no matter how many goroutines call it or how often. The first call to `once.Do(f)` runs `f`; every later call blocks until that first run completes, then returns immediately without re-running. It is the idiomatic, race-free way to do lazy one-time initialization.
+
+**Real-World Scenario**: A package exposes a shared database connection pool. The pool is expensive to create, so it's built lazily on first use. Wrapping the construction in `sync.Once` ensures that even if 100 goroutines call `GetPool()` simultaneously at startup, the pool is created exactly once.
+
+**Snippet**:
+```go
+import "sync"
+
+var (
+    once     sync.Once
+    instance *Database
+)
+
+func GetDatabase() *Database {
+    once.Do(func() {
+        // Runs exactly once, even under concurrent calls
+        instance = connectToDatabase()
+    })
+    return instance
+}
+```
+
+**Example**: [once.go](../../examples/go/concurrency/once.go)
+
+---
+
+## sync.Pool
+
+**Explanation**: `sync.Pool` is a cache of temporary objects that can be reused to relieve pressure on the garbage collector. `Get` returns an object (creating one via the `New` func if the pool is empty); `Put` returns it for reuse. The pool may drop its contents at any time — never store anything that must persist.
+
+**Real-World Scenario**: A high-throughput JSON API allocates a `bytes.Buffer` per request to build the response. Under load that's thousands of short-lived allocations per second. A `sync.Pool` of buffers recycles them across requests, cutting GC pauses and allocation cost dramatically.
+
+**Snippet**:
+```go
+import (
+    "bytes"
+    "sync"
+)
+
+var bufPool = sync.Pool{
+    New: func() any { return new(bytes.Buffer) },
+}
+
+func handle() {
+    buf := bufPool.Get().(*bytes.Buffer)
+    buf.Reset()              // always reset reused objects
+    defer bufPool.Put(buf)   // return it for the next caller
+
+    buf.WriteString("response body")
+    // ... use buf ...
+}
+```
+
+**Example**: [pool.go](../../examples/go/concurrency/pool.go)
+
+---
+
+## Channel Direction
+
+**Explanation**: A channel type can be restricted to send-only (`chan<- T`) or receive-only (`<-chan T`). A bidirectional `chan T` converts implicitly to either restricted form, but not the reverse. Declaring direction in function signatures documents intent and lets the compiler catch misuse — a producer can't accidentally read, a consumer can't accidentally write.
+
+**Real-World Scenario**: In a producer/consumer pipeline, the `producer` function takes a `chan<- Job` (it may only send) and the `worker` function takes a `<-chan Job` (it may only receive). The restriction is enforced at compile time, making the data-flow direction obvious and tamper-proof.
+
+**Snippet**:
+```go
+// Send-only parameter — function may only write
+func produce(out chan<- int) {
+    for i := 0; i < 3; i++ {
+        out <- i
+    }
+    close(out)
+}
+
+// Receive-only parameter — function may only read
+func consume(in <-chan int) {
+    for v := range in {
+        fmt.Println(v)
+    }
+}
+
+ch := make(chan int)   // bidirectional
+go produce(ch)         // passed as chan<- int
+consume(ch)            // passed as <-chan int
+```
+
+**Example**: [channel_direction.go](../../examples/go/concurrency/channel_direction.go)
+
+---
+
+## The Race Detector
+
+**Explanation**: A data race occurs when two goroutines access the same memory concurrently and at least one writes, with no synchronization. Go ships a built-in race detector enabled with the `-race` flag (`go run -race`, `go test -race`, `go build -race`). It instruments memory accesses and reports the conflicting goroutines, stacks, and addresses at runtime.
+
+**Real-World Scenario**: A test passes locally but fails intermittently in CI. Running the test suite with `go test -race ./...` reveals that two goroutines mutate a shared map without a mutex — the detector pinpoints the exact lines, turning a heisenbug into a one-line fix (`sync.Mutex` or a channel).
+
+**Snippet**:
+```go
+// This code has a data race — run with: go run -race race_detector.go
+var counter int
+
+func main() {
+    var wg sync.WaitGroup
+    for i := 0; i < 100; i++ {
+        wg.Add(1)
+        go func() {
+            defer wg.Done()
+            counter++ // RACE: unsynchronized write
+        }()
+    }
+    wg.Wait()
+}
+
+// The fix: protect counter with sync.Mutex or use atomic.Int64.
+// Always run tests with -race in CI to catch races early.
+```
+
+**Example**: [race_detector.go](../../examples/go/concurrency/race_detector.go)

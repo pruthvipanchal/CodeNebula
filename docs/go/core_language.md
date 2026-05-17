@@ -387,3 +387,257 @@ fmt.Println(d.Name)           // promoted field access
 ```
 
 **Example**: [embedding.go](../../examples/go/core_language/embedding.go)
+
+---
+
+## Constants and iota
+
+**Explanation**: Constants are immutable values fixed at compile time, declared with `const`. The `iota` identifier is a constant generator that starts at 0 within a `const` block and increments by one for each line — it is the idiomatic way to create enumerated values. Untyped constants in Go have arbitrary precision and adapt to whatever type the context requires.
+
+**Real-World Scenario**: Defining a set of log levels (`Debug`, `Info`, `Warn`, `Error`) — `iota` assigns 0, 1, 2, 3 automatically, so inserting a new level later renumbers everything without manual edits.
+
+**Snippet**:
+```go
+const Pi = 3.14159 // untyped constant
+
+type Weekday int
+
+const (
+    Sunday Weekday = iota // 0
+    Monday                // 1
+    Tuesday               // 2
+    Wednesday             // 3
+)
+
+// iota with expressions — byte-size units
+const (
+    _  = iota             // skip 0
+    KB = 1 << (10 * iota) // 1 << 10
+    MB                    // 1 << 20
+    GB                    // 1 << 30
+)
+```
+
+**Example**: [constants.go](../../examples/go/core_language/constants.go)
+
+---
+
+## Type Assertions
+
+**Explanation**: A type assertion extracts the concrete value stored inside an interface. `v, ok := i.(T)` is the safe two-value form — `ok` is `false` instead of panicking when the assertion fails. The single-value form `v := i.(T)` panics on mismatch, so reserve it for cases where the type is guaranteed.
+
+**Real-World Scenario**: A function accepts `error` and wants special handling for a specific error type. A type assertion `if ne, ok := err.(*net.OpError); ok` checks whether the error is a network operation error and, if so, reads its fields.
+
+**Snippet**:
+```go
+var i any = "hello"
+
+// Safe form — never panics
+s, ok := i.(string)
+fmt.Println(s, ok) // hello true
+
+n, ok := i.(int)
+fmt.Println(n, ok) // 0 false
+
+// Unsafe form — panics if i does not hold a string
+s = i.(string)
+```
+
+**Example**: [type_assertions.go](../../examples/go/core_language/type_assertions.go)
+
+---
+
+## Type Switches
+
+**Explanation**: A type switch is a control structure that branches on the dynamic type of an interface value. The special syntax `switch v := i.(type)` binds `v` to the concrete value in each case, with the right static type. It is the idiomatic way to handle a value that may be one of several types.
+
+**Real-World Scenario**: A JSON decoder unmarshals arbitrary data into `any`. A type switch dispatches on whether each value is a `string`, `float64`, `bool`, `map[string]any`, or `[]any` — building a typed structure from untyped input.
+
+**Snippet**:
+```go
+func describe(i any) string {
+    switch v := i.(type) {
+    case int:
+        return fmt.Sprintf("int: %d", v)
+    case string:
+        return fmt.Sprintf("string of length %d", len(v))
+    case bool:
+        return fmt.Sprintf("bool: %t", v)
+    case nil:
+        return "nil value"
+    default:
+        return fmt.Sprintf("unknown type %T", v)
+    }
+}
+```
+
+**Example**: [type_switches.go](../../examples/go/core_language/type_switches.go)
+
+---
+
+## Variadic Functions
+
+**Explanation**: A variadic function accepts a variable number of trailing arguments of the same type, declared with `...T`. Inside the function the parameter is a slice `[]T`. An existing slice can be passed to a variadic parameter with the spread operator `slice...`.
+
+**Real-World Scenario**: `fmt.Printf` and `append` are variadic. A custom `logf(format string, args ...any)` wrapper forwards its variadic args straight into `fmt.Sprintf(format, args...)` — adding a timestamp or prefix without changing the call signature users expect.
+
+**Snippet**:
+```go
+func sum(nums ...int) int {
+    total := 0
+    for _, n := range nums {
+        total += n
+    }
+    return total
+}
+
+sum(1, 2, 3)        // 6 — pass individual args
+sum()               // 0 — zero args is valid
+
+nums := []int{4, 5, 6}
+sum(nums...)        // 15 — spread an existing slice
+```
+
+**Example**: [variadic.go](../../examples/go/core_language/variadic.go)
+
+---
+
+## Named Types and Type Definitions
+
+**Explanation**: `type Celsius float64` creates a new named type distinct from its underlying type — values are not interchangeable without an explicit conversion, which prevents whole classes of unit-mixing bugs. A *type alias* `type Byte = uint8` (with `=`) is different: it creates no new type, just another name. Named types can carry their own methods.
+
+**Real-World Scenario**: A measurement library defines `type Celsius float64` and `type Fahrenheit float64`. Because they are distinct types, the compiler rejects accidentally passing a `Fahrenheit` where a `Celsius` is expected — the bug is caught at compile time, not in production.
+
+**Snippet**:
+```go
+type Celsius float64
+type Fahrenheit float64
+
+func (c Celsius) ToF() Fahrenheit {
+    return Fahrenheit(c*9/5 + 32)
+}
+
+var c Celsius = 100
+var f Fahrenheit = c.ToF() // 212
+
+// var bad Fahrenheit = c   // compile error: cannot use c (Celsius) as Fahrenheit
+
+type Byte = uint8 // alias — Byte and uint8 are the SAME type
+```
+
+**Example**: [named_types.go](../../examples/go/core_language/named_types.go)
+
+---
+
+## init Functions
+
+**Explanation**: `init` is a special function that runs automatically before `main`, after all package-level variables are initialized. A package (or even a single file) may declare multiple `init` functions; they run in the order they appear. `init` takes no arguments and returns nothing — it cannot be called directly.
+
+**Real-World Scenario**: A database driver package registers itself with `database/sql` in an `init` function. Importing the driver for its side effect (`import _ "github.com/lib/pq"`) triggers `init`, which calls `sql.Register` — the program never references the package by name.
+
+**Snippet**:
+```go
+var config map[string]string
+
+func init() {
+    // Runs once, before main, after package vars are set
+    config = map[string]string{
+        "env":  "production",
+        "tier": "backend",
+    }
+}
+
+func main() {
+    fmt.Println(config["env"]) // production — already populated
+}
+```
+
+**Example**: [init_functions.go](../../examples/go/core_language/init_functions.go)
+
+---
+
+## The Blank Identifier
+
+**Explanation**: The blank identifier `_` is a write-only placeholder that discards a value. Go requires every declared variable and import to be used; `_` satisfies that rule when a value is intentionally unwanted — an unused return value, an unwanted range index, or an import needed only for its side effects.
+
+**Real-World Scenario**: A function returns `(value, error)` but a particular call site cannot fail and only needs the value: `data, _ := json.Marshal(v)`. The blank identifier also enforces interface satisfaction at compile time: `var _ io.Reader = (*MyType)(nil)`.
+
+**Snippet**:
+```go
+// Discard the index, keep the value
+for _, v := range items {
+    fmt.Println(v)
+}
+
+// Discard one of multiple returns
+_, err := fmt.Println("hi")
+
+// Import for side effects only (runs the package's init)
+import _ "github.com/lib/pq"
+
+// Compile-time interface check
+var _ io.Writer = (*MyWriter)(nil)
+```
+
+**Example**: [blank_identifier.go](../../examples/go/core_language/blank_identifier.go)
+
+---
+
+## Panic and Recover
+
+**Explanation**: `panic` stops normal execution and begins unwinding the stack, running deferred functions along the way. `recover`, called inside a deferred function, stops the unwinding and returns the panic value — letting a program regain control. Go's convention is to use errors for expected failures and reserve `panic` for truly unrecoverable situations (programmer bugs, impossible states).
+
+**Real-World Scenario**: An HTTP server wraps each request handler in a deferred `recover`. If a handler panics (e.g. a nil-pointer dereference), `recover` catches it, logs the stack, and returns a 500 response — one bad request doesn't crash the whole server.
+
+**Snippet**:
+```go
+func safeDivide(a, b int) (result int, err error) {
+    defer func() {
+        if r := recover(); r != nil {
+            err = fmt.Errorf("recovered: %v", r)
+        }
+    }()
+    result = a / b // panics if b == 0
+    return result, nil
+}
+
+r, err := safeDivide(10, 0)
+fmt.Println(r, err) // 0 recovered: runtime error: integer divide by zero
+```
+
+**Example**: [panic_recover.go](../../examples/go/core_language/panic_recover.go)
+
+---
+
+## Labels and goto
+
+**Explanation**: Go supports statement labels used with `break`, `continue`, and `goto`. A labeled `break` or `continue` targets an *outer* loop — the cleanest way to exit a nested loop. `goto` jumps to a label within the same function; it is rarely used but occasionally clarifies error-cleanup paths or generated code.
+
+**Real-World Scenario**: Searching a 2D grid for a value — once found, a labeled `break Outer` exits both the inner and outer loops at once, avoiding a flag variable checked after every inner iteration.
+
+**Snippet**:
+```go
+grid := [][]int{{1, 2}, {3, 4}, {5, 6}}
+target := 4
+
+Outer:
+for i, row := range grid {
+    for j, v := range row {
+        if v == target {
+            fmt.Printf("found at [%d][%d]\n", i, j)
+            break Outer // exits BOTH loops
+        }
+    }
+}
+
+// goto — jump to a label in the same function
+i := 0
+loop:
+if i < 3 {
+    fmt.Println(i)
+    i++
+    goto loop
+}
+```
+
+**Example**: [labels.go](../../examples/go/core_language/labels.go)

@@ -287,3 +287,96 @@ func main() {
 ```
 
 **Example**: [go_generate.go](../../examples/go/advanced/go_generate.go)
+
+---
+
+## The Go Memory Model
+
+**Explanation**: The Go Memory Model specifies when a write by one goroutine is guaranteed to be visible to a read in another. The core rule: if you do not synchronize, you have no guarantee. Synchronization is established by channels (a send happens-before the corresponding receive completes), by mutexes (an `Unlock` happens-before a later `Lock`), by `sync.Once`, and by `sync/atomic`. The model exists so the compiler and CPU are free to reorder unsynchronized operations for speed.
+
+**Real-World Scenario**: A goroutine sets a `ready` boolean and another goroutine spins waiting for it. Without synchronization the waiting goroutine may *never* observe the write — the compiler can hoist the read out of the loop, or the CPU can cache a stale value. Using a channel or `atomic.Bool` establishes the happens-before edge that makes the write visible.
+
+**Snippet**:
+```go
+// BROKEN — data race, no happens-before relationship
+var ready bool
+var data string
+func setup() { data = "loaded"; ready = true }   // writes may be reordered
+func wait()  { for !ready {}; print(data) }       // may see "" or never exit
+
+// CORRECT — the channel send/receive synchronizes both writes
+var done = make(chan struct{})
+func setupOK() {
+    data = "loaded"
+    close(done) // send happens-before receive
+}
+func waitOK() {
+    <-done       // after this, data's write is guaranteed visible
+    print(data)  // always "loaded"
+}
+```
+
+**Example**: [memory_model.go](../../examples/go/advanced/memory_model.go)
+
+---
+
+## Escape Analysis
+
+**Explanation**: Escape analysis is a compile-time pass that decides whether a value lives on the stack (cheap, freed automatically when the function returns) or escapes to the heap (managed by the garbage collector). A value escapes when its lifetime outlives the function — typically when its address is returned, stored in a longer-lived structure, or captured by a closure that outlives the call. `go build -gcflags='-m'` prints each decision.
+
+**Real-World Scenario**: A hot function allocates a small struct per call. Profiling shows GC pressure. Running with `-gcflags='-m'` reveals the struct "escapes to heap" because its pointer is returned. Refactoring to return the struct by value (not by pointer) keeps it on the stack and eliminates the allocation.
+
+**Snippet**:
+```go
+// Inspect with: go build -gcflags='-m' escape_analysis.go
+
+// Does NOT escape — value stays on the stack
+func sumLocal() int {
+    x := [3]int{1, 2, 3} // "does not escape"
+    return x[0] + x[1] + x[2]
+}
+
+// ESCAPES — the pointer outlives the function, so n moves to the heap
+func newCounter() *int {
+    n := 0    // "moved to heap: n"
+    return &n
+}
+
+// ESCAPES — captured by a returned closure
+func adder() func(int) int {
+    sum := 0           // "moved to heap: sum"
+    return func(x int) int { sum += x; return sum }
+}
+```
+
+**Example**: [escape_analysis.go](../../examples/go/advanced/escape_analysis.go)
+
+---
+
+## Struct Tags in Depth
+
+**Explanation**: A struct tag is a raw string literal after a field, holding metadata read at runtime via reflection. By convention it's a space-separated list of `key:"value"` pairs — `json`, `xml`, `db`, `validate`, and others each claim a key. Libraries call `reflect.StructField.Tag.Get("key")` to read their slice. Tags are the backbone of Go's declarative serialization and validation.
+
+**Real-World Scenario**: One `User` struct is persisted to a SQL database, serialized to a JSON API response, and validated on input. Three tag keys on each field — `db:"user_name"`, `json:"name"`, `validate:"required,min=2"` — let three independent libraries each map the field correctly, without three separate struct definitions.
+
+**Snippet**:
+```go
+type User struct {
+    ID    int    `json:"id" db:"user_id"`
+    Name  string `json:"name" db:"user_name" validate:"required,min=2"`
+    Email string `json:"email,omitempty" db:"email" validate:"email"`
+    pass  string `json:"-"` // unexported + ignored by json
+}
+
+// Reading tags via reflection
+t := reflect.TypeOf(User{})
+field, _ := t.FieldByName("Name")
+field.Tag.Get("json")     // "name"
+field.Tag.Get("db")       // "user_name"
+field.Tag.Get("validate") // "required,min=2"
+
+// Lookup distinguishes "absent" from "empty"
+value, ok := field.Tag.Lookup("xml") // "", false
+```
+
+**Example**: [struct_tags.go](../../examples/go/advanced/struct_tags.go)

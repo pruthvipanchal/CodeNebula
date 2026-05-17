@@ -359,3 +359,156 @@ for t := range ticker.C {
 ```
 
 **Example**: [time_basics.go](../../examples/go/standard_library/time_basics.go)
+
+---
+
+## sort and slices — Sorting
+
+**Explanation**: The `sort` package sorts slices and user-defined collections. `sort.Ints`, `sort.Strings`, and `sort.Float64s` handle the common cases; `sort.Slice` sorts any slice with a custom less-function. Since Go 1.21 the generic `slices` package adds `slices.Sort`, `slices.SortFunc`, and `slices.BinarySearch` — type-safe and usually preferred in modern code.
+
+**Real-World Scenario**: An API returns a list of products that must be displayed cheapest-first, then alphabetically for ties. `slices.SortFunc(products, func(a, b Product) int { ... })` expresses the multi-key comparison in one place.
+
+**Snippet**:
+```go
+import (
+    "sort"
+    "slices"
+)
+
+nums := []int{3, 1, 4, 1, 5, 9}
+sort.Ints(nums)            // [1 1 3 4 5 9]
+
+// Custom comparison with sort.Slice
+people := []Person{{"Bob", 30}, {"Al", 25}}
+sort.Slice(people, func(i, j int) bool {
+    return people[i].Age < people[j].Age
+})
+
+// Modern generic API (Go 1.21+)
+slices.Sort(nums)
+slices.SortFunc(people, func(a, b Person) int {
+    return a.Age - b.Age
+})
+```
+
+**Example**: [sort_pkg.go](../../examples/go/standard_library/sort_pkg.go)
+
+---
+
+## regexp — Regular Expressions
+
+**Explanation**: The `regexp` package implements RE2-syntax regular expressions — a syntax with no catastrophic backtracking, so match time is linear in the input. `regexp.MustCompile` compiles a pattern once at startup (panicking on a bad pattern); the compiled `*Regexp` is safe for concurrent use. Methods cover matching, finding, extracting submatches, and replacing.
+
+**Real-World Scenario**: A log parser extracts the timestamp, level, and message from each line. A single compiled regex with named capture groups pulls all three fields out per line, far more robust than manual string splitting.
+
+**Snippet**:
+```go
+import "regexp"
+
+// Compile once, reuse everywhere (safe for concurrent use)
+var emailRe = regexp.MustCompile(`[\w.]+@[\w.]+\.\w+`)
+
+emailRe.MatchString("contact me@site.com") // true
+emailRe.FindString("ping a@b.io now")      // "a@b.io"
+emailRe.FindAllString(text, -1)            // all matches
+
+// Submatches with capture groups
+re := regexp.MustCompile(`(\d{4})-(\d{2})-(\d{2})`)
+m := re.FindStringSubmatch("2024-01-15")
+// m = ["2024-01-15" "2024" "01" "15"]
+
+re.ReplaceAllString("a1b2c3", "")          // "abc"
+```
+
+**Example**: [regexp_pkg.go](../../examples/go/standard_library/regexp_pkg.go)
+
+---
+
+## math and math/rand — Numbers
+
+**Explanation**: The `math` package provides floating-point constants (`math.Pi`, `math.MaxInt64`) and functions (`Sqrt`, `Pow`, `Floor`, `Abs`, `Min`, `Max`). The `math/rand` package generates pseudo-random numbers; `math/rand/v2` (Go 1.22+) modernizes the API with better defaults and no global seeding required. For security-sensitive randomness, use `crypto/rand` instead.
+
+**Real-World Scenario**: A simulation needs to model dice rolls and compute geometric distances. `rand.IntN(6)+1` rolls a die; `math.Hypot(dx, dy)` computes the Euclidean distance between two points without overflow.
+
+**Snippet**:
+```go
+import (
+    "math"
+    "math/rand/v2"
+)
+
+math.Sqrt(144)        // 12
+math.Pow(2, 10)       // 1024
+math.Max(3.0, 7.0)    // 7
+math.Abs(-4.5)        // 4.5
+math.Pi               // 3.141592653589793
+
+// math/rand/v2 — no manual seeding needed
+rand.IntN(100)        // random int in [0, 100)
+rand.Float64()        // random float in [0.0, 1.0)
+```
+
+**Example**: [math_pkg.go](../../examples/go/standard_library/math_pkg.go)
+
+---
+
+## flag — Command-Line Flags
+
+**Explanation**: The `flag` package parses command-line arguments into typed values. `flag.String`, `flag.Int`, and `flag.Bool` declare flags with a name, default, and usage string, returning a pointer. `flag.Parse()` populates them from `os.Args`. It auto-generates `-h`/`--help` output and reports unknown flags.
+
+**Real-World Scenario**: A CLI tool needs `--port`, `--verbose`, and `--config` options. Declaring them with `flag` gives typed values, default fallbacks, and a usage message for free — no manual `os.Args` parsing.
+
+**Snippet**:
+```go
+import "flag"
+
+func main() {
+    port := flag.Int("port", 8080, "server port")
+    verbose := flag.Bool("verbose", false, "enable verbose logging")
+    config := flag.String("config", "config.json", "config file path")
+
+    flag.Parse()
+
+    fmt.Printf("port=%d verbose=%t config=%s\n",
+        *port, *verbose, *config)
+
+    // Non-flag args (e.g. positional file names)
+    fmt.Println("remaining args:", flag.Args())
+}
+// Run: go run main.go -port 9000 -verbose
+```
+
+**Example**: [flag_pkg.go](../../examples/go/standard_library/flag_pkg.go)
+
+---
+
+## path/filepath — File Paths
+
+**Explanation**: The `path/filepath` package manipulates file paths using the operating system's separator (`/` on Unix, `\` on Windows) — making path code portable. `filepath.Join` builds paths safely, `filepath.Base`/`Dir`/`Ext` split them apart, and `filepath.Walk`/`WalkDir` traverse directory trees. Use `path` (not `filepath`) only for URL-style slash paths.
+
+**Real-World Scenario**: A build tool must find every `.go` file under a project directory, on both developer macOS laptops and Linux CI runners. `filepath.WalkDir` recursively visits each entry, and `filepath.Ext` filters by extension — identical behavior on every OS.
+
+**Snippet**:
+```go
+import "path/filepath"
+
+p := filepath.Join("data", "logs", "app.log")
+// "data/logs/app.log" on Unix, "data\logs\app.log" on Windows
+
+filepath.Base(p)   // "app.log"
+filepath.Dir(p)    // "data/logs"
+filepath.Ext(p)    // ".log"
+
+// Walk a directory tree
+filepath.WalkDir("src", func(path string, d os.DirEntry, err error) error {
+    if err != nil {
+        return err
+    }
+    if !d.IsDir() && filepath.Ext(path) == ".go" {
+        fmt.Println(path)
+    }
+    return nil
+})
+```
+
+**Example**: [filepath_pkg.go](../../examples/go/standard_library/filepath_pkg.go)

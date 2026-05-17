@@ -72,11 +72,11 @@
 - `golang.org/x/exp/constraints` package with `Ordered`, `Integer`, `Float`
 - Fuzzing built into the `go test` tool
 
-## Modern Go — 1.21 and Beyond (2023–present)
+## Modern Go — 1.21 to 1.24 (2023–2025)
 
-**Explanation**: Go 1.21 (August 2023) added the first built-in functions for slices and maps as top-level package functions — `slices.Sort`, `maps.Keys`, `maps.Values` — and introduced `log/slog` for structured logging. Go 1.22 (February 2024) fixed the infamous loop variable capture bug that had caused subtle goroutine closures to share the same variable.
+**Explanation**: Go 1.21 (August 2023) added the first built-in functions for slices and maps as top-level package functions — `slices.Sort`, `maps.Keys`, `maps.Values` — and introduced `log/slog` for structured logging. Go 1.22 (February 2024) fixed the infamous loop variable capture bug that had caused subtle goroutine closures to share the same variable. Go 1.23 (August 2024) shipped range-over-function iterators, letting custom container types be ranged over with a plain `for ... range`. Go 1.24 (February 2025) completed generics with generic type aliases, swapped the built-in map for a faster Swiss-table implementation, and added the `tool` directive to `go.mod` for tracking tool dependencies.
 
-**Real-World Scenario**: The loop variable fix (`for i, v := range slice` now creates a new `i` and `v` per iteration) eliminated a whole class of concurrent bugs where goroutines launched inside a for-range loop would all see the last value of the loop variable.
+**Real-World Scenario**: The Go 1.22 loop variable fix (`for i, v := range slice` now creates a new `i` and `v` per iteration) eliminated a whole class of concurrent bugs where goroutines launched inside a for-range loop would all see the last value of the loop variable. The Go 1.23 iterator feature let libraries expose custom collections — trees, linked lists, paginated API results — through the same `for x := range collection` syntax that built-in slices and maps use.
 
 **Notable Go 1.x Milestones (1.18–present)**:
 | Version | Year | Key Addition |
@@ -85,8 +85,9 @@
 | Go 1.19 | 2022 | Doc comments overhaul, memory model update |
 | Go 1.20 | 2023 | `errors.Join`, PGO (profile-guided optimization) |
 | Go 1.21 | 2023 | `slices`, `maps`, `cmp` packages; `log/slog`; `min`/`max` builtins |
-| Go 1.22 | 2024 | Loop variable semantics fix; `math/rand/v2` |
-| Go 1.23 | 2024 | Range over functions (iterators); `unique` package |
+| Go 1.22 | 2024 | Loop variable semantics fix; `math/rand/v2`; routing patterns in `net/http` |
+| Go 1.23 | 2024 | Range over functions (iterators); `unique` package; `iter` package |
+| Go 1.24 | 2025 | Generic type aliases; Swiss-table maps; `tool` directive; `os.Root`; `weak` package |
 
 ## Why Go Succeeded
 

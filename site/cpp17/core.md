@@ -4,4 +4,4 @@ description: "19 C++17 core language concepts — structured bindings, if conste
 outline: [2, 3]
 ---
 
-<!--@include: ../../docs/C++17/core_language.md-->
+<!--@include: ../../docs/cpp/C++17/core_language.md-->

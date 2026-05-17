@@ -4,4 +4,4 @@ description: "160 C++11 library concepts — smart pointers, std::thread, std::a
 outline: [2, 3]
 ---
 
-<!--@include: ../../docs/C++11/stl_concepts.md-->
+<!--@include: ../../docs/cpp/C++11/stl_concepts.md-->

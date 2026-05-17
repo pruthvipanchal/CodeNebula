@@ -4,4 +4,4 @@ description: "53 C++11 core language concepts — move semantics, lambdas, auto,
 outline: [2, 3]
 ---
 
-<!--@include: ../../docs/C++11/core_language.md-->
+<!--@include: ../../docs/cpp/C++11/core_language.md-->

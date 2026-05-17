@@ -4,4 +4,4 @@ description: "33 C++26 library concepts — std::execution (Senders/Receivers), 
 outline: [2, 3]
 ---
 
-<!--@include: ../../docs/C++26/stl_concepts.md-->
+<!--@include: ../../docs/cpp/C++26/stl_concepts.md-->

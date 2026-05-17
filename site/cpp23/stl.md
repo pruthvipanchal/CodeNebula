@@ -4,4 +4,4 @@ description: "76 C++23 library concepts — std::print, std::expected, std::flat
 outline: [2, 3]
 ---
 
-<!--@include: ../../docs/C++23/stl_concepts.md-->
+<!--@include: ../../docs/cpp/C++23/stl_concepts.md-->

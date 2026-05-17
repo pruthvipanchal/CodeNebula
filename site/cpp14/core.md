@@ -4,4 +4,4 @@ description: "10 C++14 core language concepts — generic lambdas, extended cons
 outline: [2, 3]
 ---
 
-<!--@include: ../../docs/C++14/core_language.md-->
+<!--@include: ../../docs/cpp/C++14/core_language.md-->

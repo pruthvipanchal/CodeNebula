@@ -4,4 +4,4 @@ description: "11 C++26 core language concepts — static reflection, contracts, 
 outline: [2, 3]
 ---
 
-<!--@include: ../../docs/C++26/core_language.md-->
+<!--@include: ../../docs/cpp/C++26/core_language.md-->

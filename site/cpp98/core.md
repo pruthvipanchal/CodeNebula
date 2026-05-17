@@ -4,4 +4,4 @@ description: "52 C++98 core language concepts — classes, templates, RAII, exce
 outline: [2, 3]
 ---
 
-<!--@include: ../../docs/C++98/core_language.md-->
+<!--@include: ../../docs/cpp/C++98/core_language.md-->

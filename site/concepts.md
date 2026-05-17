@@ -4,4 +4,4 @@ description: Complete master index of all 966+ C++ concepts across 8 standards â
 outline: [2, 3]
 ---
 
-<!--@include: ../docs/cpp_concepts_master.md-->
+<!--@include: ../docs/cpp/master.md-->

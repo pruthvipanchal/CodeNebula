@@ -4,4 +4,4 @@ description: "3 C++03 core language concepts — value initialization and defect
 outline: [2, 3]
 ---
 
-<!--@include: ../../docs/C++03/core_language.md-->
+<!--@include: ../../docs/cpp/C++03/core_language.md-->

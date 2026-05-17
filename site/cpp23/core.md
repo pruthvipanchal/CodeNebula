@@ -4,4 +4,4 @@ description: "13 C++23 core language concepts — deducing this, if consteval, [
 outline: [2, 3]
 ---
 
-<!--@include: ../../docs/C++23/core_language.md-->
+<!--@include: ../../docs/cpp/C++23/core_language.md-->

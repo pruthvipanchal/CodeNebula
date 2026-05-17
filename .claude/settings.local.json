@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(sed 's/ \\(C++11.*//')",
+      "Bash(sed 's/ \\(C++14.*//')",
+      "Bash(sed 's/ \\(C++17.*//')",
+      "Bash(sed 's/ \\(C++20.*//')",
+      "Bash(sed 's/ \\(C++23.*//')",
+      "Bash(sed 's/ \\(C++26.*//')",
+      "Bash(npm --version)",
+      "Bash(gh --version)",
+      "Bash(npm install:*)",
+      "Bash(git init:*)",
+      "Bash(git add:*)",
+      "Bash(git config:*)",
+      "Bash(npx tsx:*)",
+      "Bash(node -e \":*)"
+    ]
+  }
+}

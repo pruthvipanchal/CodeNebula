@@ -1,0 +1,31 @@
+{
+  "cpp": {
+    "name": "C++",
+    "label": "C++",
+    "color": "#00599C",
+    "organization": "version-based",
+    "versions": [
+      { "id": "cpp98", "label": "C++98", "dir": "C++98", "year": 1998, "codename": "The Foundation",    "core": 52,  "stl": 161 },
+      { "id": "cpp03", "label": "C++03", "dir": "C++03", "year": 2003, "codename": "The Refinement",    "core": 3,   "stl": 2   },
+      { "id": "cpp11", "label": "C++11", "dir": "C++11", "year": 2011, "codename": "The Modern Era",    "core": 53,  "stl": 160 },
+      { "id": "cpp14", "label": "C++14", "dir": "C++14", "year": 2014, "codename": "The Polish",        "core": 10,  "stl": 13  },
+      { "id": "cpp17", "label": "C++17", "dir": "C++17", "year": 2017, "codename": "The Pragmatic",     "core": 19,  "stl": 78  },
+      { "id": "cpp20", "label": "C++20", "dir": "C++20", "year": 2020, "codename": "The Big Four",      "core": 39,  "stl": 245 },
+      { "id": "cpp23", "label": "C++23", "dir": "C++23", "year": 2023, "codename": "The Refinement II", "core": 13,  "stl": 76  },
+      { "id": "cpp26", "label": "C++26", "dir": "C++26", "year": 2026, "codename": "The Future",        "core": 11,  "stl": 33  }
+    ]
+  },
+  "go": {
+    "name": "Go",
+    "label": "Go",
+    "color": "#00ACD7",
+    "organization": "topic-based",
+    "topics": [
+      { "id": "history",          "label": "History & Evolution", "file": "history.md",          "icon": "📜" },
+      { "id": "core_language",    "label": "Core Language",       "file": "core_language.md",    "icon": "🔧" },
+      { "id": "concurrency",      "label": "Concurrency",         "file": "concurrency.md",      "icon": "⚡" },
+      { "id": "standard_library", "label": "Standard Library",    "file": "standard_library.md", "icon": "📦" },
+      { "id": "advanced",         "label": "Advanced",            "file": "advanced.md",         "icon": "🚀" }
+    ]
+  }
+}

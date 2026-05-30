@@ -21,6 +21,15 @@ const GO_TOPICS = [
   { id: "go-advanced", label: "Advanced",             link: "/go/advanced", icon: "🚀" },
 ];
 
+// ── Python topics ─────────────────────────────────────────────────────────────
+const PYTHON_TOPICS = [
+  { id: "py-history",  label: "History & Evolution", link: "/python/history",          icon: "📜" },
+  { id: "py-core",     label: "Core Language",        link: "/python/core",             icon: "🔧" },
+  { id: "py-stdlib",   label: "Standard Library",     link: "/python/stdlib",           icon: "📦" },
+  { id: "py-conc",     label: "Concurrency",          link: "/python/concurrency",      icon: "⚡" },
+  { id: "py-advanced", label: "Advanced",             link: "/python/advanced",         icon: "🚀" },
+];
+
 // ── Sidebars ─────────────────────────────────────────────────────────────────
 const cppSidebar = STANDARDS.map((s) => ({
   text: `${s.label} · ${s.core + s.stl} concepts`,
@@ -40,9 +49,17 @@ const goSidebar = [
   },
 ];
 
+const pythonSidebar = [
+  {
+    text: "Python — Batteries Included",
+    collapsed: false,
+    items: PYTHON_TOPICS.map((t) => ({ text: `${t.icon} ${t.label}`, link: t.link })),
+  },
+];
+
 export default defineConfig({
   title: "CodeNebula",
-  description: "C++ & Go concepts with real-world scenarios and runnable examples — multiple languages, one reference.",
+  description: "C++, Go & Python concepts with real-world scenarios and runnable examples — multiple languages, one reference.",
   base: "/CodeNebula/",
   srcDir: ".",
   outDir: ".vitepress/dist",
@@ -77,6 +94,14 @@ export default defineConfig({
         items: GO_TOPICS.map((t) => ({ text: `${t.icon} ${t.label}`, link: t.link })),
       },
       {
+        text: "Python",
+        items: [
+          { text: "🐍 Python Overview", link: "/python/" },
+          { text: "─────────────", link: "/" },
+          ...PYTHON_TOPICS.map((t) => ({ text: `${t.icon} ${t.label}`, link: t.link })),
+        ],
+      },
+      {
         text: "GitHub",
         link: "https://github.com/pruthvipanchal/CodeNebula",
         target: "_blank",
@@ -84,9 +109,11 @@ export default defineConfig({
     ],
 
     sidebar: {
-      "/cpp":  cppSidebar,
-      "/go/":  goSidebar,
-      "/go":   goSidebar,
+      "/cpp":     cppSidebar,
+      "/go/":     goSidebar,
+      "/go":      goSidebar,
+      "/python/": pythonSidebar,
+      "/python":  pythonSidebar,
       // Map each C++ standard prefix to the C++ sidebar
       ...Object.fromEntries(STANDARDS.map((s) => [`/${s.id}/`, cppSidebar])),
       "/concepts": cppSidebar,
@@ -191,6 +218,20 @@ export default defineConfig({
                   const goExample = href.match(/\.\.\/\.\.\/examples\/go\/([^/]+)\/(.+\.go)/);
                   if (goExample) {
                     hrefAttr[1] = `https://github.com/pruthvipanchal/CodeNebula/blob/main/examples/go/${goExample[1]}/${goExample[2]}`;
+                    const targetAttr = child.attrs?.find(([k]) => k === "target");
+                    if (targetAttr) {
+                      targetAttr[1] = "_blank";
+                    } else {
+                      child.attrs = child.attrs || [];
+                      child.attrs.push(["target", "_blank"]);
+                      child.attrs.push(["rel", "noopener noreferrer"]);
+                    }
+                  }
+
+                  // Rewrite Python example links → GitHub blob URLs (examples/python/{topic}/file.py)
+                  const pyExample = href.match(/\.\.\/\.\.\/examples\/python\/([^/]+)\/(.+\.py)/);
+                  if (pyExample) {
+                    hrefAttr[1] = `https://github.com/pruthvipanchal/CodeNebula/blob/main/examples/python/${pyExample[1]}/${pyExample[2]}`;
                     const targetAttr = child.attrs?.find(([k]) => k === "target");
                     if (targetAttr) {
                       targetAttr[1] = "_blank";

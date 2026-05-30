@@ -27,5 +27,18 @@
       { "id": "standard_library", "label": "Standard Library",    "file": "standard_library.md", "icon": "📦" },
       { "id": "advanced",         "label": "Advanced",            "file": "advanced.md",         "icon": "🚀" }
     ]
+  },
+  "python": {
+    "name": "Python",
+    "label": "Python",
+    "color": "#3776AB",
+    "organization": "topic-based",
+    "topics": [
+      { "id": "history",          "label": "History & Evolution",  "file": "history.md",          "icon": "📜" },
+      { "id": "core_language",    "label": "Core Language",        "file": "core_language.md",    "icon": "🔧" },
+      { "id": "standard_library", "label": "Standard Library",     "file": "standard_library.md", "icon": "📦" },
+      { "id": "concurrency",      "label": "Concurrency",          "file": "concurrency.md",      "icon": "⚡" },
+      { "id": "advanced",         "label": "Advanced",             "file": "advanced.md",         "icon": "🚀" }
+    ]
   }
 }

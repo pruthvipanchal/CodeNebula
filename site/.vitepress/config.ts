@@ -1,5 +1,21 @@
 import { defineConfig } from "vitepress";
 
+// ── Where it lives ───────────────────────────────────────────────────────────
+// GitHub Pages serves this repo under Pruthvi's domain, so every URL search
+// engines see starts here. The portfolio's structured data names this site
+// (#website) and its author (#person); keep the two in step.
+const SITE_URL = "https://pruthvip.tech/CodeNebula/";
+const PORTFOLIO_URL = "https://pruthvip.tech/";
+const SITE_TITLE = "CodeNebula — C++, Go & Python Reference"; // also the home page's title in index.md
+const SITE_DESCRIPTION =
+  "C++, Go & Python concepts with real-world scenarios and runnable examples — multiple languages, one reference.";
+
+// The portfolio's mark: the Earth with the Moon in orbit (Pruthvi means Earth).
+const EARTH_ICON =
+  '<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
+  '<ellipse cx="16" cy="16" rx="13.5" ry="5.4" transform="rotate(-24 16 16)" fill="none" stroke="currentColor" stroke-width="1.8"/>' +
+  '<circle cx="16" cy="16" r="5.2"/><circle cx="28.4" cy="11" r="2.4"/></svg>';
+
 // ── C++ standards ────────────────────────────────────────────────────────────
 const STANDARDS = [
   { id: "cpp98", label: "C++98", dir: "C++98", accent: "#F59E0B", core: 52,  stl: 161, year: 1998, codename: "The Foundation"    },
@@ -59,18 +75,55 @@ const pythonSidebar = [
 
 export default defineConfig({
   title: "CodeNebula",
-  description: "C++, Go & Python concepts with real-world scenarios and runnable examples — multiple languages, one reference.",
+  description: SITE_DESCRIPTION,
+  lang: "en-US",
   base: "/CodeNebula/",
   srcDir: ".",
   outDir: ".vitepress/dist",
   ignoreDeadLinks: true,
 
+  // Links read /CodeNebula/go/concurrency; GitHub Pages serves that form, and
+  // old .html links still work.
+  cleanUrls: true,
+  sitemap: { hostname: SITE_URL },
+
   head: [
     ["link", { rel: "icon", type: "image/svg+xml", href: "/CodeNebula/favicon.svg" }],
     ["meta", { name: "theme-color", content: "#00599C" }],
-    ["meta", { property: "og:title", content: "CodeNebula — Multi-Language Reference" }],
-    ["meta", { property: "og:description", content: "C++ & Go concepts with real-world scenarios and runnable examples." }],
+    ["meta", { name: "author", content: "Pruthvi Panchal" }],
+    ["meta", { property: "og:type", content: "website" }],
+    ["meta", { property: "og:site_name", content: "CodeNebula" }],
+    [
+      "script",
+      { type: "application/ld+json" },
+      JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "@id": `${SITE_URL}#website`,
+        name: "CodeNebula",
+        url: SITE_URL,
+        description: SITE_DESCRIPTION,
+        inLanguage: "en",
+        author: { "@type": "Person", "@id": `${PORTFOLIO_URL}#person`, name: "Pruthvi Panchal", url: PORTFOLIO_URL },
+      }),
+    ],
   ],
+
+  // Per page: the canonical URL, plus a link preview that names the page itself.
+  transformPageData(pageData) {
+    const url =
+      SITE_URL +
+      pageData.relativePath.replace(/(^|\/)index\.md$/, "$1").replace(/\.md$/, "");
+    const title =
+      pageData.relativePath === "index.md" || !pageData.title ? SITE_TITLE : `${pageData.title} | CodeNebula`;
+    pageData.frontmatter.head ??= [];
+    pageData.frontmatter.head.push(
+      ["link", { rel: "canonical", href: url }],
+      ["meta", { property: "og:url", content: url }],
+      ["meta", { property: "og:title", content: title }],
+      ["meta", { property: "og:description", content: pageData.description || SITE_DESCRIPTION }],
+    );
+  },
 
   themeConfig: {
     logo: { light: "/logo-light.svg", dark: "/logo-dark.svg", alt: "CodeNebula" },
@@ -125,11 +178,12 @@ export default defineConfig({
 
     socialLinks: [
       { icon: "github", link: "https://github.com/pruthvipanchal/CodeNebula" },
+      { icon: { svg: EARTH_ICON }, link: PORTFOLIO_URL, ariaLabel: "Pruthvi Panchal's portfolio" },
     ],
 
     footer: {
       message: "Released under the MIT License.",
-      copyright: "Copyright © 2026-present Pruthvi Panchal · CodeNebula",
+      copyright: `Copyright © 2026-present <a href="${PORTFOLIO_URL}">Pruthvi Panchal</a> · CodeNebula`,
     },
 
     editLink: {

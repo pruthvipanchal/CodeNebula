@@ -1,10 +1,12 @@
 ---
 layout: home
+title: "CodeNebula — C++, Go & Python Reference"
+titleTemplate: false
 
 hero:
   name: "CodeNebula"
   text: "Multi-Language Reference"
-  tagline: C++ · Go · real-world scenarios, runnable examples, and deep concept coverage.
+  tagline: C++ · Go · Python · real-world scenarios, runnable examples, and deep concept coverage.
   image:
     light: /hero-light.svg
     dark: /hero-dark.svg
